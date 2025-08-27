@@ -917,7 +917,7 @@ def main():
                 st.markdown(message["content"])
     
     # Chat input with placeholder
-    if prompt := st.chat_input("Ask about our services, pricing, team, or any IT questions..."):
+    if prompt := st.chat_input("Ask about our services, pricing, team"):
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
         
