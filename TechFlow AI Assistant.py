@@ -259,6 +259,7 @@
 
 # if __name__ == "__main__":
 #     main()
+
 import streamlit as st
 import google.generativeai as genai
 import os
@@ -273,76 +274,320 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS for better styling
+# Enhanced CSS for both light and dark mode compatibility
 st.markdown("""
 <style>
+    /* CSS Variables for theme-aware colors */
+    :root {
+        --primary-color: #667eea;
+        --secondary-color: #764ba2;
+        --gradient: linear-gradient(45deg, #667eea, #764ba2);
+        --text-primary: #1f2937;
+        --text-secondary: #6b7280;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8f9fa;
+        --bg-card: #ffffff;
+        --border-color: #e5e7eb;
+        --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Dark mode variables */
+    [data-theme="dark"], .dark {
+        --text-primary: #f9fafb;
+        --text-secondary: #d1d5db;
+        --bg-primary: #111827;
+        --bg-secondary: #1f2937;
+        --bg-card: #374151;
+        --border-color: #4b5563;
+        --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Auto-detect dark mode */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-card: #374151;
+            --border-color: #4b5563;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+    }
+    
+    /* Main container adjustments */
     .main > div {
         padding-top: 2rem;
+        color: var(--text-primary);
     }
     
+    /* Chat message styling with theme awareness */
     .stChatMessage {
-        background-color: #f8f9fa;
-        border-radius: 10px;
-        padding: 1rem;
-        margin: 0.5rem 0;
+        background-color: var(--bg-card) !important;
+        border: 1px solid var(--border-color);
+        border-radius: 12px !important;
+        padding: 1rem !important;
+        margin: 0.75rem 0 !important;
+        box-shadow: var(--shadow);
+        transition: all 0.2s ease;
     }
     
+    .stChatMessage:hover {
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        transform: translateY(-1px);
+    }
+    
+    /* User message styling */
     .stChatMessage[data-testid="chat-message-user"] {
-        background: linear-gradient(45deg, #667eea, #764ba2);
-        color: white;
+        background: var(--gradient) !important;
+        color: white !important;
+        border: none;
+        position: relative;
+        overflow: hidden;
     }
     
+    .stChatMessage[data-testid="chat-message-user"]::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, 
+            rgba(255,255,255,0.1), 
+            transparent, 
+            rgba(255,255,255,0.1));
+        pointer-events: none;
+    }
+    
+    /* Assistant message styling */
     .stChatMessage[data-testid="chat-message-assistant"] {
-        background-color: #e3f2fd;
-        border-left: 4px solid #667eea;
+        background-color: var(--bg-card) !important;
+        border-left: 4px solid var(--primary-color);
+        color: var(--text-primary) !important;
     }
     
+    /* Chat header with improved dark mode support */
     .chat-header {
         text-align: center;
-        padding: 1rem;
-        background: linear-gradient(45deg, #667eea, #764ba2);
+        padding: 2rem 1rem;
+        background: var(--gradient);
         color: white;
-        border-radius: 10px;
+        border-radius: 15px;
         margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
     }
     
+    .chat-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, 
+            rgba(255,255,255,0.1), 
+            transparent, 
+            rgba(255,255,255,0.1));
+        animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    @keyframes shimmer {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+    }
+    
+    .chat-header h2 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .chat-header p {
+        margin: 0.5rem 0 0 0;
+        opacity: 0.9;
+        font-size: 1.1rem;
+    }
+    
+    /* Service highlight with theme support */
     .service-highlight {
-        background: linear-gradient(45deg, #667eea20, #764ba220);
-        border-left: 3px solid #667eea;
-        padding: 10px;
-        border-radius: 5px;
-        margin: 10px 0;
+        background: linear-gradient(135deg, 
+            rgba(102, 126, 234, 0.1), 
+            rgba(118, 75, 162, 0.05));
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+        color: var(--text-primary);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
     }
     
+    .service-highlight:hover {
+        transform: translateX(5px);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+    }
+    
+    /* Package info with enhanced styling */
     .package-info {
-        background: #f0f7ff;
-        border: 1px solid #667eea;
-        padding: 15px;
-        border-radius: 8px;
-        margin: 10px 0;
+        background: var(--bg-card);
+        border: 2px solid var(--primary-color);
+        padding: 20px;
+        border-radius: 12px;
+        margin: 15px 0;
+        color: var(--text-primary);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
     }
     
+    .package-info::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--gradient);
+    }
+    
+    .package-info:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+    }
+    
+    /* Contact info with dark mode support */
     .contact-info {
-        background: #333;
-        color: white;
-        padding: 15px;
-        border-radius: 8px;
-        margin: 10px 0;
+        background: var(--bg-card);
+        color: var(--text-primary);
+        padding: 20px;
+        border-radius: 12px;
+        margin: 15px 0;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
     }
     
+    /* Team member tags */
     .team-member {
         display: inline-block;
-        background: #f8f9fa;
-        border: 1px solid #ddd;
-        padding: 8px 12px;
-        border-radius: 20px;
-        margin: 3px;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+        padding: 8px 16px;
+        border-radius: 25px;
+        margin: 5px;
         font-size: 0.9em;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+    
+    .team-member:hover {
+        background: var(--gradient);
+        color: white;
+        transform: scale(1.05);
+    }
+    
+    /* Sidebar styling improvements */
+    .css-1d391kg {
+        background-color: var(--bg-secondary);
+    }
+    
+    /* Button styling for dark mode */
+    .stButton > button {
+        background: var(--gradient) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 0.5rem 1rem !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease !important;
+    }
+    
+    .stButton > button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+    }
+    
+    /* Input styling for dark mode */
+    .stTextInput > div > div > input {
+        background-color: var(--bg-card) !important;
+        color: var(--text-primary) !important;
+        border: 1px solid var(--border-color) !important;
+    }
+    
+    /* Chat input styling */
+    .stChatInput > div {
+        background-color: var(--bg-card) !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: 25px !important;
+    }
+    
+    /* Footer styling */
+    .footer-info {
+        text-align: center;
+        padding: 25px;
+        background: var(--bg-card);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 15px;
+        margin-top: 30px;
+        box-shadow: var(--shadow);
+    }
+    
+    /* Responsive design improvements */
+    @media (max-width: 768px) {
+        .chat-header h2 {
+            font-size: 1.5rem;
+        }
+        
+        .chat-header p {
+            font-size: 1rem;
+        }
+        
+        .service-highlight,
+        .package-info,
+        .contact-info {
+            margin: 10px 0;
+            padding: 12px;
+        }
+    }
+    
+    /* Scrollbar styling for dark mode */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--secondary-color);
+    }
+    
+    /* Loading spinner styling */
+    .stSpinner > div {
+        border-color: var(--primary-color) !important;
+    }
+    
+    /* Success/Error message styling */
+    .stAlert {
+        background-color: var(--bg-card) !important;
+        color: var(--text-primary) !important;
+        border-color: var(--border-color) !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# TechFlow Solutions Knowledge Base
+# TechFlow Solutions Knowledge Base (unchanged)
 TECHFLOW_KNOWLEDGE = {
     "company_info": {
         "name": "TechFlow Solutions",
@@ -529,7 +774,7 @@ def display_chat_header():
     """Display chat header with TechFlow branding"""
     st.markdown("""
     <div class="chat-header">
-        <h2>TechFlow Solutions AI Assistant</h2>
+        <h2>🤖 TechFlow Solutions AI Assistant</h2>
         <p>Powered by Gemini 2.0 Flash | Your Technology Partner Since 2014</p>
     </div>
     """, unsafe_allow_html=True)
@@ -692,8 +937,8 @@ def main():
     # Footer with company info
     st.markdown("---")
     st.markdown("""
-    <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px; margin-top: 20px;">
-        <strong>TechFlow Solutions</strong> - Your Technology Partner<br>
+    <div class="footer-info">
+        <strong>🏢 TechFlow Solutions</strong> - Your Technology Partner<br>
         📧 info@techflowsolutions.com | 📞 +92 21 1234-5678<br>
         <small>Available Mon-Fri: 9AM-6PM | Karachi, Pakistan</small>
     </div>
