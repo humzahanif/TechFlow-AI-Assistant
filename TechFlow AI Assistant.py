@@ -106,9 +106,9 @@ def initialize_gemini():
     #         st.error("⚠️ Gemini API key not found! Please add it to your secrets or environment variables.")
     #         st.info("Add your API key to `.streamlit/secrets.toml` as: `GEMINI_API_KEY = 'your-api-key'`")
     #         return None
-     try:
-        # ⚠️ Put your Gemini API key here directly
-        api_key = "your_actual_gemini_api_key_here"
+        try:
+            # ⚠️ Put your Gemini API key here directly
+            api_key = "your_actual_gemini_api_key_here"
             
         genai.configure(api_key=api_key)
         
