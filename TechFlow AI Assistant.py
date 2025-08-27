@@ -98,16 +98,14 @@ st.markdown("""
 @st.cache_resource
 def initialize_gemini():
     """Initialize Gemini AI model"""
-      try:
-          # ⚠️ Put your Gemini API key here directly
-          api_key = "your_actual_gemini_api_key_here"
-    #     # Get API key from Streamlit secrets or environment variable
-    #     api_key = st.secrets.get("GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY")
+    try:
+        # Get API key from Streamlit secrets or environment variable
+        api_key = "your_actual_gemini_api_key_here"
         
-    #     if not api_key:
-    #         st.error("⚠️ Gemini API key not found! Please add it to your secrets or environment variables.")
-    #         st.info("Add your API key to `.streamlit/secrets.toml` as: `GEMINI_API_KEY = 'your-api-key'`")
-    #         return None
+        # if not api_key:
+        #     st.error("⚠️ Gemini API key not found! Please add it to your secrets or environment variables.")
+        #     st.info("Add your API key to `.streamlit/secrets.toml` as: `GEMINI_API_KEY = 'your-api-key'`")
+        #     return None
             
         genai.configure(api_key=api_key)
         
