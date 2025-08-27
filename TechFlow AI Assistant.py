@@ -100,6 +100,7 @@ def initialize_gemini():
     """Initialize Gemini AI model"""
     try:
         # Get API key from Streamlit secrets or environment variable
+        # api_key = st.secrets.get("GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY")
         api_key = "your_actual_gemini_api_key_here"
         
         # if not api_key:
