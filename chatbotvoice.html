@@ -882,6 +882,21 @@
             border-top: 1px solid #e0e0e0;
         }
 
+        .voice-text-input {
+            flex: 1;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            padding: 12px 18px;
+            font-size: 14px;
+            outline: none;
+            background: white;
+            transition: border-color 0.3s ease;
+        }
+
+        .voice-text-input:focus {
+            border-color: #667eea;
+        }
+
         .voice-control-btn {
             background: linear-gradient(45deg, #667eea, #764ba2);
             border: none;
@@ -2167,7 +2182,7 @@
                 <div class="voice-assistant-avatar">🎤</div>
                 <div class="voice-assistant-info">
                     <h3>TechFlow AI Assistant</h3>
-                    <p id="voiceStatus">Ready to help • Click to start</p>
+                    <p id="voiceStatus">Ready to help • Type your question</p>
                 </div>
                 <button class="voice-close-btn" onclick="toggleVoiceAssistant()">×</button>
             </div>
@@ -2175,7 +2190,7 @@
             <div class="voice-messages" id="voiceMessages">
                 <div class="voice-message assistant">
                     <div class="voice-message-content">
-                        Hello! I'm your AI voice assistant from TechFlow Solutions. 🎯
+                        Hello! I'm your AI assistant from TechFlow Solutions.
                         
                         You can ask me about:
                         • Our IT services and capabilities
@@ -2184,7 +2199,7 @@
                         • Technical questions
                         • Project timelines
                         
-                        Click the microphone to start talking, or use the quick actions below!
+                        Type your question below or use the quick actions!
                         <div class="voice-message-time">2:34 PM</div>
                     </div>
                 </div>
@@ -2208,12 +2223,13 @@
             </div>
             
             <div class="voice-controls">
-                <button class="voice-control-btn" id="voiceMicBtn" onclick="toggleVoiceListening()">
+                <input type="text" class="voice-text-input" id="voiceTextInput" placeholder="Type your question here..." maxlength="500">
+                <button class="voice-control-btn" id="voiceSendBtn" onclick="sendVoiceTextMessage()">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M12 1c-1.66 0-3 1.34-3 3v6c0 1.66 1.34 3 3 3s3-1.34 3-3V4c0-1.66-1.34-3-3-3zm6.5 9c0 3.53-2.61 6.43-6 6.92V21h-1v-4.08c-3.39-.49-6-3.39-6-6.92h1c0 3.31 2.69 6 6 6s6-2.69 6-6h1z"/>
+                        <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
                     </svg>
                 </button>
-                <div class="voice-status" id="voiceStatusText">Click mic to start talking</div>
+                <div class="voice-status" id="voiceStatusText">Type your question below</div>
                 <button class="voice-control-btn" id="voiceStopBtn" onclick="stopVoiceResponse()" style="display: none;">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
                         <path d="M6 6h12v12H6z"/>
@@ -2559,41 +2575,25 @@
         }
 
         function toggleVoiceListening() {
-            if (!recognition) {
-                addVoiceMessage('Sorry, voice recognition is not supported in your browser. Please try using Chrome or Edge.', 'assistant');
-                return;
-            }
-            
-            if (isListening) {
-                stopListening();
-            } else {
-                startListening();
+            // Since speech recognition isn't available, focus on text input
+            const voiceInput = document.getElementById('voiceTextInput');
+            if (voiceInput) {
+                voiceInput.focus();
+                setVoiceStatus('ready', 'Type your question and press Enter');
             }
         }
 
         function startListening() {
-            if (isSpeaking) {
-                stopVoiceResponse();
-            }
-            
-            try {
-                recognition.start();
-                isListening = true;
-                setVoiceStatus('listening', 'Listening... Speak now');
-                document.getElementById('voiceAssistantToggle').classList.add('listening');
-                document.getElementById('voiceMicBtn').classList.add('listening');
-            } catch (error) {
-                console.error('Error starting recognition:', error);
-                addVoiceMessage('Unable to start voice recognition. Please check your microphone permissions.', 'assistant');
+            // Fallback: Focus on text input
+            const voiceInput = document.getElementById('voiceTextInput');
+            if (voiceInput) {
+                voiceInput.focus();
+                setVoiceStatus('ready', 'Type your question below');
             }
         }
 
         function stopListening() {
-            if (recognition && isListening) {
-                recognition.stop();
-            }
-            isListening = false;
-            setVoiceStatus('ready', 'Click mic to start talking');
+            setVoiceStatus('ready', 'Type your question below');
             document.getElementById('voiceAssistantToggle').classList.remove('listening');
             document.getElementById('voiceMicBtn').classList.remove('listening');
         }
@@ -2613,9 +2613,22 @@
                 const response = generateVoiceResponse(transcript);
                 addVoiceMessage(response, 'assistant');
                 
-                // Speak the response
+                // Speak the response (if supported)
                 speakResponse(response);
             }, 1000 + Math.random() * 2000);
+        }
+
+        function sendVoiceTextMessage() {
+            const voiceInput = document.getElementById('voiceTextInput');
+            const message = voiceInput.value.trim();
+            
+            if (message === '') return;
+            
+            // Clear input
+            voiceInput.value = '';
+            
+            // Process the message
+            handleVoiceInput(message);
         }
 
         function simulateVoiceQuery(query) {
@@ -2955,6 +2968,13 @@ What would you like to know about TechFlow?`;
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize voice recognition
             initializeVoiceRecognition();
+            
+            // Voice text input event listener
+            document.getElementById('voiceTextInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendVoiceTextMessage();
+                }
+            });
             
             // WhatsApp input event listener
             document.getElementById('whatsappInput').addEventListener('keypress', function(e) {
