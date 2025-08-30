@@ -897,7 +897,7 @@
             border-color: #667eea;
         }
 
-        .voice-control-btn {
+        .voice-send-btn {
             background: linear-gradient(45deg, #667eea, #764ba2);
             border: none;
             border-radius: 50%;
@@ -911,12 +911,12 @@
             color: white;
         }
 
-        .voice-control-btn:hover {
+        .voice-send-btn:hover:not(:disabled) {
             transform: scale(1.05);
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
-        .voice-control-btn:disabled {
+        .voice-send-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
         }
@@ -2224,15 +2224,9 @@
             
             <div class="voice-controls">
                 <input type="text" class="voice-text-input" id="voiceTextInput" placeholder="Type your question here..." maxlength="500">
-                <button class="voice-control-btn" id="voiceSendBtn" onclick="sendVoiceTextMessage()">
+                <button class="voice-send-btn" id="voiceSendBtn" onclick="sendVoiceTextMessage()">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
-                    </svg>
-                </button>
-                <div class="voice-status" id="voiceStatusText">Type your question below</div>
-                <button class="voice-control-btn" id="voiceStopBtn" onclick="stopVoiceResponse()" style="display: none;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                        <path d="M6 6h12v12H6z"/>
                     </svg>
                 </button>
             </div>
@@ -2966,15 +2960,18 @@ What would you like to know about TechFlow?`;
 
         // Event listeners
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize voice recognition
+            // Initialize voice assistant
             initializeVoiceRecognition();
             
             // Voice text input event listener
-            document.getElementById('voiceTextInput').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    sendVoiceTextMessage();
-                }
-            });
+            const voiceTextInput = document.getElementById('voiceTextInput');
+            if (voiceTextInput) {
+                voiceTextInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        sendVoiceTextMessage();
+                    }
+                });
+            }
             
             // WhatsApp input event listener
             document.getElementById('whatsappInput').addEventListener('keypress', function(e) {
