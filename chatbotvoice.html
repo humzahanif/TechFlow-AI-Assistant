@@ -2,37 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0">
-    <meta name="description" content="TechFlow Solutions - Leading IT company offering web development, cloud solutions, AI integration, mobile apps, cybersecurity, and data analytics services.">
-    <meta name="keywords" content="IT services, web development, cloud solutions, AI integration, mobile apps, cybersecurity, data analytics, Pakistan, Karachi">
-    <meta name="author" content="TechFlow Solutions">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://techflowsolutions.com/">
-    <meta property="og:title" content="TechFlow Solutions - Innovative IT Services">
-    <meta property="og:description" content="Transforming businesses through cutting-edge technology and exceptional service">
-    <meta property="og:image" content="https://techflowsolutions.com/og-image.jpg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://techflowsolutions.com/">
-    <meta property="twitter:title" content="TechFlow Solutions - Innovative IT Services">
-    <meta property="twitter:description" content="Transforming businesses through cutting-edge technology and exceptional service">
-    <meta property="twitter:image" content="https://techflowsolutions.com/twitter-image.jpg">
-
-    <!-- PWA Support -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#667eea">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="TechFlow">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    
-    <title>TechFlow Solutions - Innovative IT Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFlow Calling Assistant</title>
     <style>
         * {
             margin: 0;
@@ -42,831 +13,409 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
-        /* Header */
-        header {
+        .header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            position: relative;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
+        .header h1 {
+            font-size: 2.5rem;
             background: linear-gradient(45deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            z-index: 1001;
+            margin-bottom: 0.5rem;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #667eea;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-            z-index: 1001;
-        }
-
-        .mobile-menu-btn span {
-            width: 25px;
-            height: 3px;
-            background: #333;
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 3px;
-        }
-
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .mobile-nav.active {
-            display: flex;
-        }
-
-        .mobile-nav a {
-            font-size: 1.5rem;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            padding: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .mobile-nav a:hover {
-            color: #667eea;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            z-index: 2;
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.5s;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.8s;
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 1.1s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
-        }
-
-        /* Floating shapes */
-        .floating-shape {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape1 {
-            width: 100px;
-            height: 100px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape2 {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .shape3 {
-            width: 80px;
-            height: 80px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-
-        .services-grid {
+        .main-interface {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 2fr 1fr;
             gap: 2rem;
-            margin-top: 3rem;
+            margin-bottom: 2rem;
         }
 
-        .service-card {
+        .call-interface {
             background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .call-status {
+            text-align: center;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-color: #667eea;
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-        }
-
-        /* Packages Section */
-        .packages {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .package-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .package-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            border-color: rgba(255, 255, 255, 0.4);
-        }
-
-        .package-card.featured {
-            border-color: #ffd700;
-            background: rgba(255, 215, 0, 0.1);
-        }
-
-        .package-card.featured::before {
-            content: "⭐ POPULAR";
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background: #ffd700;
-            color: #333;
-            padding: 5px 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            border-radius: 15px;
-            transform: rotate(15deg);
-        }
-
-        .package-title {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #ffd700;
-        }
-
-        .package-price {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-
-        .package-duration {
-            font-size: 1rem;
-            opacity: 0.8;
             margin-bottom: 2rem;
-        }
-
-        .package-features {
-            list-style: none;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .package-features li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .package-features li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4CAF50;
+            font-size: 1.2rem;
             font-weight: bold;
-        }
-
-        .package-button {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 100%;
-        }
-
-        .package-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
-        }
-
-        /* Team Section */
-        .team {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .team-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-        }
-
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-color: #667eea;
-        }
-
-        .team-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .team-role {
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .team-description {
-            color: #666;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .team-social {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .social-icon {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: #666;
             transition: all 0.3s ease;
         }
 
-        .social-icon:hover {
-            background: #667eea;
+        .call-status.active {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
             color: white;
-            transform: translateY(-2px);
+            animation: pulse 2s infinite;
         }
 
-        .about {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #333;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #666;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: #333;
+        .call-status.inactive {
+            background: linear-gradient(135deg, #f44336, #d32f2f);
             color: white;
         }
 
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
+        .call-status.waiting {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white;
         }
 
-        .contact-info {
-            padding-right: 2rem;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #ffd700;
-        }
-
-        .contact-info p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .contact-details {
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
+        .call-controls {
             display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            transition: background 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
             justify-content: center;
-            margin-right: 1rem;
-            font-size: 1.2rem;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
-        .contact-text {
-            flex: 1;
+        .control-btn {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .contact-text strong {
-            display: block;
-            color: #ffd700;
-            margin-bottom: 0.2rem;
+        .start-btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
         }
 
-        .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+        .end-btn {
+            background: linear-gradient(45deg, #f44336, #d32f2f);
+            color: white;
         }
 
-        .contact-form h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #ffd700;
+        .mute-btn {
+            background: linear-gradient(45deg, #ff9800, #f57c00);
+            color: white;
         }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .control-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .control-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .voice-interface {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .voice-controls {
+            display: flex;
+            justify-content: center;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
 
+        .voice-btn {
+            width: 80px;
+            height: 80px;
+            border: none;
+            border-radius: 50%;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .listen-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .speak-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+        }
+
+        .voice-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .voice-btn.active {
+            animation: pulse 1.5s infinite;
+        }
+
+        .conversation-area {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 15px;
+            max-width: 80%;
+            animation: messageSlide 0.3s ease-out;
+        }
+
+        .message.user {
+            background: #007bff;
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message.assistant {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-bottom-left-radius: 5px;
+        }
+
+        .message-time {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+
+        .text-input-area {
+            margin-top: 1rem;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .text-input:focus {
+            border-color: #667eea;
+        }
+
+        .send-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .caller-info {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #ffd700;
-            font-weight: 500;
+            font-weight: 600;
+            color: #555;
         }
 
         .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .form-group select {
             width: 100%;
-            padding: 15px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            border: 2px solid #e9ecef;
             border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
             font-size: 1rem;
             transition: border-color 0.3s ease;
         }
 
         .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .form-group select:focus {
             outline: none;
             border-color: #667eea;
         }
 
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+        .quick-actions {
+            margin-top: 2rem;
         }
 
-        .form-group select option {
-            background: #333;
-            color: white;
-        }
-
-        .submit-button {
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            color: #333;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .quick-btn {
             width: 100%;
-        }
-
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
-        }
-
-        /* WhatsApp Chat Widget Styles */
-        .whatsapp-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 10000;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-        }
-
-        .whatsapp-toggle {
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
-        }
-
-        .whatsapp-toggle svg {
-            width: 28px;
-            height: 28px;
-            fill: white;
-        }
-
-        .whatsapp-bubble {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            background: #128C7E;
-            color: white;
-            padding: 12px 16px;
-            border-radius: 20px 20px 5px 20px;
-            font-size: 14px;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            max-width: 250px;
-            white-space: normal;
-        }
-
-        .whatsapp-bubble.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .whatsapp-bubble::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            right: 15px;
-            border: 6px solid transparent;
-            border-top-color: #128C7E;
-        }
-
-        .whatsapp-window {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 380px;
-            height: 550px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px) scale(0.9);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-        }
-
-        .whatsapp-window.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0) scale(1);
-        }
-
-        .whatsapp-header {
-            background: #128C7E;
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .whatsapp-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #25D366;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .whatsapp-info {
-            flex: 1;
-        }
-
-        .whatsapp-info h3 {
-            margin: 0;
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .whatsapp-info p {
-            margin: 2px 0 0 0;
-            font-size: 12px;
-            opacity: 0.8;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 50%;
-            transition: background 0.2s ease;
-        }
-
-        .close-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .whatsapp-messages {
-            height: 380px;
-            overflow-y: auto;
-            padding: 20px;
-            background: #ECE5DD url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="whatsapp-bg" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="2" fill="%23D1D7DB" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23whatsapp-bg)"/></svg>');
-            scroll-behavior: smooth;
-        }
-
-        .whatsapp-messages::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .whatsapp-messages::-webkit-scrollbar-track {
+            padding: 12px;
+            margin-bottom: 0.5rem;
+            border: 2px solid #667eea;
             background: transparent;
+            color: #667eea;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        .whatsapp-messages::-webkit-scrollbar-thumb {
-            background: #128C7E;
-            border-radius: 3px;
+        .quick-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
         }
 
-        .wa-message {
-            margin-bottom: 15px;
-            animation: messageSlideIn 0.4s ease-out;
+        .analytics-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .call-history {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .call-item {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
             display: flex;
-            align-items: flex-end;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        @keyframes messageSlideIn {
+        .call-item:hover {
+            background: #f8f9fa;
+        }
+
+        .status-indicator {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .voice-animation {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1rem;
+            position: relative;
+        }
+
+        .voice-circle {
+            width: 100%;
+            height: 100%;
+            border: 3px solid #667eea;
+            border-radius: 50%;
+            position: absolute;
+            animation: voicePulse 1.5s infinite;
+        }
+
+        .voice-circle:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .voice-circle:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        @keyframes voicePulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes messageSlide {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -874,1378 +423,279 @@
             }
         }
 
-        .wa-message.bot {
-            justify-content: flex-start;
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+            }
         }
 
-        .wa-message.user {
-            justify-content: flex-end;
-        }
-
-        .wa-message.bot .wa-message-content {
-            background: white;
-            color: #333;
-            border-radius: 0 18px 18px 18px;
-            padding: 12px 16px;
-            max-width: 75%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            font-size: 14px;
-            line-height: 1.4;
-            position: relative;
-        }
-
-        .wa-message.user .wa-message-content {
-            background: #DCF8C6;
-            color: #333;
-            border-radius: 18px 18px 0 18px;
-            padding: 12px 16px;
-            max-width: 75%;
-            font-size: 14px;
-            line-height: 1.4;
-            position: relative;
-        }
-
-        .wa-message-time {
-            font-size: 11px;
-            opacity: 0.6;
-            margin-top: 4px;
-            text-align: right;
-        }
-
-        .wa-typing-indicator {
+        .typing-indicator {
             display: none;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 16px;
+            padding: 1rem;
             background: white;
-            border-radius: 0 18px 18px 18px;
-            max-width: 75%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            max-width: 80%;
         }
 
-        .wa-typing-indicator.active {
+        .typing-indicator.active {
+            display: block;
+            animation: messageSlide 0.3s ease-out;
+        }
+
+        .typing-dots {
             display: flex;
+            gap: 5px;
+            align-items: center;
         }
 
-        .wa-typing-dots {
-            display: flex;
-            gap: 3px;
-        }
-
-        .wa-typing-dots span {
-            width: 6px;
-            height: 6px;
-            background: #128C7E;
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            background: #667eea;
             border-radius: 50%;
             animation: typingDots 1.4s infinite;
         }
 
-        .wa-typing-dots span:nth-child(2) { animation-delay: 0.2s; }
-        .wa-typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
 
         @keyframes typingDots {
             0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
-            30% { transform: translateY(-10px); opacity: 1; }
-        }
-
-        .whatsapp-input-container {
-            padding: 15px 20px;
-            background: #f0f0f0;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .whatsapp-input {
-            flex: 1;
-            border: none;
-            border-radius: 25px;
-            padding: 12px 18px;
-            font-size: 14px;
-            outline: none;
-            background: white;
-            transition: box-shadow 0.3s ease;
-        }
-
-        .whatsapp-input:focus {
-            box-shadow: 0 0 0 2px #25D366;
-        }
-
-        .wa-send-btn {
-            background: #25D366;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .wa-send-btn:hover:not(:disabled) {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-        }
-
-        .wa-send-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .wa-send-btn svg {
-            width: 16px;
-            height: 16px;
-            fill: white;
-        }
-
-        .wa-quick-actions {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-            padding: 0 10px;
-        }
-
-        .wa-quick-action-btn {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 20px;
-            padding: 8px 12px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: #25D366;
-            font-weight: 500;
-        }
-
-        .wa-quick-action-btn:hover {
-            background: #25D366;
-            color: white;
-            border-color: #25D366;
-            transform: translateY(-1px);
-        }
-
-        /* WhatsApp notification badge */
-        .whatsapp-notification {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #ff3333;
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: bold;
-            animation: bounce 0.5s ease infinite alternate;
-        }
-
-        @keyframes bounce {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
-        }
-
-        /* WhatsApp Business Card */
-        .wa-business-card {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-        }
-
-        .wa-business-card h4 {
-            margin: 0 0 8px 0;
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .wa-business-card p {
-            margin: 0;
-            font-size: 13px;
-            opacity: 0.9;
-            line-height: 1.4;
-        }
-
-        .wa-contact-actions {
-            display: flex;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .wa-action-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 11px;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-        .wa-action-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Voice Assistant Widget Styles */
-        .voice-assistant-widget {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 9998;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-        }
-
-        .voice-toggle-btn {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .voice-toggle-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(102, 126, 234, 0.6);
-        }
-
-        .voice-toggle-btn svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
-            z-index: 2;
-        }
-
-        .voice-pulse {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%) scale(0);
-            animation: voicePulse 2s infinite;
-        }
-
-        @keyframes voicePulse {
-            0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
-        }
-
-        .voice-widget-window {
-            position: absolute;
-            bottom: 80px;
-            left: 0;
-            width: 380px;
-            height: 500px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px) scale(0.9);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-        }
-
-        .voice-widget-window.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0) scale(1);
-        }
-
-        .voice-widget-header {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .voice-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .voice-info {
-            flex: 1;
-        }
-
-        .voice-info h3 {
-            margin: 0;
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .voice-info p {
-            margin: 2px 0 0 0;
-            font-size: 12px;
-            opacity: 0.8;
-        }
-
-        .voice-widget-content {
-            height: calc(100% - 80px);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .voice-conversation {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px;
-            background: #f8f9ff;
-        }
-
-        .voice-conversation::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .voice-conversation::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .voice-conversation::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 3px;
-        }
-
-        .voice-message {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-end;
-        }
-
-        .voice-message.bot {
-            justify-content: flex-start;
-        }
-
-        .voice-message.user {
-            justify-content: flex-end;
-        }
-
-        .voice-message-content {
-            max-width: 75%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            font-size: 14px;
-            line-height: 1.4;
-            animation: messageSlideIn 0.3s ease-out;
-        }
-
-        .voice-message.bot .voice-message-content {
-            background: white;
-            color: #333;
-            border-radius: 0 18px 18px 18px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .voice-message.user .voice-message-content {
-            background: #667eea;
-            color: white;
-            border-radius: 18px 18px 0 18px;
-        }
-
-        .voice-controls {
-            padding: 15px 20px;
-            background: white;
-            border-top: 1px solid #eee;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .voice-mic-btn {
-            background: #667eea;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .voice-mic-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .voice-mic-btn.listening {
-            background: #ff4757;
-            animation: voicePulse 1s infinite;
-        }
-
-        .voice-mic-btn svg {
-            fill: white;
-            width: 20px;
-            height: 20px;
-        }
-
-        .voice-call-btn, .voice-whatsapp-btn {
-            background: transparent;
-            border: 2px solid #667eea;
-            color: #667eea;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.2s ease;
-            font-weight: 500;
-        }
-
-        .voice-call-btn:hover, .voice-whatsapp-btn:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        .voice-whatsapp-btn {
-            border-color: #25D366;
-            color: #25D366;
-        }
-
-        .voice-whatsapp-btn:hover {
-            background: #25D366;
-        }
-
-        .voice-quick-actions {
-            padding: 0 20px 15px;
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .voice-quick-btn {
-            background: #f0f0f0;
-            border: none;
-            border-radius: 15px;
-            padding: 6px 12px;
-            font-size: 11px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: #667eea;
-            font-weight: 500;
-        }
-
-        .voice-quick-btn:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        /* Direct WhatsApp Contact Button */
-        .direct-whatsapp-btn {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-            z-index: 9999;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-        }
-
-        .direct-whatsapp-btn.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .direct-whatsapp-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
-        }
-
-        .direct-whatsapp-btn svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
-
-        /* Voice Call Button */
-        .direct-voice-btn {
-            position: fixed;
-            bottom: 150px;
-            right: 20px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
-            z-index: 9999;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-        }
-
-        .direct-voice-btn.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .direct-voice-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
-        }
-
-        .direct-voice-btn svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
-            50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.8); }
-            100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 480px) {
-            .whatsapp-window, .voice-widget-window {
-                width: calc(100vw - 40px);
-                height: calc(100vh - 40px);
-                bottom: 20px;
-                right: 20px;
-                border-radius: 20px;
-                position: fixed;
-            }
-
-            .voice-widget-window {
-                left: 20px;
-                right: 20px;
-            }
-
-            .whatsapp-messages, .voice-conversation {
-                height: calc(100vh - 220px);
-            }
-
-            .direct-whatsapp-btn {
-                bottom: 90px;
-                right: 15px;
-                padding: 10px 16px;
-                font-size: 13px;
-            }
-
-            .direct-voice-btn {
-                bottom: 140px;
-                right: 15px;
-                padding: 10px 16px;
-                font-size: 13px;
-            }
-
-            .voice-assistant-widget {
-                bottom: 170px;
-                left: 15px;
-            }
-        }
-
-        @media (max-width: 1200px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .services-grid,
-            .packages-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero h1 { font-size: 3rem; }
-            .hero p { font-size: 1.2rem; }
-            
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-            
-            .packages-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1.5rem;
-            }
-            
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
+            30% { transform: translateY(-8px); opacity: 1; }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: flex;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
-            
-            .hero {
-                padding: 0 20px;
-                height: 90vh;
-            }
-            
-            .hero h1 { 
-                font-size: 2.5rem;
-                line-height: 1.2;
-            }
-            
-            .hero p { 
-                font-size: 1.1rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .services,
-            .packages,
-            .team,
-            .about,
-            .contact {
-                padding: 60px 0;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .service-card {
-                padding: 1.5rem;
-            }
-            
-            .service-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-            
-            .packages-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .package-card {
-                padding: 2rem 1.5rem;
-            }
-            
-            .package-title {
-                font-size: 1.5rem;
-            }
-            
-            .package-price {
-                font-size: 2.5rem;
-            }
-            
-            .team-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .team-card {
-                padding: 1.5rem;
-            }
-            
-            .team-avatar {
-                width: 100px;
-                height: 100px;
-                font-size: 2.5rem;
-            }
-            
-            .stats {
+            .main-interface {
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
             
-            .stat-item {
-                padding: 1rem;
-            }
-            
-            .stat-number {
+            .header h1 {
                 font-size: 2rem;
             }
             
-            .contact-info {
-                padding-right: 0;
-                margin-bottom: 2rem;
+            .call-controls {
+                flex-wrap: wrap;
+                gap: 0.5rem;
             }
             
-            .contact-info h3 {
-                font-size: 1.5rem;
-            }
-            
-            .contact-form {
-                padding: 2rem 1.5rem;
-            }
-            
-            .contact-form h3 {
-                font-size: 1.5rem;
-            }
-            
-            .contact-item {
-                padding: 0.8rem;
-            }
-            
-            .contact-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
+            .control-btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">TechFlow Solutions</div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#packages">Packages</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="mobile-menu-btn" id="mobileMenuBtn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
+    <div class="container">
+        <div class="header">
+            <h1>📞 TechFlow Calling Assistant</h1>
+            <p>AI-Powered Customer Support & Sales Assistant</p>
         </div>
-        
-        <div class="mobile-nav" id="mobileNav">
-            <a href="#home" onclick="closeMobileMenu()">Home</a>
-            <a href="#services" onclick="closeMobileMenu()">Services</a>
-            <a href="#packages" onclick="closeMobileMenu()">Packages</a>
-            <a href="#team" onclick="closeMobileMenu()">Team</a>
-            <a href="#about" onclick="closeMobileMenu()">About</a>
-            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-        </div>
-    </header>
 
-    <section id="home" class="hero">
-        <div class="floating-shape shape1"></div>
-        <div class="floating-shape shape2"></div>
-        <div class="floating-shape shape3"></div>
-        
-        <div class="hero-content">
-            <h1>Innovative IT Solutions</h1>
-            <p>Transforming businesses through cutting-edge technology and exceptional service</p>
-            <button class="cta-button">Get Started Today</button>
-        </div>
-    </section>
+        <div class="main-interface">
+            <div class="call-interface">
+                <div class="call-status inactive" id="callStatus">
+                    📞 WAITING FOR CALLS
+                </div>
 
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>Web Development</h3>
-                    <p>Custom web applications built with modern technologies and responsive design for optimal user experience.</p>
+                <div class="call-controls">
+                    <button class="control-btn start-btn" id="startCallBtn" onclick="startCall()">
+                        📞 Start Call
+                    </button>
+                    <button class="control-btn end-btn" id="endCallBtn" onclick="endCall()" disabled>
+                        📞 End Call
+                    </button>
+                    <button class="control-btn mute-btn" id="muteBtn" onclick="toggleMute()">
+                        🔇 Mute
+                    </button>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">☁️</div>
-                    <h3>Cloud Solutions</h3>
-                    <p>Scalable cloud infrastructure and migration services to improve efficiency and reduce operational costs.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>AI Integration</h3>
-                    <p>Intelligent automation and AI-powered solutions to streamline business processes and enhance productivity.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Mobile Apps</h3>
-                    <p>Native and cross-platform mobile applications for iOS and Android with seamless user experiences.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔒</div>
-                    <h3>Cybersecurity</h3>
-                    <p>Comprehensive security solutions to protect your business from digital threats and data breaches.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Data Analytics</h3>
-                    <p>Transform raw data into actionable insights with advanced analytics and business intelligence tools.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="packages" class="packages">
-        <div class="container">
-            <h2 class="section-title">Choose Your Package</h2>
-            <div class="packages-grid">
-                <div class="package-card">
-                    <h3 class="package-title">Starter</h3>
-                    <div class="package-price">$99</div>
-                    <div class="package-duration">per month</div>
-                    <ul class="package-features">
-                        <li>Basic website (up to 5 pages)</li>
-                        <li>Mobile responsive design</li>
-                        <li>SEO optimization</li>
-                        <li>Contact form integration</li>
-                        <li>1 month free support</li>
-                        <li>SSL certificate</li>
-                    </ul>
-                    <button class="package-button">Get Started</button>
-                </div>
-                
-                <div class="package-card featured">
-                    <h3 class="package-title">Professional</h3>
-                    <div class="package-price">$299</div>
-                    <div class="package-duration">per month</div>
-                    <ul class="package-features">
-                        <li>Custom web application</li>
-                        <li>Database integration</li>
-                        <li>Admin dashboard</li>
-                        <li>API development</li>
-                        <li>Cloud deployment</li>
-                        <li>3 months free support</li>
-                        <li>Performance monitoring</li>
-                        <li>Security hardening</li>
-                    </ul>
-                    <button class="package-button">Most Popular</button>
-                </div>
-                
-                <div class="package-card">
-                    <h3 class="package-title">Enterprise</h3>
-                    <div class="package-price">$799</div>
-                    <div class="package-duration">per month</div>
-                    <ul class="package-features">
-                        <li>Full-scale application</li>
-                        <li>Microservices architecture</li>
-                        <li>AI/ML integration</li>
-                        <li>DevOps pipeline</li>
-                        <li>24/7 monitoring</li>
-                        <li>6 months free support</li>
-                        <li>Custom integrations</li>
-                        <li>Dedicated account manager</li>
-                    </ul>
-                    <button class="package-button">Contact Sales</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="team" class="team">
-        <div class="container">
-            <h2 class="section-title">Meet Our Expert Team</h2>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-avatar">👩‍💼</div>
-                    <h3 class="team-name">Lisa Park</h3>
-                    <div class="team-role">Project Manager</div>
-                    <p class="team-description">
-                        Agile certified project manager ensuring timely delivery and client satisfaction across all technology projects.
-                    </p>
-                    <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
+                <div class="voice-interface">
+                    <h3>🎙️ Voice Interface</h3>
+                    <div class="voice-animation" id="voiceAnimation" style="display: none;">
+                        <div class="voice-circle"></div>
+                        <div class="voice-circle"></div>
+                        <div class="voice-circle"></div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About TechFlow Solutions</h2>
-                    <p>We are a leading IT company specializing in digital transformation and innovative technology solutions. With over a decade of experience, we help businesses leverage technology to achieve their goals and stay competitive in the digital age.</p>
-                    <p>Our team of expert developers, designers, and consultants work collaboratively to deliver exceptional results that exceed expectations and drive business growth.</p>
-                </div>
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div>Projects Completed</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">200+</div>
-                        <div>Happy Clients</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div>Team Members</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div>Years Experience</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Let's Start a Conversation</h3>
-                    <p>Ready to transform your business with cutting-edge technology? We're here to help you every step of the way. Reach out to us for a free consultation and discover how we can bring your vision to life.</p>
                     
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div class="contact-text">
-                                <strong>Visit Our Office</strong>
-                                123 Tech Boulevard, Innovation District<br>
-                                Karachi, Sindh 75500, Pakistan
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-text">
-                                <strong>Call Us</strong>
-                                +92 21 1234-5678<br>
-                                +92 300 1234567 (Mobile)
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">📧</div>
-                            <div class="contact-text">
-                                <strong>Email Us</strong>
-                                info@techflowsolutions.com<br>
-                                support@techflowsolutions.com
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">🕒</div>
-                            <div class="contact-text">
-                                <strong>Business Hours</strong>
-                                Mon - Fri: 9:00 AM - 6:00 PM<br>
-                                Sat: 10:00 AM - 2:00 PM
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">💬</div>
-                            <div class="contact-text">
-                                <strong>WhatsApp Support</strong>
-                                Chat with us on WhatsApp<br>
-                                Quick responses 24/7
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">🎤</div>
-                            <div class="contact-text">
-                                <strong>Voice Assistant</strong>
-                                Talk to our AI assistant<br>
-                                <button onclick="voiceAssistant.toggleVoiceWidget()" style="background: #667eea; color: white; border: none; padding: 5px 10px; border-radius: 15px; font-size: 12px; margin-top: 5px; cursor: pointer;">Start Voice Chat</button>
-                            </div>
-                        </div>
+                    <div class="voice-controls">
+                        <button class="voice-btn listen-btn" id="listenBtn" onclick="startListening()" disabled>
+                            🎤
+                        </button>
+                        <button class="voice-btn speak-btn" id="speakBtn" onclick="speakResponse()" disabled>
+                            🔊
+                        </button>
+                    </div>
+                    
+                    <div id="voiceStatus" style="text-align: center; margin-top: 1rem;">
+                        Voice recognition ready
                     </div>
                 </div>
-                
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required placeholder="John">
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" required placeholder="Doe">
-                            </div>
+
+                <div class="conversation-area" id="conversationArea">
+                    <div class="typing-indicator" id="typingIndicator">
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required placeholder="john@example.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+92 3452275566">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company">Company/Organization</label>
-                            <input type="text" id="company" name="company" placeholder="Your Company Name">
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="service">Service Interest *</label>
-                                <select id="service" name="service" required>
-                                    <option value="">Select a service</option>
-                                    <option value="web-development">Web Development</option>
-                                    <option value="cloud-solutions">Cloud Solutions</option>
-                                    <option value="ai-integration">AI Integration</option>
-                                    <option value="mobile-apps">Mobile Apps</option>
-                                    <option value="cybersecurity">Cybersecurity</option>
-                                    <option value="data-analytics">Data Analytics</option>
-                                    <option value="custom-solution">Custom Solution</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="budget">Budget Range</label>
-                                <select id="budget" name="budget">
-                                    <option value="">Select budget</option>
-                                    <option value="under-5k">Under $5,000</option>
-                                    <option value="5k-15k">$5,000 - $15,000</option>
-                                    <option value="15k-50k">$15,000 - $50,000</option>
-                                    <option value="50k-plus">$50,000+</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="timeline">Project Timeline</label>
-                            <select id="timeline" name="timeline">
-                                <option value="">Select timeline</option>
-                                <option value="asap">ASAP</option>
-                                <option value="1-3-months">1-3 months</option>
-                                <option value="3-6-months">3-6 months</option>
-                                <option value="6-plus-months">6+ months</option>
-                                <option value="planning-phase">Still in planning</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Project Details *</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project, goals, and any specific requirements..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-button">Send Message & Get Free Consultation</button>
-                    </form>
+                        <span style="margin-left: 10px;">TechFlow Assistant is typing...</span>
+                    </div>
+                </div>
+
+                <div class="text-input-area">
+                    <input type="text" class="text-input" id="textInput" placeholder="Type message for testing..." disabled>
+                    <button class="send-btn" id="sendBtn" onclick="sendTextMessage()" disabled>Send Message</button>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="caller-info">
+                    <h3>👤 Caller Information</h3>
+                    <div class="form-group">
+                        <label for="callerName">Caller Name</label>
+                        <input type="text" id="callerName" placeholder="Enter caller name">
+                    </div>
+                    <div class="form-group">
+                        <label for="callerPhone">Phone Number</label>
+                        <input type="tel" id="callerPhone" placeholder="+92 300 1234567">
+                    </div>
+                    <div class="form-group">
+                        <label for="callerCompany">Company</label>
+                        <input type="text" id="callerCompany" placeholder="Company name">
+                    </div>
+                    <div class="form-group">
+                        <label for="inquiryType">Inquiry Type</label>
+                        <select id="inquiryType">
+                            <option value="">Select inquiry type</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="cloud-solutions">Cloud Solutions</option>
+                            <option value="ai-integration">AI Integration</option>
+                            <option value="mobile-apps">Mobile Apps</option>
+                            <option value="cybersecurity">Cybersecurity</option>
+                            <option value="data-analytics">Data Analytics</option>
+                            <option value="pricing">Pricing Information</option>
+                            <option value="support">Technical Support</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h3>⚡ Quick Actions</h3>
+                    <button class="quick-btn" onclick="quickResponse('services')">Explain Services</button>
+                    <button class="quick-btn" onclick="quickResponse('pricing')">Pricing Packages</button>
+                    <button class="quick-btn" onclick="quickResponse('team')">Meet Our Team</button>
+                    <button class="quick-btn" onclick="quickResponse('contact')">Contact Information</button>
+                    <button class="quick-btn" onclick="quickResponse('consultation')">Schedule Consultation</button>
+                    <button class="quick-btn" onclick="transferCall()">Transfer to Human</button>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h3>📊 Call Metrics</h3>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px;">
+                        <div>Duration: <span id="callDuration">00:00:00</span></div>
+                        <div>Messages: <span id="messageCount">0</span></div>
+                        <div>Status: <span id="callStatusText">Inactive</span></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Voice Assistant Widget -->
-    <div class="voice-assistant-widget">
-        <button class="voice-toggle-btn" id="voiceToggleBtn" onclick="voiceAssistant.toggleVoiceWidget()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-                <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-            </svg>
-            <span class="voice-pulse"></span>
-        </button>
-        
-        <div class="voice-widget-window" id="voiceWidgetWindow">
-            <div class="voice-widget-header">
-                <div class="voice-avatar">🎤</div>
-                <div class="voice-info">
-                    <h3>Voice Assistant</h3>
-                    <p id="voiceStatus">Ready to help</p>
-                </div>
-                <button class="close-btn" onclick="voiceAssistant.toggleVoiceWidget()">×</button>
-            </div>
+        <div class="analytics-section">
+            <h2>📊 Call Analytics Dashboard</h2>
             
-            <div class="voice-widget-content">
-                <div class="voice-conversation" id="voiceConversation">
-                    <div class="voice-message bot">
-                        <div class="voice-message-content">
-                            Hi! I'm TechFlow's voice assistant. You can ask me about our services, pricing, team, or contact information. Click the microphone to start speaking! 🎤
-                        </div>
-                    </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number" id="totalCalls">0</div>
+                    <div class="metric-label">Total Calls Today</div>
                 </div>
-                
-                <div class="voice-controls">
-                    <button class="voice-mic-btn" id="voiceMicBtn" onclick="voiceAssistant.startListening()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-                            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-                        </svg>
-                    </button>
-                    
-                    <button class="voice-call-btn" onclick="voiceAssistant.makePhoneCall()">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                        </svg>
-                        Call Now
-                    </button>
-                    
-                    <button class="voice-whatsapp-btn" onclick="openDirectWhatsApp()">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                        </svg>
-                        WhatsApp
-                    </button>
+                <div class="metric-card">
+                    <div class="metric-number" id="avgDuration">0m</div>
+                    <div class="metric-label">Average Duration</div>
                 </div>
-                
-                <div class="voice-quick-actions">
-                    <button class="voice-quick-btn" onclick="voiceAssistant.sendQuickMessage('Tell me about your services')">Services</button>
-                    <button class="voice-quick-btn" onclick="voiceAssistant.sendQuickMessage('What are your packages?')">Pricing</button>
-                    <button class="voice-quick-btn" onclick="voiceAssistant.sendQuickMessage('How can I contact you?')">Contact</button>
-                    <button class="voice-quick-btn" onclick="voiceAssistant.sendQuickMessage('Tell me about your team')">Team</button>
+                <div class="metric-card">
+                    <div class="metric-number" id="conversionRate">0%</div>
+                    <div class="metric-label">Conversion Rate</div>
                 </div>
+                <div class="metric-card">
+                    <div class="metric-number" id="followUps">0</div>
+                    <div class="metric-label">Follow-ups Scheduled</div>
+                </div>
+            </div>
+
+            <h3>📋 Recent Call History</h3>
+            <div class="call-history" id="callHistory">
+                <!-- Call history items will be populated here -->
             </div>
         </div>
     </div>
-
-    <!-- WhatsApp Widget -->
-    <div class="whatsapp-widget">
-        <div class="whatsapp-bubble" id="whatsappBubble">
-            Need help? Chat with us on WhatsApp! 💬
-        </div>
-        
-        <div class="whatsapp-window" id="whatsappWindow">
-            <div class="whatsapp-header">
-                <div class="whatsapp-avatar">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                    </svg>
-                </div>
-                <div class="whatsapp-info">
-                    <h3>TechFlow Support</h3>
-                    <p>Online • Usually replies instantly</p>
-                </div>
-                <button class="close-btn" onclick="toggleWhatsApp()">×</button>
-            </div>
-            
-            <div class="whatsapp-messages" id="whatsappMessages">
-                <div class="wa-business-card">
-                    <h4>🚀 TechFlow Solutions</h4>
-                    <p>Your trusted IT partner for digital transformation. We're here to help with services, pricing, and technical guidance!</p>
-                    <div class="wa-contact-actions">
-                        <button class="wa-action-btn" onclick="openDirectWhatsApp()">💬 Chat</button>
-                        <button class="wa-action-btn" onclick="callBusiness()">📞 Call</button>
-                        <button class="wa-action-btn" onclick="emailBusiness()">📧 Email</button>
-                        <button class="wa-action-btn" onclick="voiceAssistant.toggleVoiceWidget()">🎤 Voice</button>
-                    </div>
-                </div>
-                
-                <div class="wa-message bot">
-                    <div class="wa-message-content">
-                        Hello! Welcome to TechFlow Solutions! 👋
-                        
-                        I can help you with:
-                        • Our IT services & expertise
-                        • Pricing packages  
-                        • Team information
-                        • Technical guidance
-                        
-                        How can I assist you today?
-                        <div class="wa-message-time">2:34 PM</div>
-                    </div>
-                </div>
-                
-                <div class="wa-quick-actions">
-                    <button class="wa-quick-action-btn" onclick="sendQuickWhatsAppMessage('Tell me about your services')">Our Services</button>
-                    <button class="wa-quick-action-btn" onclick="sendQuickWhatsAppMessage('What are your pricing packages?')">Pricing</button>
-                    <button class="wa-quick-action-btn" onclick="sendQuickWhatsAppMessage('Tell me about your team')">Meet Team</button>
-                    <button class="wa-quick-action-btn" onclick="sendQuickWhatsAppMessage('How can I contact you?')">Contact</button>
-                    <button class="wa-quick-action-btn" onclick="voiceAssistant.toggleVoiceWidget()">🎤 Voice Chat</button>
-                </div>
-                
-                <div class="wa-typing-indicator" id="waTypingIndicator">
-                    <div class="wa-typing-dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <span>TechFlow is typing...</span>
-                </div>
-            </div>
-            
-            <div class="whatsapp-input-container">
-                <input type="text" class="whatsapp-input" id="whatsappInput" placeholder="Type a message..." maxlength="500">
-                <button class="wa-send-btn" id="waSendBtn" onclick="sendWhatsAppMessage()">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        
-        <button class="whatsapp-toggle" id="whatsappToggle" onclick="toggleWhatsApp()">
-            <div class="whatsapp-notification" id="whatsappNotification">1</div>
-            <svg viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            </svg>
-        </button>
-    </div>
-
-    <!-- Direct WhatsApp Contact Button -->
-    <button class="direct-whatsapp-btn" id="directWhatsAppBtn" onclick="openDirectWhatsApp()">
-        <svg viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-        </svg>
-        Chat on WhatsApp
-    </button>
-
-    <!-- Direct Voice Call Button -->
-    <button class="direct-voice-btn" id="directVoiceBtn" onclick="voiceAssistant.makePhoneCall()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-        </svg>
-        Call Us Now
-    </button>
 
     <script>
-        // TechFlow Solutions Knowledge Base for AI responses
+        // TechFlow Knowledge Base
         const TECHFLOW_KNOWLEDGE = {
             services: {
                 "web development": {
                     name: "Web Development",
                     description: "Custom web applications with modern technologies and responsive design",
-                    icon: "💻"
+                    priceRange: "$2,000 - $15,000",
+                    timeline: "2-8 weeks"
                 },
                 "cloud solutions": {
                     name: "Cloud Solutions", 
                     description: "Scalable cloud infrastructure and migration services",
-                    icon: "☁️"
+                    priceRange: "$5,000 - $25,000",
+                    timeline: "3-12 weeks"
                 },
                 "ai integration": {
                     name: "AI Integration",
                     description: "Intelligent automation and AI-powered solutions",
-                    icon: "🤖"
+                    priceRange: "$10,000 - $50,000",
+                    timeline: "6-16 weeks"
                 },
                 "mobile apps": {
                     name: "Mobile Apps",
                     description: "Native and cross-platform mobile applications",
-                    icon: "📱"
+                    priceRange: "$8,000 - $30,000",
+                    timeline: "8-20 weeks"
                 },
                 "cybersecurity": {
                     name: "Cybersecurity",
                     description: "Comprehensive security solutions for digital protection",
-                    icon: "🔒"
+                    priceRange: "$3,000 - $20,000",
+                    timeline: "2-10 weeks"
                 },
                 "data analytics": {
                     name: "Data Analytics", 
                     description: "Transform data into actionable business insights",
-                    icon: "📊"
+                    priceRange: "$5,000 - $35,000",
+                    timeline: "4-14 weeks"
                 }
             },
             
             packages: {
-                "starter": {
-                    name: "Starter",
-                    price: "$99/month",
-                    features: ["Basic website (5 pages)", "Mobile responsive", "SEO optimization", "Contact forms", "1 month support", "SSL certificate"]
+                starter: {
+                    name: "Starter Package",
+                    price: "$99 per month",
+                    features: ["Basic website up to 5 pages", "Mobile responsive design", "SEO optimization", "Contact forms", "1 month support", "SSL certificate"]
                 },
-                "professional": {
-                    name: "Professional", 
-                    price: "$299/month",
+                professional: {
+                    name: "Professional Package", 
+                    price: "$299 per month",
                     popular: true,
-                    features: ["Custom web app", "Database integration", "Admin dashboard", "API development", "Cloud deployment", "3 months support"]
+                    features: ["Custom web application", "Database integration", "Admin dashboard", "API development", "Cloud deployment", "3 months support"]
                 },
-                "enterprise": {
-                    name: "Enterprise",
-                    price: "$799/month",
-                    features: ["Full-scale application", "Microservices", "AI/ML integration", "DevOps pipeline", "24/7 monitoring", "6 months support"]
+                enterprise: {
+                    name: "Enterprise Package",
+                    price: "$799 per month",
+                    features: ["Full-scale application", "Microservices architecture", "AI/ML integration", "DevOps pipeline", "24/7 monitoring", "6 months support"]
                 }
             },
-            
-            team: [
-                "Alex Rodriguez - CTO (15+ years in software architecture)",
-                "Sarah Chen - Lead Full Stack Developer (React, Node.js expert)",
-                "Michael Thompson - UI/UX Design Lead (10+ years experience)",
-                "Dr. Emily Watson - AI/ML Specialist (PhD in Machine Learning)",
-                "James Wilson - Cybersecurity Expert (Certified security professional)",
-                "Lisa Park - Project Manager (Agile certified)"
-            ],
             
             contact: {
                 address: "123 Tech Boulevard, Karachi, Sindh 75500, Pakistan",
@@ -2253,841 +703,748 @@
                 mobile: "+92 300 1234567",
                 email: "info@techflowsolutions.com",
                 whatsapp: "+923001234567",
-                hours: "Mon-Fri: 9AM-6PM, Sat: 10AM-2PM"
+                hours: "Monday to Friday: 9 AM to 6 PM, Saturday: 10 AM to 2 PM"
             }
         };
 
-        // WhatsApp Business Phone Number
-        const WHATSAPP_BUSINESS_NUMBER = "+923001234567";
+        // Global variables
+        let callActive = false;
+        let callStartTime = null;
+        let conversationHistory = [];
+        let messageCount = 0;
+        let isListening = false;
+        let isMuted = false;
+        let recognition = null;
+        let synthesis = window.speechSynthesis;
 
-        // Voice Assistant Class
-        class TechFlowVoiceAssistant {
-            constructor() {
-                this.apiBaseUrl = 'http://localhost:5000/api';
-                this.isListening = false;
-                this.isCallActive = false;
-                this.recognition = null;
-                this.synthesis = window.speechSynthesis;
-                this.sessionId = null;
-                this.conversationHistory = [];
-                
-                this.init();
-            }
-            
-            init() {
-                this.setupSpeechRecognition();
-                this.setupEventListeners();
-            }
-            
-            setupSpeechRecognition() {
-                if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-                    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-                    this.recognition = new SpeechRecognition();
+        // Initialize speech recognition
+        function initSpeechRecognition() {
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US';
+
+                recognition.onstart = function() {
+                    document.getElementById('voiceStatus').textContent = 'Listening...';
+                    document.getElementById('voiceAnimation').style.display = 'block';
+                    document.getElementById('listenBtn').classList.add('active');
+                };
+
+                recognition.onend = function() {
+                    document.getElementById('voiceStatus').textContent = 'Voice recognition stopped';
+                    document.getElementById('voiceAnimation').style.display = 'none';
+                    document.getElementById('listenBtn').classList.remove('active');
+                    isListening = false;
+                };
+
+                recognition.onresult = function(event) {
+                    let finalTranscript = '';
                     
-                    this.recognition.continuous = false;
-                    this.recognition.interimResults = false;
-                    this.recognition.lang = 'en-US';
-                    
-                    this.recognition.onstart = () => {
-                        console.log('Voice recognition started');
-                        this.updateVoiceStatus('Listening...');
-                        document.getElementById('voiceMicBtn').classList.add('listening');
-                    };
-                    
-                    this.recognition.onresult = (event) => {
-                        const transcript = event.results[0][0].transcript;
-                        console.log('Speech recognized:', transcript);
-                        this.processSpeechInput(transcript);
-                    };
-                    
-                    this.recognition.onerror = (event) => {
-                        console.error('Speech recognition error:', event.error);
-                        this.updateVoiceStatus('Error - Try again');
-                        this.isListening = false;
-                        document.getElementById('voiceMicBtn').classList.remove('listening');
-                    };
-                    
-                    this.recognition.onend = () => {
-                        console.log('Voice recognition ended');
-                        this.isListening = false;
-                        document.getElementById('voiceMicBtn').classList.remove('listening');
-                        this.updateVoiceStatus('Click mic to speak');
-                    };
-                } else {
-                    console.warn('Speech recognition not supported');
-                    this.updateVoiceStatus('Voice not supported');
-                }
-            }
-            
-            toggleVoiceWidget() {
-                const voiceWindow = document.getElementById('voiceWidgetWindow');
-                const isOpen = voiceWindow.classList.contains('active');
-                
-                if (isOpen) {
-                    voiceWindow.classList.remove('active');
-                    this.stopListening();
-                } else {
-                    voiceWindow.classList.add('active');
-                    this.startVoiceSession();
-                }
-            }
-            
-            async startVoiceSession() {
-                // Try to connect to backend, but work offline if not available
-                try {
-                    const response = await fetch(`${this.apiBaseUrl}/start-voice-chat`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' }
-                    });
-                    
-                    const data = await response.json();
-                    if (data.status === 'success') {
-                        this.sessionId = data.session_id;
-                        this.updateVoiceStatus('Ready - Click mic to speak');
-                        console.log('Connected to voice backend');
-                        return;
-                    }
-                } catch (error) {
-                    console.log('Backend not available, using offline mode');
-                }
-                
-                // Offline mode - works without backend
-                this.sessionId = 'offline_' + Date.now();
-                this.updateVoiceStatus('Ready - Offline mode');
-                this.addVoiceMessage('Voice assistant is running in offline mode. I can still help you with information about TechFlow services!', 'bot');
-            }
-            
-            startListening() {
-                if (!this.recognition) {
-                    this.updateVoiceStatus('Voice not supported');
-                    return;
-                }
-                
-                if (this.isListening) {
-                    this.stopListening();
-                    return;
-                }
-                
-                this.isListening = true;
-                this.recognition.start();
-            }
-            
-            stopListening() {
-                if (this.recognition && this.isListening) {
-                    this.recognition.stop();
-                    this.isListening = false;
-                    document.getElementById('voiceMicBtn').classList.remove('listening');
-                }
-            }
-            
-            async processSpeechInput(transcript) {
-                this.addVoiceMessage(transcript, 'user');
-                this.updateVoiceStatus('Processing...');
-                
-                // Try backend first, fallback to local processing
-                try {
-                    const response = await fetch(`${this.apiBaseUrl}/process-speech`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ text: transcript }),
-                        signal: AbortSignal.timeout(5000) // 5 second timeout
-                    });
-                    
-                    if (response.ok) {
-                        const data = await response.json();
-                        if (data.status === 'success') {
-                            this.addVoiceMessage(data.response, 'bot');
-                            this.speakResponse(data.response);
-                            this.updateVoiceStatus('Click mic to speak');
-                            return;
+                    for (let i = event.resultIndex; i < event.results.length; i++) {
+                        if (event.results[i].isFinal) {
+                            finalTranscript += event.results[i][0].transcript;
                         }
                     }
-                    throw new Error('Backend response failed');
                     
-                } catch (error) {
-                    console.log('Using offline mode for response');
-                    // Always fallback to local processing
-                    const response = this.generateLocalResponse(transcript);
-                    this.addVoiceMessage(response, 'bot');
-                    this.speakResponse(response);
-                    this.updateVoiceStatus('Click mic to speak');
-                }
-            }
-            
-            speakResponse(text) {
-                if (this.synthesis) {
-                    this.synthesis.cancel();
-                    
-                    const utterance = new SpeechSynthesisUtterance(text);
-                    utterance.rate = 0.9;
-                    utterance.pitch = 1;
-                    utterance.volume = 0.8;
-                    
-                    const voices = this.synthesis.getVoices();
-                    const preferredVoice = voices.find(voice => 
-                        voice.name.includes('Google') || voice.name.includes('Microsoft')
-                    );
-                    if (preferredVoice) {
-                        utterance.voice = preferredVoice;
+                    if (finalTranscript.trim()) {
+                        processVoiceInput(finalTranscript.trim());
                     }
+                };
+
+                recognition.onerror = function(event) {
+                    console.error('Speech recognition error:', event.error);
+                    document.getElementById('voiceStatus').textContent = 'Voice recognition error: ' + event.error;
+                };
+            } else {
+                document.getElementById('voiceStatus').textContent = 'Speech recognition not supported in this browser';
+            }
+        }
+
+        // AI Response Generator
+        function generateResponse(userInput) {
+            const input = userInput.toLowerCase();
+            
+            // Greeting responses
+            if (input.includes('hello') || input.includes('hi') || input.includes('good morning') || input.includes('good afternoon')) {
+                return "Hello! Thank you for calling TechFlow Solutions. I'm your AI assistant. We're a leading IT company specializing in web development, cloud solutions, AI integration, mobile apps, cybersecurity, and data analytics. How can I help you today?";
+            }
+            
+            // Service inquiries
+            if (input.includes('service') || input.includes('what do you do')) {
+                return "TechFlow Solutions offers six main services: Web Development for custom applications, Cloud Solutions for scalable infrastructure, AI Integration for intelligent automation, Mobile Apps for iOS and Android, Cybersecurity for digital protection, and Data Analytics for business insights. Which service interests you most?";
+            }
+            
+            // Pricing inquiries
+            if (input.includes('price') || input.includes('cost') || input.includes('package') || input.includes('budget')) {
+                return "We offer three main packages: Starter at $99 per month for basic websites, Professional at $299 per month for custom applications, and Enterprise at $799 per month for full-scale solutions with AI integration. Custom pricing is also available based on your specific requirements. Which package sounds suitable for your needs?";
+            }
+            
+            // Contact inquiries
+            if (input.includes('contact') || input.includes('address') || input.includes('location')) {
+                return `You can reach TechFlow Solutions at our office: ${TECHFLOW_KNOWLEDGE.contact.address}. Phone: ${TECHFLOW_KNOWLEDGE.contact.phone}, Mobile: ${TECHFLOW_KNOWLEDGE.contact.mobile}, Email: ${TECHFLOW_KNOWLEDGE.contact.email}. Our business hours are ${TECHFLOW_KNOWLEDGE.contact.hours}. Would you like me to schedule a consultation?`;
+            }
+            
+            // Team inquiries
+            if (input.includes('team') || input.includes('staff') || input.includes('who works')) {
+                return "Our expert team includes Alex Rodriguez as CTO with 15+ years experience, Sarah Chen as Lead Developer specializing in React and Node.js, Michael Thompson as UI/UX Design Lead, Dr. Emily Watson as AI/ML Specialist with a PhD in Machine Learning, James Wilson as Cybersecurity Expert, and Lisa Park as Project Manager. We have over 50 team members total. Would you like to know more about any specific expertise area?";
+            }
+            
+            // Consultation requests
+            if (input.includes('consult') || input.includes('meeting') || input.includes('schedule') || input.includes('appointment')) {
+                return "I'd be happy to schedule a free consultation! Our consultation includes project analysis, technology recommendations, timeline estimation, and team assignment discussion. Would you prefer an in-person meeting at our Karachi office, a video call, or phone consultation? What's your preferred date and time?";
+            }
+            
+            // Technology inquiries
+            if (input.includes('technology') || input.includes('tech') || input.includes('framework')) {
+                return "TechFlow works with cutting-edge technologies including React, Node.js, Python for web development, React Native and Flutter for mobile apps, AWS and Azure for cloud solutions, and TensorFlow for AI integration. We recommend the best technology stack based on your project requirements. What type of project are you planning?";
+            }
+            
+            // Default response
+            return "I understand you're interested in TechFlow Solutions. I can help with information about our services, pricing packages, team capabilities, scheduling consultations, and technical guidance. Could you tell me more about what you're looking for or what type of project you have in mind?";
+        }
+
+        // Call management functions
+        function startCall() {
+            callActive = true;
+            callStartTime = new Date();
+            
+            document.getElementById('callStatus').textContent = '📞 CALL ACTIVE';
+            document.getElementById('callStatus').className = 'call-status active';
+            document.getElementById('startCallBtn').disabled = true;
+            document.getElementById('endCallBtn').disabled = false;
+            document.getElementById('listenBtn').disabled = false;
+            document.getElementById('speakBtn').disabled = false;
+            document.getElementById('textInput').disabled = false;
+            document.getElementById('sendBtn').disabled = false;
+            document.getElementById('callStatusText').textContent = 'Active';
+            
+            // Add greeting message
+            const greeting = generateResponse("hello");
+            addMessage(greeting, 'assistant');
+            speakText(greeting);
+            
+            // Start call timer
+            startCallTimer();
+            
+            // Initialize speech recognition
+            initSpeechRecognition();
+        }
+
+        function endCall() {
+            callActive = false;
+            
+            document.getElementById('callStatus').textContent = '📞 CALL ENDED';
+            document.getElementById('callStatus').className = 'call-status inactive';
+            document.getElementById('startCallBtn').disabled = false;
+            document.getElementById('endCallBtn').disabled = true;
+            document.getElementById('listenBtn').disabled = true;
+            document.getElementById('speakBtn').disabled = true;
+            document.getElementById('textInput').disabled = true;
+            document.getElementById('sendBtn').disabled = true;
+            document.getElementById('callStatusText').textContent = 'Inactive';
+            
+            // Stop speech recognition
+            if (recognition && isListening) {
+                recognition.stop();
+            }
+            
+            // Save call log
+            saveCallLog();
+            
+            // Reset conversation
+            conversationHistory = [];
+            messageCount = 0;
+            document.getElementById('messageCount').textContent = '0';
+        }
+
+        function toggleMute() {
+            isMuted = !isMuted;
+            const muteBtn = document.getElementById('muteBtn');
+            if (isMuted) {
+                muteBtn.textContent = '🔊 Unmute';
+                muteBtn.style.background = 'linear-gradient(45deg, #f44336, #d32f2f)';
+            } else {
+                muteBtn.textContent = '🔇 Mute';
+                muteBtn.style.background = 'linear-gradient(45deg, #ff9800, #f57c00)';
+            }
+        }
+
+        // Speech functions
+        function startListening() {
+            if (!callActive) return;
+            
+            if (recognition && !isListening) {
+                isListening = true;
+                recognition.start();
+            }
+        }
+
+        function processVoiceInput(transcript) {
+            addMessage(transcript, 'user');
+            
+            // Generate AI response
+            const response = generateResponse(transcript);
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            setTimeout(() => {
+                hideTypingIndicator();
+                addMessage(response, 'assistant');
+                
+                if (!isMuted) {
+                    speakText(response);
+                }
+            }, 1000 + Math.random() * 2000);
+        }
+
+        function speakText(text) {
+            if (isMuted || !callActive) return;
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.9;
+            utterance.pitch = 1.1;
+            utterance.volume = 0.8;
+            
+            // Try to use a professional voice
+            const voices = synthesis.getVoices();
+            const preferredVoice = voices.find(voice => 
+                voice.name.includes('Female') || 
+                voice.name.includes('Zira') || 
+                voice.name.includes('Google')
+            );
+            
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
+            
+            synthesis.speak(utterance);
+        }
+
+        function speakResponse() {
+            const lastMessage = conversationHistory[conversationHistory.length - 1];
+            if (lastMessage && lastMessage.role === 'assistant') {
+                speakText(lastMessage.content);
+            }
+        }
+
+        // Message handling
+        function addMessage(content, role) {
+            const timestamp = new Date();
+            const message = { role, content, timestamp };
+            conversationHistory.push(message);
+            messageCount++;
+            
+            const conversationArea = document.getElementById('conversationArea');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}`;
+            
+            const timeString = timestamp.toLocaleTimeString();
+            messageDiv.innerHTML = `
+                <div><strong>${role === 'user' ? 'Caller' : 'TechFlow Assistant'}:</strong></div>
+                <div>${content}</div>
+                <div class="message-time">${timeString}</div>
+            `;
+            
+            conversationArea.appendChild(messageDiv);
+            conversationArea.scrollTop = conversationArea.scrollHeight;
+            
+            document.getElementById('messageCount').textContent = messageCount;
+        }
+
+        function sendTextMessage() {
+            const textInput = document.getElementById('textInput');
+            const message = textInput.value.trim();
+            
+            if (message && callActive) {
+                processVoiceInput(message);
+                textInput.value = '';
+            }
+        }
+
+        function showTypingIndicator() {
+            document.getElementById('typingIndicator').classList.add('active');
+            const conversationArea = document.getElementById('conversationArea');
+            conversationArea.scrollTop = conversationArea.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            document.getElementById('typingIndicator').classList.remove('active');
+        }
+
+        // Quick response functions
+        function quickResponse(type) {
+            if (!callActive) return;
+            
+            let response = '';
+            
+            switch(type) {
+                case 'services':
+                    response = generateResponse('what services do you offer');
+                    break;
+                case 'pricing':
+                    response = generateResponse('what are your prices');
+                    break;
+                case 'team':
+                    response = generateResponse('tell me about your team');
+                    break;
+                case 'contact':
+                    response = generateResponse('how can I contact you');
+                    break;
+                case 'consultation':
+                    response = generateResponse('I want to schedule a consultation');
+                    break;
+            }
+            
+            if (response) {
+                showTypingIndicator();
+                setTimeout(() => {
+                    hideTypingIndicator();
+                    addMessage(response, 'assistant');
+                    if (!isMuted) {
+                        speakText(response);
+                    }
+                }, 1000);
+            }
+        }
+
+        function transferCall() {
+            if (callActive) {
+                const transferMessage = "I'm transferring you to one of our human specialists who can provide more detailed assistance. Please hold for a moment.";
+                addMessage(transferMessage, 'assistant');
+                speakText(transferMessage);
+                
+                setTimeout(() => {
+                    alert('Call transferred to human agent. In a real implementation, this would connect to your phone system.');
+                }, 2000);
+            }
+        }
+
+        // Call timer
+        function startCallTimer() {
+            const timer = setInterval(() => {
+                if (callActive && callStartTime) {
+                    const duration = new Date() - callStartTime;
+                    const hours = Math.floor(duration / 3600000);
+                    const minutes = Math.floor((duration % 3600000) / 60000);
+                    const seconds = Math.floor((duration % 60000) / 1000);
                     
-                    this.synthesis.speak(utterance);
+                    const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    document.getElementById('callDuration').textContent = timeString;
+                } else {
+                    clearInterval(timer);
                 }
-            }
+            }, 1000);
+        }
+
+        // Call logging
+        function saveCallLog() {
+            const callerName = document.getElementById('callerName').value || 'Unknown';
+            const callerPhone = document.getElementById('callerPhone').value || 'Unknown';
+            const callerCompany = document.getElementById('callerCompany').value || 'N/A';
+            const inquiryType = document.getElementById('inquiryType').value || 'General';
             
-            generateLocalResponse(input) {
-                const inputLower = input.toLowerCase();
-                
-                if (inputLower.includes('hello') || inputLower.includes('hi') || inputLower.includes('hey')) {
-                    return "Hello! Welcome to TechFlow Solutions. I'm your voice assistant and I'm here to help you learn about our IT services, pricing, team, or contact information. What would you like to know?";
-                }
-                
-                if (inputLower.includes('service') || inputLower.includes('what do you do') || inputLower.includes('offer')) {
-                    return "TechFlow offers six main services: Web Development for custom applications, Cloud Solutions for scalable infrastructure, AI Integration for smart automation, Mobile Apps for iOS and Android, Cybersecurity for digital protection, and Data Analytics for business insights. Which service interests you most?";
-                }
-                
-                if (inputLower.includes('web') && (inputLower.includes('development') || inputLower.includes('website'))) {
-                    return "Our web development service creates custom applications with modern technologies like React and Node.js. We build responsive websites, e-commerce platforms, and complex web applications with SEO optimization and security features.";
-                }
-                
-                if (inputLower.includes('cloud')) {
-                    return "Our cloud solutions help businesses migrate to and optimize cloud infrastructure. We work with AWS, Google Cloud, and Azure to provide scalable hosting, automated deployments, and cost-effective cloud architecture.";
-                }
-                
-                if (inputLower.includes('ai') || inputLower.includes('artificial intelligence') || inputLower.includes('automation')) {
-                    return "We integrate AI and machine learning into business processes for automation, chatbots, predictive analytics, and intelligent systems. Our AI specialist Dr. Emily Watson leads this division with cutting-edge solutions.";
-                }
-                
-                if (inputLower.includes('mobile') || inputLower.includes('app')) {
-                    return "We develop native and cross-platform mobile applications for iOS and Android using React Native, Flutter, and native technologies. Our apps include e-commerce, business tools, and consumer applications.";
-                }
-                
-                if (inputLower.includes('security') || inputLower.includes('cyber')) {
-                    return "Our cybersecurity services include penetration testing, security audits, firewall setup, and threat protection. James Wilson, our security expert, ensures your digital assets are protected against modern threats.";
-                }
-                
-                if (inputLower.includes('data') || inputLower.includes('analytics')) {
-                    return "We transform raw data into actionable insights using advanced analytics, visualization tools like Tableau and Power BI, and business intelligence solutions to help you make data-driven decisions.";
-                }
-                
-                if (inputLower.includes('price') || inputLower.includes('cost') || inputLower.includes('package') || inputLower.includes('pricing')) {
-                    return "We have three main packages: Starter at ninety-nine dollars monthly for basic websites, Professional at two ninety-nine monthly for custom applications, and Enterprise at seven ninety-nine monthly for full-scale solutions with AI integration and dedicated support.";
-                }
-                
-                if (inputLower.includes('starter')) {
-                    return "The Starter package is ninety-nine dollars per month and includes a basic website with up to 5 pages, mobile responsive design, SEO optimization, contact forms, one month free support, and SSL certificate. Perfect for small businesses.";
-                }
-                
-                if (inputLower.includes('professional')) {
-                    return "Our Professional package at two ninety-nine dollars monthly is our most popular choice. It includes custom web applications, database integration, admin dashboard, API development, cloud deployment, and three months free support.";
-                }
-                
-                if (inputLower.includes('enterprise')) {
-                    return "The Enterprise package at seven ninety-nine dollars monthly offers full-scale applications, microservices architecture, AI and machine learning integration, DevOps pipelines, twenty-four seven monitoring, and six months free support with a dedicated account manager.";
-                }
-                
-                if (inputLower.includes('team') || inputLower.includes('staff') || inputLower.includes('who works')) {
-                    return "Our expert team includes Alex Rodriguez our Chief Technology Officer with fifteen years experience, Sarah Chen our Lead Full Stack Developer, Michael Thompson our UI UX Design Lead, Dr. Emily Watson our AI specialist, James Wilson our cybersecurity expert, and Lisa Park our project manager. We have over fifty skilled professionals.";
-                }
-                
-                if (inputLower.includes('contact') || inputLower.includes('phone') || inputLower.includes('email') || inputLower.includes('reach')) {
-                    return "You can reach TechFlow Solutions at plus ninety-two twenty-one one two three four five six seven eight, email us at info at techflow solutions dot com, or visit our office at one twenty-three Tech Boulevard in Karachi, Pakistan. We're open Monday through Friday nine AM to six PM.";
-                }
-                
-                if (inputLower.includes('hours') || inputLower.includes('open') || inputLower.includes('available') || inputLower.includes('time')) {
-                    return "We're open Monday through Friday from nine AM to six PM, and Saturday from ten AM to two PM Pakistan time. For urgent matters, you can reach us on WhatsApp at our mobile number for faster responses.";
-                }
-                
-                if (inputLower.includes('location') || inputLower.includes('address') || inputLower.includes('office') || inputLower.includes('visit')) {
-                    return "Our office is located at one twenty-three Tech Boulevard, Innovation District, Karachi, Sindh seventy-five five zero zero, Pakistan. We welcome visitors during business hours Monday through Friday.";
-                }
-                
-                if (inputLower.includes('experience') || inputLower.includes('how long') || inputLower.includes('established')) {
-                    return "TechFlow Solutions has over ten years of experience in the IT industry. We've successfully completed more than five hundred projects for over two hundred happy clients with our team of fifty plus experts.";
-                }
-                
-                if (inputLower.includes('technology') || inputLower.includes('tech stack') || inputLower.includes('tools')) {
-                    return "We use cutting-edge technologies including React, Node.js, Python, cloud platforms like AWS and Google Cloud, AI frameworks, mobile technologies like React Native and Flutter, and comprehensive security tools.";
-                }
-                
-                if (inputLower.includes('consultation') || inputLower.includes('free') || inputLower.includes('quote')) {
-                    return "Yes! We offer free consultations to discuss your project requirements and recommend the best solutions. You can schedule a consultation by calling us, sending a WhatsApp message, or filling out our contact form.";
-                }
-                
-                if (inputLower.includes('thank') || inputLower.includes('thanks') || inputLower.includes('bye') || inputLower.includes('goodbye')) {
-                    return "Thank you for using TechFlow's voice assistant! If you need further assistance, feel free to call us, chat on WhatsApp, or visit our website. Have a wonderful day!";
-                }
-                
-                if (inputLower.includes('help') || inputLower.includes('what can you do') || inputLower.includes('assist')) {
-                    return "I can help you with information about TechFlow's services like web development and AI integration, our pricing packages from ninety-nine to seven ninety-nine dollars monthly, details about our expert team, contact information, business hours, and schedule consultations. What would you like to know?";
-                }
-                
-                // Default response for unrecognized input
-                return "I'd be happy to help you with information about TechFlow Solutions. You can ask me about our services like web development or AI integration, pricing packages, our expert team, contact details, or business hours. What specific information would you like?";
-            }
+            const duration = callStartTime ? new Date() - callStartTime : 0;
+            const durationString = new Date(duration).toISOString().substr(11, 8);
             
-            addVoiceMessage(content, role) {
-                const conversation = document.getElementById('voiceConversation');
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `voice-message ${role}`;
+            const callLog = {
+                id: Date.now(),
+                callerName,
+                callerPhone,
+                callerCompany,
+                inquiryType,
+                duration: durationString,
+                messageCount,
+                timestamp: new Date(),
+                summary: generateCallSummary()
+            };
+            
+            // Save to localStorage (in real app, this would go to a database)
+            const callLogs = JSON.parse(localStorage.getItem('techflow_call_logs') || '[]');
+            callLogs.unshift(callLog);
+            localStorage.setItem('techflow_call_logs', JSON.stringify(callLogs.slice(0, 50))); // Keep last 50 calls
+            
+            updateCallHistory();
+            updateMetrics();
+        }
+
+        function generateCallSummary() {
+            const topics = [];
+            conversationHistory.forEach(msg => {
+                if (msg.role === 'user') {
+                    const content = msg.content.toLowerCase();
+                    if (content.includes('price') || content.includes('cost')) topics.push('Pricing');
+                    if (content.includes('service')) topics.push('Services');
+                    if (content.includes('team')) topics.push('Team');
+                    if (content.includes('consult')) topics.push('Consultation');
+                }
+            });
+            
+            return `Discussed: ${topics.join(', ') || 'General inquiry'}. ${messageCount} messages exchanged.`;
+        }
+
+        function updateCallHistory() {
+            const callLogs = JSON.parse(localStorage.getItem('techflow_call_logs') || '[]');
+            const historyContainer = document.getElementById('callHistory');
+            
+            historyContainer.innerHTML = '';
+            
+            callLogs.slice(0, 10).forEach(log => {
+                const callItem = document.createElement('div');
+                callItem.className = 'call-item';
                 
-                messageDiv.innerHTML = `
-                    <div class="voice-message-content">
-                        ${content.replace(/\n/g, '<br>')}
+                callItem.innerHTML = `
+                    <div>
+                        <strong>${log.callerName}</strong> - ${log.inquiryType}<br>
+                        <small>${log.timestamp ? new Date(log.timestamp).toLocaleString() : 'Unknown time'}</small>
+                    </div>
+                    <div>
+                        <div class="status-indicator status-completed">${log.duration}</div>
                     </div>
                 `;
                 
-                conversation.appendChild(messageDiv);
-                conversation.scrollTop = conversation.scrollHeight;
-                
-                this.conversationHistory.push({ role, content });
-            }
-            
-            updateVoiceStatus(status) {
-                document.getElementById('voiceStatus').textContent = status;
-            }
-            
-            sendQuickMessage(message) {
-                this.addVoiceMessage(message, 'user');
-                setTimeout(() => this.processSpeechInput(message), 300);
-            }
-            
-            async makePhoneCall() {
-                const phoneNumber = prompt('Enter your phone number to receive a call from TechFlow:');
-                
-                if (!phoneNumber) return;
-                
-                // Validate phone number
-                const cleanPhone = phoneNumber.replace(/\D/g, '');
-                if (cleanPhone.length < 10) {
-                    alert('Please enter a valid phone number.');
-                    return;
-                }
-                
-                try {
-                    // Try backend call service first
-                    const response = await fetch(`${this.apiBaseUrl}/make-call`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ phone_number: phoneNumber }),
-                        signal: AbortSignal.timeout(5000)
-                    });
-                    
-                    if (response.ok) {
-                        const data = await response.json();
-                        if (data.status === 'success') {
-                            alert('Call initiated! You should receive a call shortly from TechFlow Solutions.');
-                            this.addVoiceMessage('Call request sent successfully. You will receive a call shortly.', 'bot');
-                            return;
-                        }
-                    }
-                    throw new Error('Backend call service not available');
-                    
-                } catch (error) {
-                    console.log('Backend call service not available, showing direct contact options');
-                    
-                    // Fallback - show contact options
-                    const contactMessage = `I cannot initiate calls directly, but you can reach TechFlow Solutions at:
-
-📞 Main: +92 21 1234-5678
-📱 Mobile: +92 300 1234567
-💬 WhatsApp: +92 300 1234567
-
-Would you like me to open WhatsApp or show you more contact options?`;
-                    
-                    this.addVoiceMessage(contactMessage, 'bot');
-                    this.speakResponse("I cannot make calls directly, but I can give you our contact numbers. Our main number is plus ninety-two twenty-one one two three four five six seven eight, or you can reach us on WhatsApp.");
-                    
-                    // Offer to open WhatsApp
-                    setTimeout(() => {
-                        if (confirm('Would you like to open WhatsApp to chat directly with TechFlow?')) {
-                            openDirectWhatsApp();
-                        }
-                    }, 2000);
-                }
-            }
-            
-            setupEventListeners() {
-                if (this.synthesis) {
-                    this.synthesis.addEventListener('voiceschanged', () => {
-                        console.log('Voices loaded:', this.synthesis.getVoices().length);
-                    });
-                }
-                
-                document.addEventListener('keydown', (e) => {
-                    if (e.altKey && e.key === 'v') {
-                        e.preventDefault();
-                        this.toggleVoiceWidget();
-                    }
-                    
-                    if (e.code === 'Space' && document.getElementById('voiceWidgetWindow').classList.contains('active')) {
-                        e.preventDefault();
-                        this.startListening();
-                    }
-                });
-            }
+                historyContainer.appendChild(callItem);
+            });
         }
 
-        // Simple AI Response System for WhatsApp
-        function generateWhatsAppResponse(userMessage) {
-            const message = userMessage.toLowerCase();
+        function updateMetrics() {
+            const callLogs = JSON.parse(localStorage.getItem('techflow_call_logs') || '[]');
+            const today = new Date().toDateString();
             
-            if (message.includes('service') || message.includes('what do you do')) {
-                return `🚀 *TechFlow Services:*
-
-💻 *Web Development* - Custom applications
-☁️ *Cloud Solutions* - Scalable infrastructure  
-🤖 *AI Integration* - Smart automation
-📱 *Mobile Apps* - iOS & Android
-🔒 *Cybersecurity* - Digital protection
-📊 *Data Analytics* - Business insights
-
-Which service interests you? I can provide more details! 😊`;
+            // Today's calls
+            const todayCalls = callLogs.filter(log => 
+                log.timestamp && new Date(log.timestamp).toDateString() === today
+            );
+            document.getElementById('totalCalls').textContent = todayCalls.length;
+            
+            // Average duration
+            if (todayCalls.length > 0) {
+                const totalDuration = todayCalls.reduce((sum, log) => {
+                    const parts = log.duration.split(':');
+                    return sum + (parseInt(parts[0]) * 60 + parseInt(parts[1]));
+                }, 0);
+                const avgMinutes = Math.round(totalDuration / todayCalls.length);
+                document.getElementById('avgDuration').textContent = `${avgMinutes}m`;
             }
             
-            if (message.includes('price') || message.includes('cost') || message.includes('package')) {
-                return `💰 *Our Packages:*
-
-🥉 *Starter* - $99/month
-• Basic website & SEO
-• Mobile responsive
-• 1 month support
-
-⭐ *Professional* - $299/month
-• Custom web app
-• Database & API
-• 3 months support
-
-🏆 *Enterprise* - $799/month  
-• Full-scale application
-• AI/ML integration
-• 24/7 monitoring
-
-Ready to start? Let's chat! 🚀`;
-            }
+            // Conversion rate (simulate)
+            const conversionRate = Math.min(100, Math.round((todayCalls.length * 0.3) * 100) / 100);
+            document.getElementById('conversionRate').textContent = `${conversionRate}%`;
             
-            if (message.includes('team') || message.includes('who') || message.includes('staff')) {
-                return `👥 *Our Expert Team:*
-
-👨‍💻 *Alex Rodriguez* - CTO
-👩‍💻 *Sarah Chen* - Lead Developer  
-👨‍🎨 *Michael Thompson* - UI/UX Lead
-👩‍🔬 *Dr. Emily Watson* - AI Specialist
-👨‍🔒 *James Wilson* - Security Expert
-👩‍💼 *Lisa Park* - Project Manager
-
-*500+ projects completed!* 🎉
-Want to know more about any team member?`;
-            }
-            
-            if (message.includes('contact') || message.includes('reach') || message.includes('call') || message.includes('email')) {
-                return `📞 *Contact TechFlow:*
-
-📍 *Office:* Karachi, Pakistan
-📞 *Phone:* +92 21 1234-5678
-📱 *Mobile:* +92 300 1234567
-📧 *Email:* info@techflowsolutions.com
-⏰ *Hours:* Mon-Fri 9AM-6PM
-
-*Free consultation available!* 
-Want me to connect you directly? 💬`;
-            }
-            
-            if (message.includes('whatsapp') || message.includes('chat directly')) {
-                return `💬 *WhatsApp Direct Chat:*
-
-Click the "Chat on WhatsApp" button to talk directly with our team!
-
-📱 *Business WhatsApp:* +92 300 1234567
-⚡ *Response time:* Usually within 5 minutes
-🕒 *Available:* 24/7 (automated) + business hours (human)
-
-Ready to chat directly? 🚀`;
-            }
-            
-            return `Thanks for reaching out! 👋
-
-I can help with:
-• 🔧 Service information
-• 💰 Pricing details  
-• 👥 Team introductions
-• 📞 Contact options
-
-What would you like to know about TechFlow? 😊`;
-        }
-
-        // WhatsApp functionality
-        let whatsappOpen = false;
-        let whatsappMessages = [];
-        let hasInteracted = false;
-        let voiceAssistant;
-
-        function toggleWhatsApp() {
-            const whatsappWindow = document.getElementById('whatsappWindow');
-            const whatsappToggle = document.getElementById('whatsappToggle');
-            const whatsappBubble = document.getElementById('whatsappBubble');
-            const notification = document.getElementById('whatsappNotification');
-            const directBtn = document.getElementById('directWhatsAppBtn');
-            
-            whatsappOpen = !whatsappOpen;
-            
-            if (whatsappOpen) {
-                whatsappWindow.classList.add('active');
-                whatsappBubble.classList.remove('show');
-                notification.style.display = 'none';
-                directBtn.classList.add('show');
-                document.getElementById('whatsappInput').focus();
-                hasInteracted = true;
-            } else {
-                whatsappWindow.classList.remove('active');
-                directBtn.classList.remove('show');
-            }
-        }
-
-        function sendWhatsAppMessage() {
-            const whatsappInput = document.getElementById('whatsappInput');
-            const message = whatsappInput.value.trim();
-            
-            if (message === '') return;
-            
-            addWhatsAppMessage(message, 'user');
-            whatsappInput.value = '';
-            
-            showWhatsAppTyping();
-            
-            setTimeout(() => {
-                hideWhatsAppTyping();
-                const response = generateWhatsAppResponse(message);
-                addWhatsAppMessage(response, 'bot');
-            }, 800 + Math.random() * 1500);
-        }
-
-        function sendQuickWhatsAppMessage(message) {
-            addWhatsAppMessage(message, 'user');
-            
-            showWhatsAppTyping();
-            
-            setTimeout(() => {
-                hideWhatsAppTyping();
-                const response = generateWhatsAppResponse(message);
-                addWhatsAppMessage(response, 'bot');
-            }, 600 + Math.random() * 1000);
-        }
-
-        function addWhatsAppMessage(content, role) {
-            const messagesContainer = document.getElementById('whatsappMessages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `wa-message ${role}`;
-            
-            const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            
-            const formattedContent = content
-                .replace(/\*(.*?)\*/g, '<strong>$1</strong>')
-                .replace(/\n/g, '<br>');
-            
-            messageDiv.innerHTML = `
-                <div class="wa-message-content">
-                    ${formattedContent}
-                    <div class="wa-message-time">${currentTime}</div>
-                </div>
-            `;
-            
-            messagesContainer.appendChild(messageDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            
-            whatsappMessages.push({ role, content });
-        }
-
-        function showWhatsAppTyping() {
-            document.getElementById('waTypingIndicator').classList.add('active');
-            document.getElementById('waSendBtn').disabled = true;
-            const messagesContainer = document.getElementById('whatsappMessages');
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-
-        function hideWhatsAppTyping() {
-            document.getElementById('waTypingIndicator').classList.remove('active');
-            document.getElementById('waSendBtn').disabled = false;
-        }
-
-        function openDirectWhatsApp() {
-            const message = "Hi! I'm interested in TechFlow Solutions' services. Can you help me?";
-            const whatsappUrl = `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        function callBusiness() {
-            window.open('tel:+922112345678', '_self');
-        }
-
-        function emailBusiness() {
-            window.open('mailto:info@techflowsolutions.com?subject=Service Inquiry&body=Hi TechFlow Team,%0D%0A%0D%0AI am interested in learning more about your services.', '_self');
+            // Follow-ups (simulate)
+            document.getElementById('followUps').textContent = Math.ceil(todayCalls.length * 0.6);
         }
 
         // Event listeners
-        document.getElementById('whatsappInput').addEventListener('keypress', function(e) {
+        document.getElementById('textInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                sendWhatsAppMessage();
+                sendTextMessage();
             }
         });
 
-        // Initialize everything when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize voice assistant
-            voiceAssistant = new TechFlowVoiceAssistant();
-            console.log('TechFlow Voice Assistant initialized');
-
-            // Show WhatsApp notification and bubble initially
-            setTimeout(() => {
-                if (!hasInteracted) {
-                    document.getElementById('whatsappBubble').classList.add('show');
-                    
-                    setTimeout(() => {
-                        document.getElementById('whatsappBubble').classList.remove('show');
-                    }, 8000);
-                }
-            }, 2000);
-
-            // Show direct buttons after some time
-            setTimeout(() => {
-                if (!whatsappOpen) {
-                    document.getElementById('directWhatsAppBtn').classList.add('show');
-                    document.getElementById('directVoiceBtn').classList.add('show');
-                }
-            }, 10000);
-
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Mobile menu functionality
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileNav = document.getElementById('mobileNav');
-
-            mobileMenuBtn.addEventListener('click', function() {
-                this.classList.toggle('active');
-                mobileNav.classList.toggle('active');
-                document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
-            });
-
-            // Add some interactive animations
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            });
-
-            document.querySelectorAll('.service-card, .package-card, .team-card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
-            });
-
-            // Form submission handler
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = new FormData(this);
-                const firstName = formData.get('firstName');
-                const lastName = formData.get('lastName');
-                const email = formData.get('email');
-                const service = formData.get('service');
-                const message = formData.get('message');
-                
-                const whatsappMessage = `Hi TechFlow! 👋
-
-*New Contact Form Submission:*
-*Name:* ${firstName} ${lastName}
-*Email:* ${email}
-*Service Interest:* ${service}
-*Message:* ${message}
-
-Please get back to me with more information.`;
-
-                const whatsappUrl = `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
-                window.open(whatsappUrl, '_blank');
-                
-                alert('Redirecting to WhatsApp! Your message has been prepared for sending.');
-            });
-
-            // Package button handlers
-            document.querySelectorAll('.package-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    const packageCard = this.closest('.package-card');
-                    const packageTitle = packageCard.querySelector('.package-title').textContent;
-                    const packagePrice = packageCard.querySelector('.package-price').textContent;
-                    
-                    const whatsappMessage = `Hi TechFlow! 💼
-
-I'm interested in the *${packageTitle} Package* (${packagePrice}/month).
-
-Can you provide more details about:
-• What's included
-• Implementation timeline
-• Next steps to get started
-
-Thank you!`;
-
-                    const whatsappUrl = `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
-                    window.open(whatsappUrl, '_blank');
-                });
-            });
-
-            // CTA button handler
-            document.querySelector('.cta-button').addEventListener('click', function() {
-                const whatsappMessage = `Hi TechFlow! 🚀
-
-I'm interested in your IT solutions and would like to:
-• Learn about your services
-• Discuss my project requirements
-• Get a free consultation
-
-Let's chat!`;
-
-                const whatsappUrl = `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
-                window.open(whatsappUrl, '_blank');
-            });
-        });
-
-        function closeMobileMenu() {
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileNav = document.getElementById('mobileNav');
-            mobileMenuBtn.classList.remove('active');
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = 'auto';
+        // Voice synthesis initialization
+        function initVoices() {
+            if (synthesis.getVoices().length === 0) {
+                synthesis.addEventListener('voiceschanged', initVoices);
+            }
         }
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileNav = document.getElementById('mobileNav');
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const isClickInsideNav = mobileNav && mobileNav.contains(event.target);
-            const isClickOnMenuBtn = mobileMenuBtn && mobileMenuBtn.contains(event.target);
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            initVoices();
+            updateCallHistory();
+            updateMetrics();
             
-            if (!isClickInsideNav && !isClickOnMenuBtn && mobileNav && mobileNav.classList.contains('active')) {
-                closeMobileMenu();
-            }
+            // Demo data for initial display
+            setTimeout(() => {
+                if (localStorage.getItem('techflow_call_logs') === null) {
+                    const demoLogs = [
+                        {
+                            id: 1,
+                            callerName: 'John Smith',
+                            callerPhone: '+92 300 1111111',
+                            inquiryType: 'Web Development',
+                            duration: '00:05:23',
+                            timestamp: new Date(Date.now() - 3600000),
+                            summary: 'Discussed web development project for e-commerce site'
+                        },
+                        {
+                            id: 2,
+                            callerName: 'Sarah Ahmed',
+                            callerPhone: '+92 300 2222222',
+                            inquiryType: 'Cloud Solutions',
+                            duration: '00:08:15',
+                            timestamp: new Date(Date.now() - 7200000),
+                            summary: 'Inquired about cloud migration services'
+                        }
+                    ];
+                    localStorage.setItem('techflow_call_logs', JSON.stringify(demoLogs));
+                    updateCallHistory();
+                    updateMetrics();
+                }
+            }, 1000);
         });
 
-        // Close mobile menu on window resize
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                closeMobileMenu();
+        // Simulate incoming call (for demo)
+        function simulateIncomingCall() {
+            if (!callActive) {
+                document.getElementById('callStatus').textContent = '📞 INCOMING CALL';
+                document.getElementById('callStatus').className = 'call-status waiting';
+                
+                setTimeout(() => {
+                    if (!callActive) {
+                        document.getElementById('callStatus').textContent = '📞 WAITING FOR CALLS';
+                        document.getElementById('callStatus').className = 'call-status inactive';
+                    }
+                }, 10000);
             }
-        });
+        }
 
-        // Simulate new message notification
-        setTimeout(() => {
-            if (!hasInteracted) {
-                const notification = document.getElementById('whatsappNotification');
-                if (notification) {
-                    notification.style.display = 'flex';
-                    
-                    setTimeout(() => {
-                        notification.style.display = 'none';
-                    }, 30000);
+        // Auto-simulate incoming calls for demo
+        setInterval(simulateIncomingCall, 30000);
+
+        // Additional helper functions
+        function exportCallData() {
+            const callLogs = JSON.parse(localStorage.getItem('techflow_call_logs') || '[]');
+            const dataStr = JSON.stringify(callLogs, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `techflow_calls_${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+        }
+
+        function clearCallHistory() {
+            if (confirm('Are you sure you want to clear all call history?')) {
+                localStorage.removeItem('techflow_call_logs');
+                updateCallHistory();
+                updateMetrics();
+            }
+        }
+
+        // Advanced AI responses with context awareness
+        function generateContextualResponse(userInput, callerInfo) {
+            const input = userInput.toLowerCase();
+            const callerName = callerInfo.name || 'there';
+            const inquiryType = callerInfo.inquiryType;
+            
+            // Personalized responses based on caller info
+            if (inquiryType && input.includes('tell me more')) {
+                switch(inquiryType) {
+                    case 'web-development':
+                        return `${callerName}, for web development, we create custom applications using React, Node.js, and modern frameworks. Our web development service ranges from ${TECHFLOW_KNOWLEDGE.services['web development'].priceRange} with a typical timeline of ${TECHFLOW_KNOWLEDGE.services['web development'].timeline}. Would you like to discuss your specific requirements?`;
+                    case 'cloud-solutions':
+                        return `${callerName}, our cloud solutions help businesses migrate to AWS, Azure, or Google Cloud. We handle everything from architecture design to migration and ongoing support. Investment typically ranges ${TECHFLOW_KNOWLEDGE.services['cloud solutions'].priceRange}. What's your current infrastructure setup?`;
+                    case 'ai-integration':
+                        return `${callerName}, we integrate AI and machine learning into existing business processes. Dr. Emily Watson, our AI specialist, leads projects involving automation, data analysis, and intelligent systems. Projects range ${TECHFLOW_KNOWLEDGE.services['ai integration'].priceRange}. What business processes are you looking to enhance?`;
+                    default:
+                        return generateResponse(userInput);
                 }
             }
-        }, 5000);
+            
+            return generateResponse(userInput);
+        }
 
-        // Voice widget show/hide based on scroll
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const voiceWidget = document.querySelector('.voice-assistant-widget');
+        // Enhanced message processing
+        function processMessage(message, source = 'text') {
+            const callerInfo = {
+                name: document.getElementById('callerName').value,
+                phone: document.getElementById('callerPhone').value,
+                company: document.getElementById('callerCompany').value,
+                inquiryType: document.getElementById('inquiryType').value
+            };
             
-            if (scrollTop > 100) {
-                voiceWidget.style.opacity = '1';
-                voiceWidget.style.visibility = 'visible';
-            } else {
-                voiceWidget.style.opacity = '0.7';
+            const response = generateContextualResponse(message, callerInfo);
+            
+            showTypingIndicator();
+            
+            setTimeout(() => {
+                hideTypingIndicator();
+                addMessage(response, 'assistant');
+                
+                if (!isMuted && source === 'voice') {
+                    speakText(response);
+                }
+            }, 800 + Math.random() * 1500);
+        }
+
+        // Real-time call quality monitoring
+        function monitorCallQuality() {
+            if (callActive) {
+                // Simulate call quality metrics
+                const quality = Math.random() > 0.1 ? 'Good' : 'Poor';
+                const latency = Math.floor(Math.random() * 200) + 50; // 50-250ms
+                
+                // In a real implementation, you would monitor actual audio quality
+                console.log(`Call Quality: ${quality}, Latency: ${latency}ms`);
             }
-            
-            lastScrollTop = scrollTop;
+        }
+
+        // Start call quality monitoring
+        setInterval(monitorCallQuality, 5000);
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case 's':
+                        e.preventDefault();
+                        if (!callActive) startCall();
+                        break;
+                    case 'e':
+                        e.preventDefault();
+                        if (callActive) endCall();
+                        break;
+                    case 'm':
+                        e.preventDefault();
+                        toggleMute();
+                        break;
+                    case 'l':
+                        e.preventDefault();
+                        startListening();
+                        break;
+                }
+            }
         });
+
+        // Service worker for offline functionality (optional)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                console.log('Service Worker registered successfully');
+            }).catch(function(error) {
+                console.log('Service Worker registration failed');
+            });
+        }
+
+        // Web Audio API for advanced audio processing
+        let audioContext;
+        let mediaStream;
+
+        async function initAudioContext() {
+            try {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                
+                const source = audioContext.createMediaStreamSource(mediaStream);
+                const analyser = audioContext.createAnalyser();
+                source.connect(analyser);
+                
+                // Audio level monitoring
+                monitorAudioLevel(analyser);
+            } catch (error) {
+                console.error('Error initializing audio:', error);
+                document.getElementById('voiceStatus').textContent = 'Microphone access denied';
+            }
+        }
+
+        function monitorAudioLevel(analyser) {
+            const dataArray = new Uint8Array(analyser.frequencyBinCount);
+            
+            function updateLevel() {
+                if (callActive && isListening) {
+                    analyser.getByteFrequencyData(dataArray);
+                    const average = dataArray.reduce((a, b) => a + b) / dataArray.length;
+                    
+                    // Visual feedback for audio level
+                    const voiceAnimation = document.getElementById('voiceAnimation');
+                    if (average > 20) {
+                        voiceAnimation.style.opacity = Math.min(1, average / 100);
+                    }
+                }
+                requestAnimationFrame(updateLevel);
+            }
+            updateLevel();
+        }
+
+        // Initialize audio when user first interacts
+        document.addEventListener('click', initAudioContext, { once: true });
+
+        // Advanced call analytics
+        function generateCallReport() {
+            const callerName = document.getElementById('callerName').value || 'Unknown';
+            const callerPhone = document.getElementById('callerPhone').value || 'Unknown';
+            const inquiryType = document.getElementById('inquiryType').value || 'General';
+            
+            const reportData = {
+                caller: callerName,
+                phone: callerPhone,
+                inquiry: inquiryType,
+                duration: document.getElementById('callDuration').textContent,
+                messages: messageCount,
+                timestamp: new Date().toLocaleString(),
+                summary: generateCallSummary(),
+                nextSteps: determineNextSteps()
+            };
+            
+            // Create downloadable report
+            const reportText = `
+TechFlow Solutions - Call Report
+================================
+Date: ${reportData.timestamp}
+Caller: ${reportData.caller}
+Phone: ${reportData.phone}
+Company: ${document.getElementById('callerCompany').value || 'N/A'}
+Inquiry Type: ${reportData.inquiry}
+Call Duration: ${reportData.duration}
+Messages Exchanged: ${reportData.messages}
+
+Summary:
+${reportData.summary}
+
+Recommended Next Steps:
+${reportData.nextSteps}
+
+Generated by TechFlow AI Assistant
+            `;
+            
+            const blob = new Blob([reportText], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `call_report_${Date.now()}.txt`;
+            link.click();
+        }
+
+        function determineNextSteps() {
+            const inquiryType = document.getElementById('inquiryType').value;
+            const messageCount = conversationHistory.length;
+            
+            if (messageCount > 10) {
+                return "High engagement - Schedule detailed consultation with technical team";
+            } else if (inquiryType && inquiryType !== '') {
+                return `Send follow-up email with ${inquiryType} portfolio and case studies`;
+            } else {
+                return "Send general company brochure and schedule follow-up call";
+            }
+        }
+
+        // Integration with TechFlow website
+        function redirectToWebsite() {
+            window.open('https://techflowsolutions.com', '_blank');
+        }
+
+        function openWhatsAppChat() {
+            const message = "Hi TechFlow! I just finished a call with your AI assistant and would like to continue our conversation.";
+            const whatsappUrl = `https://wa.me/923001234567?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Add integration buttons to sidebar
+        setTimeout(() => {
+            const sidebar = document.querySelector('.sidebar');
+            const integrationDiv = document.createElement('div');
+            integrationDiv.innerHTML = `
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #e9ecef;">
+                    <h3>🔗 Quick Links</h3>
+                    <button class="quick-btn" onclick="redirectToWebsite()">Visit Website</button>
+                    <button class="quick-btn" onclick="openWhatsAppChat()">Continue on WhatsApp</button>
+                    <button class="quick-btn" onclick="generateCallReport()">Generate Report</button>
+                    <button class="quick-btn" onclick="exportCallData()">Export Data</button>
+                </div>
+            `;
+            sidebar.appendChild(integrationDiv);
+        }, 1000);
     </script>
 </body>
-</html>team-avatar">👨‍💻</div>
-                    <h3 class="team-name">Alex Rodriguez</h3>
-                    <div class="team-role">Chief Technology Officer</div>
-                    <p class="team-description">
-                        15+ years in software architecture and AI development. Led digital transformation projects for Fortune 500 companies.
-                    </p>
-                    <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
-                    </div>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">👩‍💻</div>
-                    <h3 class="team-name">Sarah Chen</h3>
-                    <div class="team-role">Lead Full Stack Developer</div>
-                    <p class="team-description">
-                        Expert in React, Node.js, and cloud technologies. Passionate about creating scalable web applications and user experiences.
-                    </p>
-                    <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
-                    </div>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">👨‍🎨</div>
-                    <h3 class="team-name">Michael Thompson</h3>
-                    <div class="team-role">UI/UX Design Lead</div>
-                    <p class="team-description">
-                        Creative designer with 10+ years experience. Specializes in creating intuitive interfaces and exceptional user experiences.
-                    </p>
-                    <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
-                    </div>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">👩‍🔬</div>
-                    <h3 class="team-name">Dr. Emily Watson</h3>
-                    <div class="team-role">AI/ML Specialist</div>
-                    <p class="team-description">
-                        PhD in Machine Learning. Develops intelligent systems and automation solutions that drive business innovation.
-                    </p>
-                    <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
-                    </div>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">👨‍🔒</div>
-                    <h3 class="team-name">James Wilson</h3>
-                    <div class="team-role">Cybersecurity Expert</div>
-                    <p class="team-description">
-                        Certified security professional with expertise in protecting digital assets and implementing robust security frameworks.
-                    </p>
-                    <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
-                    </div>
-                </div>
-                
-                <div class="team-card">
-                    <div class="
+</html>
