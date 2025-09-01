@@ -806,68 +806,162 @@
 
         // Call management functions
         function startCall() {
+            if (callActive) return;
+            
             callActive = true;
             callStartTime = new Date();
             
-            document.getElementById('callStatus').textContent = '📞 CALL ACTIVE';
-            document.getElementById('callStatus').className = 'call-status active';
-            document.getElementById('startCallBtn').disabled = true;
-            document.getElementById('endCallBtn').disabled = false;
-            document.getElementById('listenBtn').disabled = false;
-            document.getElementById('speakBtn').disabled = false;
-            document.getElementById('textInput').disabled = false;
-            document.getElementById('sendBtn').disabled = false;
-            document.getElementById('callStatusText').textContent = 'Active';
+            // Update UI elements
+            const callStatus = document.getElementById('callStatus');
+            const startBtn = document.getElementById('startCallBtn');
+            const endBtn = document.getElementById('endCallBtn');
+            const listenBtn = document.getElementById('listenBtn');
+            const speakBtn = document.getElementById('speakBtn');
+            const textInput = document.getElementById('textInput');
+            const sendBtn = document.getElementById('sendBtn');
+            const callStatusText = document.getElementById('callStatusText');
+            
+            callStatus.textContent = '📞 CALL ACTIVE';
+            callStatus.className = 'call-status active';
+            
+            startBtn.disabled = true;
+            endBtn.disabled = false;
+            listenBtn.disabled = false;
+            speakBtn.disabled = false;
+            textInput.disabled = false;
+            sendBtn.disabled = false;
+            
+            if (callStatusText) {
+                callStatusText.textContent = 'Active';
+            }
+            
+            // Clear previous conversation
+            document.getElementById('conversationArea').innerHTML = '<div class="typing-indicator" id="typingIndicator"><div class="typing-dots"><span></span><span></span><span></span></div><span style="margin-left: 10px;">TechFlow Assistant is typing...</span></div>';
+            conversationHistory = [];
+            messageCount = 0;
+            document.getElementById('messageCount').textContent = '0';
             
             // Add greeting message
             const greeting = generateResponse("hello");
-            addMessage(greeting, 'assistant');
-            speakText(greeting);
+            setTimeout(() => {
+                addMessage(greeting, 'assistant');
+                if (!isMuted) {
+                    speakText(greeting);
+                }
+            }, 1000);
             
             // Start call timer
             startCallTimer();
             
             // Initialize speech recognition
             initSpeechRecognition();
+            
+            console.log('Call started successfully');
         }
 
         function endCall() {
+            if (!callActive) return;
+            
             callActive = false;
             
-            document.getElementById('callStatus').textContent = '📞 CALL ENDED';
-            document.getElementById('callStatus').className = 'call-status inactive';
-            document.getElementById('startCallBtn').disabled = false;
-            document.getElementById('endCallBtn').disabled = true;
-            document.getElementById('listenBtn').disabled = true;
-            document.getElementById('speakBtn').disabled = true;
-            document.getElementById('textInput').disabled = true;
-            document.getElementById('sendBtn').disabled = true;
-            document.getElementById('callStatusText').textContent = 'Inactive';
+            // Update UI elements
+            const callStatus = document.getElementById('callStatus');
+            const startBtn = document.getElementById('startCallBtn');
+            const endBtn = document.getElementById('endCallBtn');
+            const listenBtn = document.getElementById('listenBtn');
+            const speakBtn = document.getElementById('speakBtn');
+            const textInput = document.getElementById('textInput');
+            const sendBtn = document.getElementById('sendBtn');
+            const callStatusText = document.getElementById('callStatusText');
             
-            // Stop speech recognition
-            if (recognition && isListening) {
-                recognition.stop();
+            callStatus.textContent = '📞 CALL ENDED';
+            callStatus.className = 'call-status inactive';
+            
+            startBtn.disabled = false;
+            endBtn.disabled = true;
+            listenBtn.disabled = true;
+            speakBtn.disabled = true;
+            textInput.disabled = true;
+            sendBtn.disabled = true;
+            
+            if (callStatusText) {
+                callStatusText.textContent = 'Inactive';
             }
             
-            // Save call log
-            saveCallLog();
+            // Stop speech recognition properly
+            if (recognition && isListening) {
+                try {
+                    recognition.stop();
+                    isListening = false;
+                } catch (error) {
+                    console.error('Error stopping recognition:', error);
+                }
+            }
             
-            // Reset conversation
+            // Stop any ongoing speech
+            if (synthesis && synthesis.speaking) {
+                synthesis.cancel();
+            }
+            
+            // Reset voice animation
+            const voiceAnimation = document.getElementById('voiceAnimation');
+            if (voiceAnimation) {
+                voiceAnimation.style.display = 'none';
+            }
+            
+            // Reset mute button
+            isMuted = false;
+            const muteBtn = document.getElementById('muteBtn');
+            if (muteBtn) {
+                muteBtn.innerHTML = '🔇 Mute';
+                muteBtn.style.background = 'linear-gradient(45deg, #ff9800, #f57c00)';
+                muteBtn.style.color = 'white';
+            }
+            
+            // Save call log if there was conversation
+            if (messageCount > 0) {
+                saveCallLog();
+            }
+            
+            // Reset conversation state
             conversationHistory = [];
             messageCount = 0;
-            document.getElementById('messageCount').textContent = '0';
+            const messageCountElement = document.getElementById('messageCount');
+            if (messageCountElement) {
+                messageCountElement.textContent = '0';
+            }
+            
+            // Reset call duration
+            const callDurationElement = document.getElementById('callDuration');
+            if (callDurationElement) {
+                callDurationElement.textContent = '00:00:00';
+            }
+            
+            console.log('Call ended successfully');
         }
 
         function toggleMute() {
+            if (!callActive) return;
+            
             isMuted = !isMuted;
             const muteBtn = document.getElementById('muteBtn');
+            
             if (isMuted) {
-                muteBtn.textContent = '🔊 Unmute';
+                muteBtn.innerHTML = '🔊 Unmute';
                 muteBtn.style.background = 'linear-gradient(45deg, #f44336, #d32f2f)';
+                muteBtn.style.color = 'white';
+                
+                // Stop any ongoing speech
+                if (synthesis.speaking) {
+                    synthesis.cancel();
+                }
             } else {
-                muteBtn.textContent = '🔇 Mute';
+                muteBtn.innerHTML = '🔇 Mute';
                 muteBtn.style.background = 'linear-gradient(45deg, #ff9800, #f57c00)';
+                muteBtn.style.color = 'white';
             }
+            
+            console.log('Mute toggled:', isMuted);
         }
 
         // Speech functions
