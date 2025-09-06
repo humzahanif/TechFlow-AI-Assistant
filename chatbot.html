@@ -32,6 +32,9 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    
     <title>TechFlow Solutions - Innovative IT Services</title>
     <style>
         * {
@@ -329,7 +332,7 @@
         }
 
         .package-card.featured::before {
-            content: "🌟 POPULAR";
+            content: "⭐ POPULAR";
             position: absolute;
             top: -10px;
             right: -10px;
@@ -491,12 +494,59 @@
             text-decoration: none;
             color: #666;
             transition: all 0.3s ease;
+            font-size: 1.2rem;
         }
 
         .social-icon:hover {
             background: #667eea;
             color: white;
             transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
         }
 
         /* Enhanced Contact Section */
@@ -648,82 +698,6 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
         }
-        .about {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #333;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #666;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: #333;
-            color: white;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
 
         /* Chatbot */
         .chatbot-container {
@@ -745,17 +719,13 @@
             box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: pulse 2s infinite;
+            color: white;
+            font-size: 1.5rem;
         }
 
         .chat-icon:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 30px rgba(102, 126, 234, 0.6);
-        }
-
-        .chat-icon svg {
-            width: 30px;
-            height: 30px;
-            fill: white;
         }
 
         .chat-tooltip {
@@ -1281,406 +1251,6 @@
                 background: #333;
             }
         }
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            /* Navigation */
-            .nav-links {
-                display: none;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
-            
-            /* Hero Section */
-            .hero {
-                padding: 0 20px;
-                height: 90vh;
-            }
-            
-            .hero h1 { 
-                font-size: 2.5rem;
-                line-height: 1.2;
-            }
-            
-            .hero p { 
-                font-size: 1.1rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            /* Sections */
-            .services,
-            .packages,
-            .team,
-            .about,
-            .contact {
-                padding: 60px 0;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-            }
-            
-            /* Service Cards */
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .service-card {
-                padding: 1.5rem;
-            }
-            
-            .service-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-            
-            /* Package Cards */
-            .packages-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .package-card {
-                padding: 2rem 1.5rem;
-            }
-            
-            .package-title {
-                font-size: 1.5rem;
-            }
-            
-            .package-price {
-                font-size: 2.5rem;
-            }
-            
-            /* Team Cards */
-            .team-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .team-card {
-                padding: 1.5rem;
-            }
-            
-            .team-avatar {
-                width: 100px;
-                height: 100px;
-                font-size: 2.5rem;
-            }
-            
-            /* About Section */
-            .stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .stat-item {
-                padding: 1rem;
-            }
-            
-            .stat-number {
-                font-size: 2rem;
-            }
-            
-            /* Contact Section */
-            .contact-info {
-                padding-right: 0;
-                margin-bottom: 2rem;
-            }
-            
-            .contact-info h3 {
-                font-size: 1.5rem;
-            }
-            
-            .contact-form {
-                padding: 2rem 1.5rem;
-            }
-            
-            .contact-form h3 {
-                font-size: 1.5rem;
-            }
-            
-            .contact-item {
-                padding: 0.8rem;
-            }
-            
-            .contact-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-            
-            /* Chatbot */
-            .chat-tooltip {
-                display: none;
-            }
-            
-            .chatbot-container {
-                bottom: 15px;
-                right: 15px;
-            }
-            
-            .chat-icon {
-                width: 55px;
-                height: 55px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            /* Extra small devices */
-            .container {
-                padding: 0 10px;
-            }
-            
-            /* Hero */
-            .hero {
-                padding: 0 15px;
-                height: 85vh;
-            }
-            
-            .hero h1 { 
-                font-size: 2rem;
-                margin-bottom: 0.8rem;
-            }
-            
-            .hero p { 
-                font-size: 1rem;
-                margin-bottom: 1.2rem;
-            }
-            
-            .cta-button {
-                padding: 12px 24px;
-                font-size: 1rem;
-            }
-            
-            /* Sections */
-            .services,
-            .packages,
-            .team,
-            .about,
-            .contact {
-                padding: 50px 0;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            /* Cards */
-            .service-card,
-            .package-card,
-            .team-card {
-                padding: 1.2rem;
-            }
-            
-            /* Package specific */
-            .package-title {
-                font-size: 1.3rem;
-            }
-            
-            .package-price {
-                font-size: 2.2rem;
-            }
-            
-            .package-features {
-                font-size: 0.9rem;
-            }
-            
-            /* Team specific */
-            .team-avatar {
-                width: 80px;
-                height: 80px;
-                font-size: 2rem;
-            }
-            
-            .team-name {
-                font-size: 1.2rem;
-            }
-            
-            .team-description {
-                font-size: 0.85rem;
-            }
-            
-            /* Contact */
-            .contact-info h3 {
-                font-size: 1.3rem;
-            }
-            
-            .contact-info p {
-                font-size: 0.95rem;
-            }
-            
-            .contact-form {
-                padding: 1.5rem 1rem;
-            }
-            
-            .contact-form h3 {
-                font-size: 1.3rem;
-            }
-            
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                padding: 12px;
-                font-size: 0.9rem;
-            }
-            
-            .submit-button {
-                padding: 12px 24px;
-                font-size: 1rem;
-            }
-            
-            /* Stats */
-            .stat-number {
-                font-size: 1.8rem;
-            }
-            
-            /* Floating shapes - hide on small screens */
-            .floating-shape {
-                display: none;
-            }
-            
-            /* Social icons */
-            .social-icon {
-                width: 30px;
-                height: 30px;
-                font-size: 0.8rem;
-            }
-        }
-
-        @media (max-width: 400px) {
-            /* Very small devices */
-            .hero h1 { 
-                font-size: 1.8rem;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .package-price {
-                font-size: 2rem;
-            }
-            
-            .team-avatar {
-                width: 70px;
-                height: 70px;
-                font-size: 1.8rem;
-            }
-            
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-                padding: 1rem 0.5rem;
-            }
-            
-            .contact-icon {
-                margin-bottom: 0.5rem;
-                margin-right: 0;
-            }
-        }
-
-        /* Landscape orientation for mobile devices */
-        @media (max-width: 768px) and (orientation: landscape) {
-            .hero {
-                height: 100vh;
-                padding: 0 20px;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .sections {
-                padding: 40px 0;
-            }
-        }
-
-        /* Print styles */
-        @media print {
-            .chatbot-container,
-            .floating-shape,
-            .cta-button,
-            .package-button,
-            .submit-button {
-                display: none;
-            }
-            
-            body {
-                background: white !important;
-                color: black !important;
-            }
-            
-            .hero {
-                background: white !important;
-                color: black !important;
-                page-break-after: always;
-            }
-        }
-
-        /* High resolution displays */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .service-icon,
-            .team-avatar,
-            .contact-icon {
-                image-rendering: -webkit-optimize-contrast;
-                image-rendering: crisp-edges;
-            }
-        }
-
-        /* Accessibility - Reduce motion for users who prefer it */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            
-            .floating-shape {
-                animation: none;
-            }
-            
-            .chat-icon {
-                animation: none;
-            }
-        }
-
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-            .service-card,
-            .team-card {
-                background: #2a2a2a;
-                color: white;
-            }
-            
-            .about {
-                background: #1a1a1a;
-                color: white;
-            }
-            
-            .contact-form {
-                background: rgba(42, 42, 42, 0.9);
-            }
-        }
     </style>
 </head>
 <body>
@@ -1732,32 +1302,44 @@
             <h2 class="section-title">Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">💻</div>
+                    <div class="service-icon">
+                        <i class="bi bi-laptop"></i>
+                    </div>
                     <h3>Web Development</h3>
                     <p>Custom web applications built with modern technologies and responsive design for optimal user experience.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">☁️</div>
+                    <div class="service-icon">
+                        <i class="bi bi-cloud"></i>
+                    </div>
                     <h3>Cloud Solutions</h3>
                     <p>Scalable cloud infrastructure and migration services to improve efficiency and reduce operational costs.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🤖</div>
+                    <div class="service-icon">
+                        <i class="bi bi-robot"></i>
+                    </div>
                     <h3>AI Integration</h3>
                     <p>Intelligent automation and AI-powered solutions to streamline business processes and enhance productivity.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📱</div>
+                    <div class="service-icon">
+                        <i class="bi bi-phone"></i>
+                    </div>
                     <h3>Mobile Apps</h3>
                     <p>Native and cross-platform mobile applications for iOS and Android with seamless user experiences.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🔒</div>
+                    <div class="service-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
                     <h3>Cybersecurity</h3>
                     <p>Comprehensive security solutions to protect your business from digital threats and data breaches.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📊</div>
+                    <div class="service-icon">
+                        <i class="bi bi-bar-chart"></i>
+                    </div>
                     <h3>Data Analytics</h3>
                     <p>Transform raw data into actionable insights with advanced analytics and business intelligence tools.</p>
                 </div>
@@ -1817,23 +1399,6 @@
                     </ul>
                     <button class="package-button">Contact Sales</button>
                 </div>
-                
-            <!--    <div class="package-card">
-                    <h3 class="package-title">Custom</h3>
-                    <div class="package-price">Let's Talk</div>
-                    <div class="package-duration">tailored solution</div>
-                    <ul class="package-features">
-                        <li>Fully customized solution</li>
-                        <li>Scalable architecture</li>
-                        <li>Advanced security features</li>
-                        <li>Integration with existing systems</li>
-                        <li>Training and documentation</li>
-                        <li>Ongoing maintenance</li>
-                        <li>Priority support</li>
-                        <li>SLA agreements</li>
-                    </ul>
-                    <button class="package-button">Discuss Project</button>
-                </div>  -->
             </div>
         </div>
     </section>
@@ -1843,86 +1408,98 @@
             <h2 class="section-title">Meet Our Expert Team</h2>
             <div class="team-grid">
                 <div class="team-card">
-                    <div class="team-avatar">👨‍💻</div>
+                    <div class="team-avatar">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
                     <h3 class="team-name">Alex Rodriguez</h3>
                     <div class="team-role">Chief Technology Officer</div>
                     <p class="team-description">
                         15+ years in software architecture and AI development. Led digital transformation projects for Fortune 500 companies.
                     </p>
                     <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon"><i class="bi bi-envelope"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card">
-                    <div class="team-avatar">👩‍💻</div>
+                    <div class="team-avatar">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
                     <h3 class="team-name">Sarah Chen</h3>
                     <div class="team-role">Lead Full Stack Developer</div>
                     <p class="team-description">
                         Expert in React, Node.js, and cloud technologies. Passionate about creating scalable web applications and user experiences.
                     </p>
                     <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon"><i class="bi bi-envelope"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card">
-                    <div class="team-avatar">👨‍🎨</div>
+                    <div class="team-avatar">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
                     <h3 class="team-name">Michael Thompson</h3>
                     <div class="team-role">UI/UX Design Lead</div>
                     <p class="team-description">
                         Creative designer with 10+ years experience. Specializes in creating intuitive interfaces and exceptional user experiences.
                     </p>
                     <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon"><i class="bi bi-envelope"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card">
-                    <div class="team-avatar">👩‍🔬</div>
+                    <div class="team-avatar">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
                     <h3 class="team-name">Dr. Emily Watson</h3>
                     <div class="team-role">AI/ML Specialist</div>
                     <p class="team-description">
                         PhD in Machine Learning. Develops intelligent systems and automation solutions that drive business innovation.
                     </p>
                     <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon"><i class="bi bi-envelope"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card">
-                    <div class="team-avatar">👨‍🔒</div>
+                    <div class="team-avatar">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
                     <h3 class="team-name">James Wilson</h3>
                     <div class="team-role">Cybersecurity Expert</div>
                     <p class="team-description">
                         Certified security professional with expertise in protecting digital assets and implementing robust security frameworks.
                     </p>
                     <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon"><i class="bi bi-envelope"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card">
-                    <div class="team-avatar">👩‍💼</div>
+                    <div class="team-avatar">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
                     <h3 class="team-name">Lisa Park</h3>
                     <div class="team-role">Project Manager</div>
                     <p class="team-description">
                         Agile certified project manager ensuring timely delivery and client satisfaction across all technology projects.
                     </p>
                     <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
+                        <a href="#" class="social-icon"><i class="bi bi-envelope"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
                     </div>
                 </div>
             </div>
@@ -1969,7 +1546,9 @@
                     
                     <div class="contact-details">
                         <div class="contact-item">
-                            <div class="contact-icon">📍</div>
+                            <div class="contact-icon">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
                             <div class="contact-text">
                                 <strong>Visit Our Office</strong>
                                 123 Tech Boulevard, Innovation District<br>
@@ -1978,7 +1557,9 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">📞</div>
+                            <div class="contact-icon">
+                                <i class="bi bi-telephone"></i>
+                            </div>
                             <div class="contact-text">
                                 <strong>Call Us</strong>
                                 +92 21 1234-5678<br>
@@ -1987,7 +1568,9 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">📧</div>
+                            <div class="contact-icon">
+                                <i class="bi bi-envelope"></i>
+                            </div>
                             <div class="contact-text">
                                 <strong>Email Us</strong>
                                 info@techflowsolutions.com<br>
@@ -1996,7 +1579,9 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">🕒</div>
+                            <div class="contact-icon">
+                                <i class="bi bi-clock"></i>
+                            </div>
                             <div class="contact-text">
                                 <strong>Business Hours</strong>
                                 Mon - Fri: 9:00 AM - 6:00 PM<br>
@@ -2005,7 +1590,9 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">💬</div>
+                            <div class="contact-icon">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
                             <div class="contact-text">
                                 <strong>24/7 AI Support</strong>
                                 Chat with our Gemini AI Assistant<br>
@@ -2098,9 +1685,7 @@
     <!-- Chatbot -->
     <div class="chatbot-container">
         <div class="chat-icon" onclick="toggleChat()" title="Open AI Assistant">
-            <svg viewBox="0 0 24 24">
-                <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-            </svg>
+            <i class="bi bi-chat-dots"></i>
         </div>
         
         <!-- Tooltip -->
@@ -2177,92 +1762,6 @@
             if (touchEndX < touchStartX - 50 && mobileNav.classList.contains('active')) {
                 // Swipe left - close menu
                 closeMobileMenu();
-            }
-        }
-
-        // Alternative: Open chatbot in an overlay iframe
-        function toggleChatOverlay() {
-            let overlay = document.getElementById('chatOverlay');
-            
-            if (!overlay) {
-                // Create overlay
-                overlay = document.createElement('div');
-                overlay.id = 'chatOverlay';
-                overlay.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0,0,0,0.8);
-                    z-index: 10000;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                `;
-                
-                // Create iframe container
-                const container = document.createElement('div');
-                container.style.cssText = `
-                    width: 90%;
-                    max-width: 800px;
-                    height: 80%;
-                    background: white;
-                    border-radius: 15px;
-                    position: relative;
-                    overflow: hidden;
-                    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-                `;
-                
-                // Create close button
-                const closeBtn = document.createElement('button');
-                closeBtn.innerHTML = '&times;';
-                closeBtn.style.cssText = `
-                    position: absolute;
-                    top: 10px;
-                    right: 15px;
-                    background: #ff4757;
-                    color: white;
-                    border: none;
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 50%;
-                    font-size: 18px;
-                    cursor: pointer;
-                    z-index: 10001;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                `;
-                
-                closeBtn.onclick = () => {
-                    document.body.removeChild(overlay);
-                };
-                
-                // Create iframe
-                const iframe = document.createElement('iframe');
-                iframe.src = 'http://localhost:8501'; // Change to your Streamlit app URL
-                iframe.style.cssText = `
-                    width: 100%;
-                    height: 100%;
-                    border: none;
-                    border-radius: 15px;
-                `;
-                
-                container.appendChild(closeBtn);
-                container.appendChild(iframe);
-                overlay.appendChild(container);
-                
-                // Close on overlay click
-                overlay.onclick = (e) => {
-                    if (e.target === overlay) {
-                        document.body.removeChild(overlay);
-                    }
-                };
-                
-                document.body.appendChild(overlay);
-            } else {
-                document.body.removeChild(overlay);
             }
         }
 
