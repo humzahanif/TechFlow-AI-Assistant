@@ -32,180 +32,101 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    
     <title>TechFlow Solutions - Innovative IT Services</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-gradient: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            --gold-gradient: linear-gradient(45deg, #ffd700, #ffed4e);
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #ff6b6b;
+            --gold-color: #ffd700;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--primary-gradient);
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
+        /* Header Customizations */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            position: relative;
-        }
-
-        .logo {
+        .navbar-brand {
             font-size: 1.8rem;
             font-weight: bold;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            z-index: 1001;
+            background-clip: text;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
+        .navbar-nav .nav-link {
+            color: #333 !important;
             font-weight: 500;
             transition: color 0.3s ease;
+            margin: 0 0.5rem;
         }
 
-        .nav-links a:hover {
-            color: #667eea;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-            z-index: 1001;
-        }
-
-        .mobile-menu-btn span {
-            width: 25px;
-            height: 3px;
-            background: #333;
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 3px;
-        }
-
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .mobile-nav.active {
-            display: flex;
-        }
-
-        .mobile-nav a {
-            font-size: 1.5rem;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            padding: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .mobile-nav a:hover {
-            color: #667eea;
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
         }
 
         /* Hero Section */
         .hero {
             height: 100vh;
+            background: var(--primary-gradient);
+            position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
             color: white;
-            position: relative;
-            overflow: hidden;
         }
 
         .hero-content {
             z-index: 2;
-            max-width: 800px;
+            text-align: center;
+            animation: fadeInUp 1s ease forwards 0.5s;
+            opacity: 0;
         }
 
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.5s;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.8s;
+            opacity: 0.9;
         }
 
-        .cta-button {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white;
-            padding: 15px 30px;
+        .btn-cta {
+            background: var(--accent-gradient);
             border: none;
+            padding: 15px 30px;
             border-radius: 50px;
             font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards 1.1s;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
         }
 
-        .cta-button:hover {
+        .btn-cta:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
         }
@@ -218,113 +139,63 @@
             animation: float 6s ease-in-out infinite;
         }
 
-        .shape1 {
-            width: 100px;
-            height: 100px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
+        .shape1 { width: 100px; height: 100px; top: 20%; left: 10%; animation-delay: 0s; }
+        .shape2 { width: 150px; height: 150px; top: 60%; right: 10%; animation-delay: 2s; }
+        .shape3 { width: 80px; height: 80px; bottom: 20%; left: 20%; animation-delay: 4s; }
 
-        .shape2 {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .shape3 {
-            width: 80px;
-            height: 80px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
+        /* Service Cards */
         .service-card {
             background: white;
-            padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             border: 2px solid transparent;
+            height: 100%;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
+            border-color: var(--primary-color);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-color: #667eea;
         }
 
         .service-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: var(--primary-gradient);
             border-radius: 50%;
-            margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
             color: white;
+            margin: 0 auto 1.5rem;
         }
 
-        /* Packages Section */
+        /* Package Cards */
         .packages {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--primary-gradient);
             color: white;
-        }
-
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
         }
 
         .package-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
-            text-align: center;
             border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border-radius: 20px;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            height: 100%;
         }
 
         .package-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
         .package-card.featured {
-            border-color: #ffd700;
+            border-color: var(--gold-color);
             background: rgba(255, 215, 0, 0.1);
         }
 
@@ -333,7 +204,7 @@
             position: absolute;
             top: -10px;
             right: -10px;
-            background: #ffd700;
+            background: var(--gold-color);
             color: #333;
             padding: 5px 15px;
             font-size: 0.8rem;
@@ -342,85 +213,27 @@
             transform: rotate(15deg);
         }
 
-        .package-title {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #ffd700;
-        }
-
         .package-price {
             font-size: 3rem;
             font-weight: bold;
-            margin-bottom: 0.5rem;
             color: white;
         }
 
-        .package-duration {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 2rem;
-        }
-
-        .package-features {
-            list-style: none;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .package-features li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .package-features li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4CAF50;
+        .package-title {
+            color: var(--gold-color);
+            font-size: 1.8rem;
             font-weight: bold;
         }
 
-        .package-button {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 100%;
-        }
-
-        .package-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
-        }
-
-        /* Team Section */
-        .team {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
+        /* Team Cards */
         .team-card {
             background: white;
-            padding: 2rem;
             border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             border: 2px solid transparent;
             position: relative;
             overflow: hidden;
+            height: 100%;
         }
 
         .team-card::before {
@@ -430,162 +243,59 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: var(--primary-gradient);
         }
 
         .team-card:hover {
             transform: translateY(-10px);
+            border-color: var(--primary-color);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-color: #667eea;
         }
 
         .team-avatar {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: var(--primary-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
             color: white;
-            position: relative;
-            overflow: hidden;
+            margin: 0 auto 1.5rem;
         }
 
-        .team-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .team-role {
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .team-description {
-            color: #666;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .team-social {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .social-icon {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: #666;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            background: #667eea;
-            color: white;
-            transform: translateY(-2px);
-        }
-
+        /* About Section */
         .about {
-            padding: 100px 0;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #333;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #666;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
         .stat-item {
-            text-align: center;
-            padding: 1.5rem;
             background: white;
             border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 100%;
         }
 
         .stat-number {
             font-size: 2.5rem;
             font-weight: bold;
-            color: #667eea;
+            color: var(--primary-color);
         }
 
         /* Contact Section */
         .contact {
-            padding: 100px 0;
             background: #333;
             color: white;
         }
 
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .contact-info {
-            padding-right: 2rem;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #ffd700;
-        }
-
-        .contact-info p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .contact-details {
-            margin-bottom: 2rem;
-        }
-
         .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding: 1rem;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
             transition: background 0.3s ease;
         }
 
@@ -597,155 +307,99 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: var(--primary-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
+            color: white;
             font-size: 1.2rem;
-        }
-
-        .contact-text {
-            flex: 1;
-        }
-
-        .contact-text strong {
-            display: block;
-            color: #ffd700;
-            margin-bottom: 0.2rem;
         }
 
         .contact-form {
             background: rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
-            border-radius: 20px;
             backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
         }
 
-        .contact-form h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #ffd700;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #ffd700;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(255, 255, 255, 0.2);
             border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
             color: white;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+            padding: 15px;
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-color);
+            color: white;
+            box-shadow: none;
         }
 
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
+        .form-control::placeholder {
             color: rgba(255, 255, 255, 0.7);
         }
 
-        .form-group select option {
+        .form-label {
+            color: var(--gold-color);
+            font-weight: 500;
+        }
+
+        .form-select {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .form-select option {
             background: #333;
             color: white;
         }
 
-        .submit-button {
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
+        .btn-submit {
+            background: var(--gold-gradient);
+            border: none;
             color: #333;
             padding: 15px 30px;
-            border: none;
             border-radius: 50px;
-            font-size: 1.1rem;
             font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             width: 100%;
+            transition: all 0.3s ease;
         }
 
-        .submit-button:hover {
+        .btn-submit:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
         }
 
-        /* Voice Assistant Widget Styles */
+        /* Voice Assistant Widget */
         .voice-assistant-widget {
             position: fixed;
             bottom: 20px;
             right: 20px;
             z-index: 9998;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
         }
 
         .voice-toggle-btn {
             width: 60px;
             height: 60px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: var(--primary-gradient);
             border: none;
             border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
             cursor: pointer;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
         .voice-toggle-btn:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 30px rgba(102, 126, 234, 0.6);
-        }
-
-        .voice-toggle-btn svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
-            z-index: 2;
-        }
-
-        .voice-pulse {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%) scale(0);
-            animation: voicePulse 2s infinite;
-        }
-
-        @keyframes voicePulse {
-            0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
         }
 
         .voice-widget-window {
@@ -770,253 +424,10 @@
             transform: translateY(0) scale(1);
         }
 
-        .voice-widget-header {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .voice-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .voice-info {
-            flex: 1;
-        }
-
-        .voice-info h3 {
-            margin: 0;
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .voice-info p {
-            margin: 2px 0 0 0;
-            font-size: 12px;
-            opacity: 0.8;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 50%;
-            transition: background 0.2s ease;
-        }
-
-        .close-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .voice-widget-content {
-            height: calc(100% - 80px);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .voice-conversation {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px;
-            background: #f8f9ff;
-        }
-
-        .voice-conversation::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .voice-conversation::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .voice-conversation::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 3px;
-        }
-
-        .voice-message {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-end;
-        }
-
-        .voice-message.bot {
-            justify-content: flex-start;
-        }
-
-        .voice-message.user {
-            justify-content: flex-end;
-        }
-
-        .voice-message-content {
-            max-width: 75%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            font-size: 14px;
-            line-height: 1.4;
-            animation: messageSlideIn 0.3s ease-out;
-        }
-
-        .voice-message.bot .voice-message-content {
-            background: white;
-            color: #333;
-            border-radius: 0 18px 18px 18px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .voice-message.user .voice-message-content {
-            background: #667eea;
-            color: white;
-            border-radius: 18px 18px 0 18px;
-        }
-
-        .voice-controls {
-            padding: 15px 20px;
-            background: white;
-            border-top: 1px solid #eee;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .voice-mic-btn {
-            background: #667eea;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .voice-mic-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .voice-mic-btn.listening {
-            background: #ff4757;
-            animation: voicePulse 1s infinite;
-        }
-
-        .voice-mic-btn svg {
-            fill: white;
-            width: 20px;
-            height: 20px;
-        }
-
-        .voice-call-btn {
-            background: transparent;
-            border: 2px solid #667eea;
-            color: #667eea;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.2s ease;
-            font-weight: 500;
-        }
-
-        .voice-call-btn:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        .voice-quick-actions {
-            padding: 0 20px 15px;
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .voice-quick-btn {
-            background: #f0f0f0;
-            border: none;
-            border-radius: 15px;
-            padding: 6px 12px;
-            font-size: 11px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: #667eea;
-            font-weight: 500;
-        }
-
-        .voice-quick-btn:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        /* Direct Voice Call Button */
-        .direct-voice-btn {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
-            z-index: 9999;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-        }
-
-        .direct-voice-btn.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .direct-voice-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
-        }
-
-        .direct-voice-btn svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
-
         /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes float {
@@ -1024,619 +435,615 @@
             50% { transform: translateY(-20px); }
         }
 
-        @keyframes messageSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 480px) {
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .service-icon { width: 60px; height: 60px; font-size: 1.5rem; }
+            .team-avatar { width: 100px; height: 100px; font-size: 2.5rem; }
+            .package-price { font-size: 2.5rem; }
             .voice-widget-window {
                 width: calc(100vw - 40px);
-                height: calc(100vh - 40px);
+                height: calc(100vh - 100px);
                 bottom: 20px;
-                left: auto;
                 right: 20px;
-                border-radius: 20px;
-                position: fixed;
-            }
-
-            .voice-conversation {
-                height: calc(100vh - 220px);
-            }
-
-            .direct-voice-btn {
-                bottom: 90px;
-                right: 15px;
-                padding: 10px 16px;
-                font-size: 13px;
-            }
-
-            .voice-assistant-widget {
-                bottom: 150px;
-                left: 15px;
-            }
-        }
-
-        @media (max-width: 1200px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .services-grid,
-            .packages-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero h1 { font-size: 3rem; }
-            .hero p { font-size: 1.2rem; }
-            
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-            
-            .packages-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1.5rem;
-            }
-            
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: flex;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
-            
-            .hero {
-                padding: 0 20px;
-                height: 90vh;
-            }
-            
-            .hero h1 { 
-                font-size: 2.5rem;
-                line-height: 1.2;
-            }
-            
-            .hero p { 
-                font-size: 1.1rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .services,
-            .packages,
-            .team,
-            .about,
-            .contact {
-                padding: 60px 0;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .service-card {
-                padding: 1.5rem;
-            }
-            
-            .service-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-            
-            .packages-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .package-card {
-                padding: 2rem 1.5rem;
-            }
-            
-            .package-title {
-                font-size: 1.5rem;
-            }
-            
-            .package-price {
-                font-size: 2.5rem;
-            }
-            
-            .team-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .team-card {
-                padding: 1.5rem;
-            }
-            
-            .team-avatar {
-                width: 100px;
-                height: 100px;
-                font-size: 2.5rem;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .stat-item {
-                padding: 1rem;
-            }
-            
-            .stat-number {
-                font-size: 2rem;
-            }
-            
-            .contact-info {
-                padding-right: 0;
-                margin-bottom: 2rem;
-            }
-            
-            .contact-info h3 {
-                font-size: 1.5rem;
-            }
-            
-            .contact-form {
-                padding: 2rem 1.5rem;
-            }
-            
-            .contact-form h3 {
-                font-size: 1.5rem;
-            }
-            
-            .contact-item {
-                padding: 0.8rem;
-            }
-            
-            .contact-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <nav>
-                <div class="logo">TechFlow Solutions</div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#packages">Packages</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+            <a class="navbar-brand" href="#home">TechFlow Solutions</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
-                <div class="mobile-menu-btn" id="mobileMenuBtn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
+            </div>
         </div>
-        
-        <div class="mobile-nav" id="mobileNav">
-            <a href="#home" onclick="closeMobileMenu()">Home</a>
-            <a href="#services" onclick="closeMobileMenu()">Services</a>
-            <a href="#packages" onclick="closeMobileMenu()">Packages</a>
-            <a href="#team" onclick="closeMobileMenu()">Team</a>
-            <a href="#about" onclick="closeMobileMenu()">About</a>
-            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-        </div>
-    </header>
+    </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="floating-shape shape1"></div>
         <div class="floating-shape shape2"></div>
         <div class="floating-shape shape3"></div>
         
-        <div class="hero-content">
-            <h1>Innovative IT Solutions</h1>
-            <p>Transforming businesses through cutting-edge technology and exceptional service</p>
-            <button class="cta-button" onclick="scrollToContact()">Get Started Today</button>
-        </div>
-    </section>
-
-    <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>Web Development</h3>
-                    <p>Custom web applications built with modern technologies and responsive design for optimal user experience.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">☁️</div>
-                    <h3>Cloud Solutions</h3>
-                    <p>Scalable cloud infrastructure and migration services to improve efficiency and reduce operational costs.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>AI Integration</h3>
-                    <p>Intelligent automation and AI-powered solutions to streamline business processes and enhance productivity.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Mobile Apps</h3>
-                    <p>Native and cross-platform mobile applications for iOS and Android with seamless user experiences.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔒</div>
-                    <h3>Cybersecurity</h3>
-                    <p>Comprehensive security solutions to protect your business from digital threats and data breaches.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Data Analytics</h3>
-                    <p>Transform raw data into actionable insights with advanced analytics and business intelligence tools.</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 hero-content">
+                    <h1 class="display-2 fw-bold mb-4">Innovative IT Solutions</h1>
+                    <p class="lead mb-4">Transforming businesses through cutting-edge technology and exceptional service</p>
+                    <button class="btn btn-cta btn-lg" onclick="scrollToContact()">
+                        <i class="bi bi-rocket-takeoff me-2"></i>Get Started Today
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="packages" class="packages">
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-white">
         <div class="container">
-            <h2 class="section-title">Choose Your Package</h2>
-            <div class="packages-grid">
-                <div class="package-card">
-                    <h3 class="package-title">Starter</h3>
-                    <div class="package-price">$99</div>
-                    <div class="package-duration">per month</div>
-                    <ul class="package-features">
-                        <li>Basic website (up to 5 pages)</li>
-                        <li>Mobile responsive design</li>
-                        <li>SEO optimization</li>
-                        <li>Contact form integration</li>
-                        <li>1 month free support</li>
-                        <li>SSL certificate</li>
-                    </ul>
-                    <button class="package-button" onclick="contactForPackage('Starter')">Get Started</button>
-                </div>
-                
-                <div class="package-card featured">
-                    <h3 class="package-title">Professional</h3>
-                    <div class="package-price">$299</div>
-                    <div class="package-duration">per month</div>
-                    <ul class="package-features">
-                        <li>Custom web application</li>
-                        <li>Database integration</li>
-                        <li>Admin dashboard</li>
-                        <li>API development</li>
-                        <li>Cloud deployment</li>
-                        <li>3 months free support</li>
-                        <li>Performance monitoring</li>
-                        <li>Security hardening</li>
-                    </ul>
-                    <button class="package-button" onclick="contactForPackage('Professional')">Most Popular</button>
-                </div>
-                
-                <div class="package-card">
-                    <h3 class="package-title">Enterprise</h3>
-                    <div class="package-price">$799</div>
-                    <div class="package-duration">per month</div>
-                    <ul class="package-features">
-                        <li>Full-scale application</li>
-                        <li>Microservices architecture</li>
-                        <li>AI/ML integration</li>
-                        <li>DevOps pipeline</li>
-                        <li>24/7 monitoring</li>
-                        <li>6 months free support</li>
-                        <li>Custom integrations</li>
-                        <li>Dedicated account manager</li>
-                    </ul>
-                    <button class="package-button" onclick="contactForPackage('Enterprise')">Contact Sales</button>
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-4 fw-bold mb-4">Our Services</h2>
+                    <p class="lead text-muted">Comprehensive IT solutions tailored to your business needs</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="team" class="team">
-        <div class="container">
-            <h2 class="section-title">Meet Our Expert Team</h2>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-avatar">👨‍💻</div>
-                    <h3 class="team-name">Alex Rodriguez</h3>
-                    <div class="team-role">Chief Technology Officer</div>
-                    <p class="team-description">
-                        15+ years in software architecture and AI development. Led digital transformation projects for Fortune 500 companies.
-                    </p>
-                    <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card h-100 p-4 text-center border-0 shadow">
+                        <div class="service-icon mx-auto mb-3">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold mb-3">Web Development</h5>
+                            <p class="card-text">Custom web applications built with modern technologies and responsive design for optimal user experience.</p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">👩‍💻</div>
-                    <h3 class="team-name">Sarah Chen</h3>
-                    <div class="team-role">Lead Full Stack Developer</div>
-                    <p class="team-description">
-                        Expert in React, Node.js, and cloud technologies. Passionate about creating scalable web applications and user experiences.
-                    </p>
-                    <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card h-100 p-4 text-center border-0 shadow">
+                        <div class="service-icon mx-auto mb-3">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold mb-3">Cloud Solutions</h5>
+                            <p class="card-text">Scalable cloud infrastructure and migration services to improve efficiency and reduce operational costs.</p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">👨‍🎨</div>
-                    <h3 class="team-name">Michael Thompson</h3>
-                    <div class="team-role">UI/UX Design Lead</div>
-                    <p class="team-description">
-                        Creative designer with 10+ years experience. Specializes in creating intuitive interfaces and exceptional user experiences.
-                    </p>
-                    <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card h-100 p-4 text-center border-0 shadow">
+                        <div class="service-icon mx-auto mb-3">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold mb-3">AI Integration</h5>
+                            <p class="card-text">Intelligent automation and AI-powered solutions to streamline business processes and enhance productivity.</p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">👩‍🔬</div>
-                    <h3 class="team-name">Dr. Emily Watson</h3>
-                    <div class="team-role">AI/ML Specialist</div>
-                    <p class="team-description">
-                        PhD in Machine Learning. Develops intelligent systems and automation solutions that drive business innovation.
-                    </p>
-                    <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card h-100 p-4 text-center border-0 shadow">
+                        <div class="service-icon mx-auto mb-3">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold mb-3">Mobile Apps</h5>
+                            <p class="card-text">Native and cross-platform mobile applications for iOS and Android with seamless user experiences.</p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">👨‍🔒</div>
-                    <h3 class="team-name">James Wilson</h3>
-                    <div class="team-role">Cybersecurity Expert</div>
-                    <p class="team-description">
-                        Certified security professional with expertise in protecting digital assets and implementing robust security frameworks.
-                    </p>
-                    <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card h-100 p-4 text-center border-0 shadow">
+                        <div class="service-icon mx-auto mb-3">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold mb-3">Cybersecurity</h5>
+                            <p class="card-text">Comprehensive security solutions to protect your business from digital threats and data breaches.</p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">👩‍💼</div>
-                    <h3 class="team-name">Lisa Park</h3>
-                    <div class="team-role">Project Manager</div>
-                    <p class="team-description">
-                        Agile certified project manager ensuring timely delivery and client satisfaction across all technology projects.
-                    </p>
-                    <div class="team-social">
-                        <a href="#" class="social-icon">📧</a>
-                        <a href="#" class="social-icon">💼</a>
-                        <a href="#" class="social-icon">🐦</a>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card service-card h-100 p-4 text-center border-0 shadow">
+                        <div class="service-icon mx-auto mb-3">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold mb-3">Data Analytics</h5>
+                            <p class="card-text">Transform raw data into actionable insights with advanced analytics and business intelligence tools.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about">
+    <!-- Packages Section -->
+    <section id="packages" class="packages py-5">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About TechFlow Solutions</h2>
-                    <p>We are a leading IT company specializing in digital transformation and innovative technology solutions. With over a decade of experience, we help businesses leverage technology to achieve their goals and stay competitive in the digital age.</p>
-                    <p>Our team of expert developers, designers, and consultants work collaboratively to deliver exceptional results that exceed expectations and drive business growth.</p>
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-4 fw-bold mb-4 text-white">Choose Your Package</h2>
+                    <p class="lead">Flexible pricing plans designed to fit your business needs</p>
                 </div>
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div>Projects Completed</div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card package-card h-100 p-4 text-center border-0">
+                        <div class="card-body">
+                            <h3 class="package-title mb-3">Starter</h3>
+                            <div class="package-price mb-2">$99</div>
+                            <p class="text-white-50 mb-4">per month</p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Basic website (up to 5 pages)</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Mobile responsive design</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>SEO optimization</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Contact form integration</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>1 month free support</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>SSL certificate</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <button class="btn btn-outline-light btn-lg w-100" onclick="contactForPackage('Starter')">
+                                Get Started
+                            </button>
+                        </div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">200+</div>
-                        <div>Happy Clients</div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card package-card featured h-100 p-4 text-center border-0">
+                        <div class="card-body">
+                            <h3 class="package-title mb-3">Professional</h3>
+                            <div class="package-price mb-2">$299</div>
+                            <p class="text-white-50 mb-4">per month</p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Custom web application</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Database integration</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Admin dashboard</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>API development</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Cloud deployment</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>3 months free support</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Performance monitoring</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Security hardening</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <button class="btn btn-light btn-lg w-100 fw-bold" onclick="contactForPackage('Professional')">
+                                Most Popular
+                            </button>
+                        </div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div>Team Members</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div>Years Experience</div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <div class="card package-card h-100 p-4 text-center border-0">
+                        <div class="card-body">
+                            <h3 class="package-title mb-3">Enterprise</h3>
+                            <div class="package-price mb-2">$799</div>
+                            <p class="text-white-50 mb-4">per month</p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Full-scale application</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Microservices architecture</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>AI/ML integration</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>DevOps pipeline</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>24/7 monitoring</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>6 months free support</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Custom integrations</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Dedicated account manager</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <button class="btn btn-outline-light btn-lg w-100" onclick="contactForPackage('Enterprise')">
+                                Contact Sales
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <!-- Team Section -->
+    <section id="team" class="py-5 bg-white">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Let's Start a Conversation</h3>
-                    <p>Ready to transform your business with cutting-edge technology? We're here to help you every step of the way. Reach out to us for a free consultation and discover how we can bring your vision to life.</p>
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-4 fw-bold mb-4">Meet Our Expert Team</h2>
+                    <p class="lead text-muted">Experienced professionals dedicated to your success</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card h-100 p-4 text-center border-0 shadow">
+                        <div class="team-avatar mx-auto mb-3">
+                            <i class="bi bi-person-workspace"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">Alex Rodriguez</h5>
+                            <p class="text-primary fw-semibold mb-3">Chief Technology Officer</p>
+                            <p class="card-text small mb-3">15+ years in software architecture and AI development. Led digital transformation projects for Fortune 500 companies.</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card h-100 p-4 text-center border-0 shadow">
+                        <div class="team-avatar mx-auto mb-3">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">Sarah Chen</h5>
+                            <p class="text-primary fw-semibold mb-3">Lead Full Stack Developer</p>
+                            <p class="card-text small mb-3">Expert in React, Node.js, and cloud technologies. Passionate about creating scalable web applications and user experiences.</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card h-100 p-4 text-center border-0 shadow">
+                        <div class="team-avatar mx-auto mb-3">
+                            <i class="bi bi-palette"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">Michael Thompson</h5>
+                            <p class="text-primary fw-semibold mb-3">UI/UX Design Lead</p>
+                            <p class="card-text small mb-3">Creative designer with 10+ years experience. Specializes in creating intuitive interfaces and exceptional user experiences.</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card h-100 p-4 text-center border-0 shadow">
+                        <div class="team-avatar mx-auto mb-3">
+                            <i class="bi bi-cpu"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">Dr. Emily Watson</h5>
+                            <p class="text-primary fw-semibold mb-3">AI/ML Specialist</p>
+                            <p class="card-text small mb-3">PhD in Machine Learning. Develops intelligent systems and automation solutions that drive business innovation.</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card h-100 p-4 text-center border-0 shadow">
+                        <div class="team-avatar mx-auto mb-3">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">James Wilson</h5>
+                            <p class="text-primary fw-semibold mb-3">Cybersecurity Expert</p>
+                            <p class="card-text small mb-3">Certified security professional with expertise in protecting digital assets and implementing robust security frameworks.</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <div class="card team-card h-100 p-4 text-center border-0 shadow">
+                        <div class="team-avatar mx-auto mb-3">
+                            <i class="bi bi-kanban"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-2">Lisa Park</h5>
+                            <p class="text-primary fw-semibold mb-3">Project Manager</p>
+                            <p class="card-text small mb-3">Agile certified project manager ensuring timely delivery and client satisfaction across all technology projects.</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-envelope"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="display-4 fw-bold mb-4">About TechFlow Solutions</h2>
+                    <p class="lead mb-4">We are a leading IT company specializing in digital transformation and innovative technology solutions. With over a decade of experience, we help businesses leverage technology to achieve their goals and stay competitive in the digital age.</p>
+                    <p class="mb-4">Our team of expert developers, designers, and consultants work collaboratively to deliver exceptional results that exceed expectations and drive business growth.</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+                                <span class="fw-semibold">Expert Team</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+                                <span class="fw-semibold">24/7 Support</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+                                <span class="fw-semibold">Quality Assurance</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+                                <span class="fw-semibold">On-Time Delivery</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="stat-item text-center p-4 rounded shadow">
+                                <div class="stat-number display-4 fw-bold">500+</div>
+                                <p class="mb-0 fw-semibold">Projects Completed</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-item text-center p-4 rounded shadow">
+                                <div class="stat-number display-4 fw-bold">200+</div>
+                                <p class="mb-0 fw-semibold">Happy Clients</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-item text-center p-4 rounded shadow">
+                                <div class="stat-number display-4 fw-bold">50+</div>
+                                <p class="mb-0 fw-semibold">Team Members</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-item text-center p-4 rounded shadow">
+                                <div class="stat-number display-4 fw-bold">10+</div>
+                                <p class="mb-0 fw-semibold">Years Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-4 fw-bold mb-4 text-white">Get In Touch</h2>
+                    <p class="lead">Ready to transform your business? Let's start a conversation.</p>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <h3 class="text-warning fw-bold mb-4">Let's Start a Conversation</h3>
+                    <p class="mb-4">Ready to transform your business with cutting-edge technology? We're here to help you every step of the way. Reach out to us for a free consultation and discover how we can bring your vision to life.</p>
                     
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div class="contact-text">
-                                <strong>Visit Our Office</strong>
-                                123 Tech Boulevard, Innovation District<br>
-                                Karachi, Sindh 75500, Pakistan
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="contact-item d-flex align-items-center">
+                                <div class="contact-icon me-3">
+                                    <i class="bi bi-geo-alt"></i>
+                                </div>
+                                <div>
+                                    <strong class="text-warning d-block">Visit Our Office</strong>
+                                    <span>123 Tech Boulevard, Innovation District<br>
+                                    Karachi, Sindh 75500, Pakistan</span>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-text">
-                                <strong>Call Us</strong>
-                                +92 21 1234-5678<br>
-                                +92 300 1234567 (Mobile)
+                        <div class="col-12">
+                            <div class="contact-item d-flex align-items-center">
+                                <div class="contact-icon me-3">
+                                    <i class="bi bi-telephone"></i>
+                                </div>
+                                <div>
+                                    <strong class="text-warning d-block">Call Us</strong>
+                                    <span>+92 21 1234-5678<br>
+                                    +92 300 1234567 (Mobile)</span>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="contact-item">
-                            <div class="contact-icon">📧</div>
-                            <div class="contact-text">
-                                <strong>Email Us</strong>
-                                info@techflowsolutions.com<br>
-                                support@techflowsolutions.com
+                        <div class="col-12">
+                            <div class="contact-item d-flex align-items-center">
+                                <div class="contact-icon me-3">
+                                    <i class="bi bi-envelope"></i>
+                                </div>
+                                <div>
+                                    <strong class="text-warning d-block">Email Us</strong>
+                                    <span>info@techflowsolutions.com<br>
+                                    support@techflowsolutions.com</span>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="contact-item">
-                            <div class="contact-icon">🕒</div>
-                            <div class="contact-text">
-                                <strong>Business Hours</strong>
-                                Mon - Fri: 9:00 AM - 6:00 PM<br>
-                                Sat: 10:00 AM - 2:00 PM
+                        <div class="col-12">
+                            <div class="contact-item d-flex align-items-center">
+                                <div class="contact-icon me-3">
+                                    <i class="bi bi-clock"></i>
+                                </div>
+                                <div>
+                                    <strong class="text-warning d-block">Business Hours</strong>
+                                    <span>Mon - Fri: 9:00 AM - 6:00 PM<br>
+                                    Sat: 10:00 AM - 2:00 PM</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="contact-item">
-                            <div class="contact-icon">🎤</div>
-                            <div class="contact-text">
-                                <strong>Voice Assistant</strong>
-                                Talk to our AI assistant<br>
-                                <button onclick="voiceAssistant.toggleVoiceWidget()" style="background: #667eea; color: white; border: none; padding: 5px 10px; border-radius: 15px; font-size: 12px; margin-top: 5px; cursor: pointer;">Start Voice Chat</button>
+                        <div class="col-12">
+                            <div class="contact-item d-flex align-items-center">
+                                <div class="contact-icon me-3">
+                                    <i class="bi bi-mic"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <strong class="text-warning d-block">Voice Assistant</strong>
+                                    <span class="d-block mb-2">Talk to our AI assistant</span>
+                                    <button class="btn btn-sm btn-primary" onclick="voiceAssistant.toggleVoiceWidget()">
+                                        Start Voice Chat
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required placeholder="John">
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <h3 class="text-warning fw-bold mb-4">Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" class="form-control" id="firstName" name="firstName" required placeholder="John">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                    <input type="text" class="form-control" id="lastName" name="lastName" required placeholder="Doe">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" required placeholder="Doe">
+                            
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" name="email" required placeholder="john@example.com">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="+92 3452275566">
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            
+                            <div class="mb-3">
+                                <label for="company" class="form-label">Company/Organization</label>
+                                <input type="text" class="form-control" id="company" name="company" placeholder="Your Company Name">
                             </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+92 3452275566">
+                            
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="service" class="form-label">Service Interest *</label>
+                                    <select class="form-select" id="service" name="service" required>
+                                        <option value="">Select a service</option>
+                                        <option value="web-development">Web Development</option>
+                                        <option value="cloud-solutions">Cloud Solutions</option>
+                                        <option value="ai-integration">AI Integration</option>
+                                        <option value="mobile-apps">Mobile Apps</option>
+                                        <option value="cybersecurity">Cybersecurity</option>
+                                        <option value="data-analytics">Data Analytics</option>
+                                        <option value="custom-solution">Custom Solution</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="budget" class="form-label">Budget Range</label>
+                                    <select class="form-select" id="budget" name="budget">
+                                        <option value="">Select budget</option>
+                                        <option value="under-5k">Under $5,000</option>
+                                        <option value="5k-15k">$5,000 - $15,000</option>
+                                        <option value="15k-50k">$15,000 - $50,000</option>
+                                        <option value="50k-plus">$50,000+</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company">Company/Organization</label>
-                            <input type="text" id="company" name="company" placeholder="Your Company Name">
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="service">Service Interest *</label>
-                                <select id="service" name="service" required>
-                                    <option value="">Select a service</option>
-                                    <option value="web-development">Web Development</option>
-                                    <option value="cloud-solutions">Cloud Solutions</option>
-                                    <option value="ai-integration">AI Integration</option>
-                                    <option value="mobile-apps">Mobile Apps</option>
-                                    <option value="cybersecurity">Cybersecurity</option>
-                                    <option value="data-analytics">Data Analytics</option>
-                                    <option value="custom-solution">Custom Solution</option>
+                            
+                            <div class="mb-3">
+                                <label for="timeline" class="form-label">Project Timeline</label>
+                                <select class="form-select" id="timeline" name="timeline">
+                                    <option value="">Select timeline</option>
+                                    <option value="asap">ASAP</option>
+                                    <option value="1-3-months">1-3 months</option>
+                                    <option value="3-6-months">3-6 months</option>
+                                    <option value="6-plus-months">6+ months</option>
+                                    <option value="planning-phase">Still in planning</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="budget">Budget Range</label>
-                                <select id="budget" name="budget">
-                                    <option value="">Select budget</option>
-                                    <option value="under-5k">Under $5,000</option>
-                                    <option value="5k-15k">$5,000 - $15,000</option>
-                                    <option value="15k-50k">$15,000 - $50,000</option>
-                                    <option value="50k-plus">$50,000+</option>
-                                </select>
+                            
+                            <div class="mb-4">
+                                <label for="message" class="form-label">Project Details *</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" required placeholder="Tell us about your project, goals, and any specific requirements..."></textarea>
                             </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="timeline">Project Timeline</label>
-                            <select id="timeline" name="timeline">
-                                <option value="">Select timeline</option>
-                                <option value="asap">ASAP</option>
-                                <option value="1-3-months">1-3 months</option>
-                                <option value="3-6-months">3-6 months</option>
-                                <option value="6-plus-months">6+ months</option>
-                                <option value="planning-phase">Still in planning</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Project Details *</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project, goals, and any specific requirements..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-button">Send Message & Get Free Consultation</button>
-                    </form>
+                            
+                            <button type="submit" class="btn btn-submit btn-lg">
+                                <i class="bi bi-send me-2"></i>Send Message & Get Free Consultation
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1644,149 +1051,58 @@
 
     <!-- Voice Assistant Widget -->
     <div class="voice-assistant-widget">
-        <button class="voice-toggle-btn" id="voiceToggleBtn" onclick="voiceAssistant.toggleVoiceWidget()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-                <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-            </svg>
-            <span class="voice-pulse"></span>
+        <button class="voice-toggle-btn" id="voiceToggleBtn" onclick="voiceAssistant.toggleVoiceWidget()" data-bs-toggle="tooltip" data-bs-placement="left" title="Voice Assistant">
+            <i class="bi bi-mic-fill"></i>
         </button>
         
         <div class="voice-widget-window" id="voiceWidgetWindow">
-            <div class="voice-widget-header">
-                <div class="voice-avatar">🎤</div>
-                <div class="voice-info">
-                    <h3>Voice Assistant</h3>
-                    <p id="voiceStatus">Ready to help</p>
-                </div>
-                <button class="close-btn" onclick="voiceAssistant.toggleVoiceWidget()">×</button>
-            </div>
-            
-            <div class="voice-widget-content">
-                <div class="voice-conversation" id="voiceConversation">
-                    <div class="voice-message bot">
-                        <div class="voice-message-content">
-                            Hi! I'm TechFlow's voice assistant. You can ask me about our services, pricing, team, or contact information. Click the microphone to start speaking! 🎤
+            <div class="card border-0 h-100">
+                <div class="card-header text-white" style="background: var(--primary-gradient);">
+                    <div class="d-flex align-items-center">
+                        <div class="rounded-circle bg-white bg-opacity-25 p-2 me-3">
+                            <i class="bi bi-mic text-white"></i>
                         </div>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-0 fw-bold">Voice Assistant</h6>
+                            <small id="voiceStatus" class="opacity-75">Ready to help</small>
+                        </div>
+                        <button type="button" class="btn-close btn-close-white" onclick="voiceAssistant.toggleVoiceWidget()"></button>
                     </div>
                 </div>
                 
-                <div class="voice-controls">
-                    <button class="voice-mic-btn" id="voiceMicBtn" onclick="voiceAssistant.startListening()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-                            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-                        </svg>
-                    </button>
+                <div class="card-body p-3 d-flex flex-column" style="height: calc(100% - 140px);">
+                    <div class="flex-grow-1 overflow-auto mb-3" id="voiceConversation" style="max-height: 300px;">
+                        <div class="d-flex mb-3">
+                            <div class="bg-light rounded p-2 shadow-sm">
+                                <small>Hi! I'm TechFlow's voice assistant. Ask me about our services, pricing, team, or contact information. Click the microphone to start speaking!</small>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <button class="voice-call-btn" onclick="voiceAssistant.makePhoneCall()">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                        </svg>
-                        Call Now
-                    </button>
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="btn btn-primary rounded-circle" id="voiceMicBtn" onclick="voiceAssistant.startListening()" data-bs-toggle="tooltip" title="Click to speak">
+                            <i class="bi bi-mic"></i>
+                        </button>
+                        
+                        <button class="btn btn-outline-primary btn-sm flex-grow-1" onclick="voiceAssistant.makePhoneCall()">
+                            <i class="bi bi-telephone me-1"></i>Call Now
+                        </button>
+                    </div>
                 </div>
-                
-                <!-- <div class="voice-quick-actions">
-                    <button class="voice-quick-btn" onclick="voiceAssistant.sendQuickMessage('Tell me about your services')">Services</button>
-                    <button class="voice-quick-btn" onclick="voiceAssistant.sendQuickMessage('What are your packages?')">Pricing</button>
-                    <button class="voice-quick-btn" onclick="voiceAssistant.sendQuickMessage('How can I contact you?')">Contact</button>
-                    <button class="voice-quick-btn" onclick="voiceAssistant.sendQuickMessage('Tell me about your team')">Team</button>
-                </div> -->
             </div>
         </div>
     </div>
 
-    <!-- Direct Voice Call Button -->
-    <button class="direct-voice-btn" id="directVoiceBtn" onclick="voiceAssistant.makePhoneCall()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-        </svg>
-        Call Us Now
-    </button>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        // TechFlow Solutions Knowledge Base for AI responses
-        const TECHFLOW_KNOWLEDGE = {
-            services: {
-                "web development": {
-                    name: "Web Development",
-                    description: "Custom web applications with modern technologies and responsive design",
-                    icon: "💻"
-                },
-                "cloud solutions": {
-                    name: "Cloud Solutions", 
-                    description: "Scalable cloud infrastructure and migration services",
-                    icon: "☁️"
-                },
-                "ai integration": {
-                    name: "AI Integration",
-                    description: "Intelligent automation and AI-powered solutions",
-                    icon: "🤖"
-                },
-                "mobile apps": {
-                    name: "Mobile Apps",
-                    description: "Native and cross-platform mobile applications",
-                    icon: "📱"
-                },
-                "cybersecurity": {
-                    name: "Cybersecurity",
-                    description: "Comprehensive security solutions for digital protection",
-                    icon: "🔒"
-                },
-                "data analytics": {
-                    name: "Data Analytics", 
-                    description: "Transform data into actionable business insights",
-                    icon: "📊"
-                }
-            },
-            
-            packages: {
-                "starter": {
-                    name: "Starter",
-                    price: "$99/month",
-                    features: ["Basic website (5 pages)", "Mobile responsive", "SEO optimization", "Contact forms", "1 month support", "SSL certificate"]
-                },
-                "professional": {
-                    name: "Professional", 
-                    price: "$299/month",
-                    popular: true,
-                    features: ["Custom web app", "Database integration", "Admin dashboard", "API development", "Cloud deployment", "3 months support"]
-                },
-                "enterprise": {
-                    name: "Enterprise",
-                    price: "$799/month",
-                    features: ["Full-scale application", "Microservices", "AI/ML integration", "DevOps pipeline", "24/7 monitoring", "6 months support"]
-                }
-            },
-            
-            team: [
-                "Alex Rodriguez - CTO (15+ years in software architecture)",
-                "Sarah Chen - Lead Full Stack Developer (React, Node.js expert)",
-                "Michael Thompson - UI/UX Design Lead (10+ years experience)",
-                "Dr. Emily Watson - AI/ML Specialist (PhD in Machine Learning)",
-                "James Wilson - Cybersecurity Expert (Certified security professional)",
-                "Lisa Park - Project Manager (Agile certified)"
-            ],
-            
-            contact: {
-                address: "123 Tech Boulevard, Karachi, Sindh 75500, Pakistan",
-                phone: "+92 21 1234-5678",
-                mobile: "+92 300 1234567",
-                email: "info@techflowsolutions.com",
-                hours: "Mon-Fri: 9AM-6PM, Sat: 10AM-2PM"
-            }
-        };
-
-        // Voice Assistant Class
+        // Voice Assistant Class (Enhanced for Bootstrap)
         class TechFlowVoiceAssistant {
             constructor() {
-                this.apiBaseUrl = 'http://localhost:5000/api';
                 this.isListening = false;
-                this.isCallActive = false;
                 this.recognition = null;
                 this.synthesis = window.speechSynthesis;
-                this.sessionId = null;
                 this.conversationHistory = [];
                 
                 this.init();
@@ -1795,6 +1111,15 @@
             init() {
                 this.setupSpeechRecognition();
                 this.setupEventListeners();
+                this.initializeTooltips();
+            }
+
+            initializeTooltips() {
+                // Initialize Bootstrap tooltips
+                const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                tooltipTriggerList.map(function (tooltipTriggerEl) {
+                    return new bootstrap.Tooltip(tooltipTriggerEl);
+                });
             }
             
             setupSpeechRecognition() {
@@ -1807,34 +1132,39 @@
                     this.recognition.lang = 'en-US';
                     
                     this.recognition.onstart = () => {
-                        console.log('Voice recognition started');
                         this.updateVoiceStatus('Listening...');
-                        document.getElementById('voiceMicBtn').classList.add('listening');
+                        const micBtn = document.getElementById('voiceMicBtn');
+                        micBtn.classList.remove('btn-primary');
+                        micBtn.classList.add('btn-danger');
+                        micBtn.innerHTML = '<i class="bi bi-mic-mute"></i>';
                     };
                     
                     this.recognition.onresult = (event) => {
                         const transcript = event.results[0][0].transcript;
-                        console.log('Speech recognized:', transcript);
                         this.processSpeechInput(transcript);
                     };
                     
                     this.recognition.onerror = (event) => {
                         console.error('Speech recognition error:', event.error);
                         this.updateVoiceStatus('Error - Try again');
-                        this.isListening = false;
-                        document.getElementById('voiceMicBtn').classList.remove('listening');
+                        this.resetMicButton();
                     };
                     
                     this.recognition.onend = () => {
-                        console.log('Voice recognition ended');
                         this.isListening = false;
-                        document.getElementById('voiceMicBtn').classList.remove('listening');
                         this.updateVoiceStatus('Click mic to speak');
+                        this.resetMicButton();
                     };
                 } else {
-                    console.warn('Speech recognition not supported');
                     this.updateVoiceStatus('Voice not supported');
                 }
+            }
+
+            resetMicButton() {
+                const micBtn = document.getElementById('voiceMicBtn');
+                micBtn.classList.remove('btn-danger');
+                micBtn.classList.add('btn-primary');
+                micBtn.innerHTML = '<i class="bi bi-mic"></i>';
             }
             
             toggleVoiceWidget() {
@@ -1846,25 +1176,7 @@
                     this.stopListening();
                 } else {
                     voiceWindow.classList.add('active');
-                    this.startVoiceSession();
-                }
-            }
-            
-            async startVoiceSession() {
-                try {
-                    const response = await fetch(`${this.apiBaseUrl}/start-voice-chat`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' }
-                    });
-                    
-                    const data = await response.json();
-                    if (data.status === 'success') {
-                        this.sessionId = data.session_id;
-                        this.updateVoiceStatus('Ready - Click mic to speak');
-                    }
-                } catch (error) {
-                    console.error('Error starting voice session:', error);
-                    this.updateVoiceStatus('Ready - Offline mode');
+                    this.updateVoiceStatus('Ready - Click mic to speak');
                 }
             }
             
@@ -1887,38 +1199,20 @@
                 if (this.recognition && this.isListening) {
                     this.recognition.stop();
                     this.isListening = false;
-                    document.getElementById('voiceMicBtn').classList.remove('listening');
+                    this.resetMicButton();
                 }
             }
             
-            async processSpeechInput(transcript) {
+            processSpeechInput(transcript) {
                 this.addVoiceMessage(transcript, 'user');
                 this.updateVoiceStatus('Processing...');
                 
-                try {
-                    const response = await fetch(`${this.apiBaseUrl}/process-speech`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ text: transcript })
-                    });
-                    
-                    const data = await response.json();
-                    
-                    if (data.status === 'success') {
-                        this.addVoiceMessage(data.response, 'bot');
-                        this.speakResponse(data.response);
-                        this.updateVoiceStatus('Click mic to speak');
-                    } else {
-                        throw new Error(data.message);
-                    }
-                    
-                } catch (error) {
-                    console.error('Error processing speech:', error);
-                    const response = this.generateLocalResponse(transcript);
+                const response = this.generateLocalResponse(transcript);
+                setTimeout(() => {
                     this.addVoiceMessage(response, 'bot');
                     this.speakResponse(response);
                     this.updateVoiceStatus('Click mic to speak');
-                }
+                }, 500);
             }
             
             speakResponse(text) {
@@ -1967,11 +1261,14 @@
             addVoiceMessage(content, role) {
                 const conversation = document.getElementById('voiceConversation');
                 const messageDiv = document.createElement('div');
-                messageDiv.className = `voice-message ${role}`;
+                messageDiv.className = `d-flex mb-3 ${role === 'user' ? 'justify-content-end' : ''}`;
+                
+                const messageClass = role === 'user' ? 'bg-primary text-white' : 'bg-light';
+                const alignment = role === 'user' ? 'ms-5' : 'me-5';
                 
                 messageDiv.innerHTML = `
-                    <div class="voice-message-content">
-                        ${content.replace(/\n/g, '<br>')}
+                    <div class="${messageClass} rounded p-2 shadow-sm ${alignment}">
+                        <small>${content}</small>
                     </div>
                 `;
                 
@@ -1985,122 +1282,94 @@
                 document.getElementById('voiceStatus').textContent = status;
             }
             
-            sendQuickMessage(message) {
-                this.addVoiceMessage(message, 'user');
-                setTimeout(() => this.processSpeechInput(message), 300);
-            }
-            
-            async makePhoneCall() {
-                const phoneNumber = prompt('Enter your phone number to receive a call from TechFlow:');
+            makePhoneCall() {
+                const phoneNumber = prompt('Enter your phone number to receive information about our services:');
                 
                 if (!phoneNumber) return;
                 
-                // Validate phone number
                 const cleanPhone = phoneNumber.replace(/\D/g, '');
                 if (cleanPhone.length < 10) {
                     alert('Please enter a valid phone number.');
                     return;
                 }
                 
-                try {
-                    // Try backend call service first
-                    const response = await fetch(`${this.apiBaseUrl}/make-call`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ phone_number: phoneNumber }),
-                        signal: AbortSignal.timeout(5000)
-                    });
-                    
-                    if (response.ok) {
-                        const data = await response.json();
-                        if (data.status === 'success') {
-                            alert('Call initiated! You should receive a call shortly from TechFlow Solutions.');
-                            this.addVoiceMessage('Call request sent successfully. You will receive a call shortly.', 'bot');
-                            return;
-                        }
-                    }
-                    throw new Error('Backend call service not available');
-                    
-                } catch (error) {
-                    console.log('Backend call service not available, showing direct contact options');
-                    
-                    // Fallback - show contact options
-                    const contactMessage = `I cannot initiate calls directly, but you can reach TechFlow Solutions at:
-
-📞 Main: +92 21 1234-5678
-📱 Mobile: +92 300 1234567
-
-Would you like me to show you more contact options?`;
-                    
-                    this.addVoiceMessage(contactMessage, 'bot');
-                    this.speakResponse("I cannot make calls directly, but I can give you our contact numbers. Our main number is plus ninety-two twenty-one one two three four five six seven eight.");
-                    
-                    // Offer to call directly
-                    setTimeout(() => {
-                        if (confirm('Would you like to call TechFlow directly now?')) {
-                            window.open('tel:+922112345678', '_self');
-                        }
-                    }, 2000);
-                }
+                // Show contact options with Bootstrap modal
+                const modalHtml = `
+                    <div class="modal fade" id="callModal" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header bg-primary text-white">
+                                    <h5 class="modal-title">
+                                        <i class="bi bi-telephone me-2"></i>Contact TechFlow Solutions
+                                    </h5>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <div class="mb-4">
+                                        <i class="bi bi-telephone-fill text-primary" style="font-size: 3rem;"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-3">Choose how to connect with us:</h6>
+                                    <div class="d-grid gap-2">
+                                        <a href="tel:+922112345678" class="btn btn-primary">
+                                            <i class="bi bi-telephone me-2"></i>Call Main Office: +92 21 1234-5678
+                                        </a>
+                                        <a href="tel:+923001234567" class="btn btn-outline-primary">
+                                            <i class="bi bi-phone me-2"></i>Call Mobile: +92 300 1234567
+                                        </a>
+                                        <a href="mailto:info@techflowsolutions.com?subject=Service Inquiry&body=Hi TechFlow! I'm interested in learning more about your services. My phone number is: ${phoneNumber}" class="btn btn-success">
+                                            <i class="bi bi-envelope me-2"></i>Send Email
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <small class="text-muted">We'll get back to you within 24 hours</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.insertAdjacentHTML('beforeend', modalHtml);
+                const modal = new bootstrap.Modal(document.getElementById('callModal'));
+                modal.show();
+                
+                // Clean up modal after it's hidden
+                document.getElementById('callModal').addEventListener('hidden.bs.modal', function() {
+                    this.remove();
+                });
+                
+                this.addVoiceMessage('Contact options are now displayed. You can call us directly or send an email.', 'bot');
             }
             
             setupEventListeners() {
-                // Load voices when available
-                if (this.synthesis) {
-                    const loadVoices = () => {
-                        const voices = this.synthesis.getVoices();
-                        if (voices.length > 0) {
-                            console.log('Voices loaded:', voices.length);
-                        }
-                    };
-                    
-                    loadVoices();
-                    this.synthesis.addEventListener('voiceschanged', loadVoices);
-                    
-                    if (this.synthesis.getVoices().length === 0) {
-                        const tempUtterance = new SpeechSynthesisUtterance('');
-                        this.synthesis.speak(tempUtterance);
-                        this.synthesis.cancel();
-                    }
-                }
-                
                 // Keyboard shortcuts
                 document.addEventListener('keydown', (e) => {
-                    // Alt + V to toggle voice widget
                     if (e.altKey && e.key === 'v') {
                         e.preventDefault();
                         this.toggleVoiceWidget();
                     }
                     
-                    // Space to start/stop listening (when widget is open)
                     const voiceWindow = document.getElementById('voiceWidgetWindow');
                     if (e.code === 'Space' && voiceWindow && voiceWindow.classList.contains('active')) {
                         e.preventDefault();
                         this.startListening();
                     }
                     
-                    // Escape to close voice widget
                     if (e.key === 'Escape' && voiceWindow && voiceWindow.classList.contains('active')) {
                         this.toggleVoiceWidget();
                     }
                 });
                 
-                // Handle page visibility changes
-                document.addEventListener('visibilitychange', () => {
-                    if (document.hidden && this.isListening) {
-                        this.stopListening();
-                    }
-                });
-                
-                // Handle page unload
-                window.addEventListener('beforeunload', () => {
-                    if (this.synthesis) {
-                        this.synthesis.cancel();
-                    }
-                    if (this.isListening) {
-                        this.stopListening();
-                    }
-                });
+                // Load voices
+                if (this.synthesis) {
+                    const loadVoices = () => {
+                        const voices = this.synthesis.getVoices();
+                        console.log('Voices loaded:', voices.length);
+                    };
+                    
+                    loadVoices();
+                    this.synthesis.addEventListener('voiceschanged', loadVoices);
+                }
             }
         }
 
@@ -2121,44 +1390,41 @@ Would you like me to show you more contact options?`;
                 
                 serviceSelect.value = 'custom-solution';
                 messageTextarea.value = `Hi TechFlow! I'm interested in the ${packageName} package. Please provide more details about implementation, timeline, and next steps.`;
-            }, 500);
+                
+                // Add visual feedback
+                serviceSelect.classList.add('border-warning');
+                messageTextarea.classList.add('border-warning');
+                
+                setTimeout(() => {
+                    serviceSelect.classList.remove('border-warning');
+                    messageTextarea.classList.remove('border-warning');
+                }, 2000);
+            }, 1000);
         }
 
         // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize voice assistant
             voiceAssistant = new TechFlowVoiceAssistant();
-            console.log('TechFlow Voice Assistant initialized');
-
-            // Show direct buttons after some time
-            setTimeout(() => {
-                document.getElementById('directVoiceBtn').classList.add('show');
-            }, 10000);
-
+            
             // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
+                        target.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Close mobile navbar if open
+                        const navbarCollapse = document.getElementById('navbarNav');
+                        if (navbarCollapse.classList.contains('show')) {
+                            bootstrap.Collapse.getInstance(navbarCollapse).hide();
+                        }
                     }
                 });
             });
 
-            // Mobile menu functionality
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileNav = document.getElementById('mobileNav');
-
-            mobileMenuBtn.addEventListener('click', function() {
-                this.classList.toggle('active');
-                mobileNav.classList.toggle('active');
-                document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
-            });
-
-            // Add some interactive animations
+            // Intersection Observer for animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -2166,9 +1432,9 @@ Would you like me to show you more contact options?`;
                         entry.target.style.transform = 'translateY(0)';
                     }
                 });
-            });
+            }, { threshold: 0.1 });
 
-            document.querySelectorAll('.service-card, .package-card, .team-card').forEach(card => {
+            document.querySelectorAll('.service-card, .package-card, .team-card, .stat-item').forEach(card => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(20px)';
                 card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -2186,8 +1452,7 @@ Would you like me to show you more contact options?`;
                 const service = formData.get('service');
                 const message = formData.get('message');
                 
-                // Simple email redirect
-                const emailMessage = `Hi TechFlow! 
+                const emailMessage = `Hi TechFlow!
 
 New Contact Form Submission:
 Name: ${firstName} ${lastName}
@@ -2200,11 +1465,33 @@ Please get back to me with more information.`;
                 const emailUrl = `mailto:info@techflowsolutions.com?subject=Service Inquiry - ${firstName} ${lastName}&body=${encodeURIComponent(emailMessage)}`;
                 window.open(emailUrl, '_self');
                 
-                alert('Opening your email client to send the message to TechFlow Solutions.');
+                // Show success toast
+                const toastHtml = `
+                    <div class="toast-container position-fixed top-0 end-0 p-3">
+                        <div class="toast show" role="alert">
+                            <div class="toast-header bg-success text-white">
+                                <i class="bi bi-check-circle-fill me-2"></i>
+                                <strong class="me-auto">Success!</strong>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+                            </div>
+                            <div class="toast-body">
+                                Opening your email client to send the message to TechFlow Solutions.
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.insertAdjacentHTML('beforeend', toastHtml);
+                
+                // Auto-remove toast after 5 seconds
+                setTimeout(() => {
+                    const toastContainer = document.querySelector('.toast-container');
+                    if (toastContainer) toastContainer.remove();
+                }, 5000);
             });
 
-            // Package button handlers
-            document.querySelectorAll('.package-button').forEach(button => {
+            // Package button handlers with enhanced feedback
+            document.querySelectorAll('.package-card .btn').forEach(button => {
                 button.addEventListener('click', function() {
                     const packageCard = this.closest('.package-card');
                     const packageTitle = packageCard.querySelector('.package-title').textContent;
@@ -2223,56 +1510,77 @@ Thank you!`;
 
                     const emailUrl = `mailto:info@techflowsolutions.com?subject=Package Inquiry - ${packageTitle}&body=${encodeURIComponent(emailMessage)}`;
                     window.open(emailUrl, '_self');
+                    
+                    // Add ripple effect
+                    this.classList.add('position-relative', 'overflow-hidden');
+                    const ripple = document.createElement('span');
+                    ripple.className = 'position-absolute rounded-circle bg-white bg-opacity-25';
+                    ripple.style.width = ripple.style.height = '100px';
+                    ripple.style.left = '50%';
+                    ripple.style.top = '50%';
+                    ripple.style.transform = 'translate(-50%, -50%) scale(0)';
+                    ripple.style.transition = 'transform 0.6s ease';
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.style.transform = 'translate(-50%, -50%) scale(4)';
+                    }, 10);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
                 });
             });
 
-            // CTA button handler
-            document.querySelector('.cta-button').addEventListener('click', function() {
-                scrollToContact();
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow');
+                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                } else {
+                    navbar.classList.remove('shadow');
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                }
             });
-        });
 
-        function closeMobileMenu() {
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileNav = document.getElementById('mobileNav');
-            mobileMenuBtn.classList.remove('active');
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+            // Counter animation for stats
+            const animateCounter = (element, target) => {
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target + (target === 500 || target === 200 || target === 50 ? '+' : '+');
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current) + (target === 500 || target === 200 || target === 50 ? '+' : '+');
+                    }
+                }, 20);
+            };
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileNav = document.getElementById('mobileNav');
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const isClickInsideNav = mobileNav && mobileNav.contains(event.target);
-            const isClickOnMenuBtn = mobileMenuBtn && mobileMenuBtn.contains(event.target);
-            
-            if (!isClickInsideNav && !isClickOnMenuBtn && mobileNav && mobileNav.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        });
+            // Trigger counter animation when stats come into view
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.dataset.animated) {
+                        const number = entry.target.querySelector('.stat-number');
+                        const target = parseInt(number.textContent);
+                        animateCounter(number, target);
+                        entry.target.dataset.animated = 'true';
+                    }
+                });
+            });
 
-        // Close mobile menu on window resize
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                closeMobileMenu();
-            }
-        });
+            document.querySelectorAll('.stat-item').forEach(item => {
+                statsObserver.observe(item);
+            });
 
-        // Voice widget show/hide based on scroll
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const voiceWidget = document.querySelector('.voice-assistant-widget');
-            
-            if (scrollTop > 100) {
-                voiceWidget.style.opacity = '1';
-                voiceWidget.style.visibility = 'visible';
-            } else {
-                voiceWidget.style.opacity = '0.7';
-            }
-            
-            lastScrollTop = scrollTop;
+            // Initialize Bootstrap components
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
         });
     </script>
 </body>
