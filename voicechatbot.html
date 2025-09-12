@@ -1243,8 +1243,20 @@
                     return "TechFlow offers web development, cloud solutions, AI integration, mobile apps, cybersecurity, and data analytics. Which service interests you?";
                 }
                 
-                if (inputLower.includes('price') || inputLower.includes('cost') || inputLower.includes('package')) {
-                    return "We have three packages: Starter at $99 per month, Professional at $299 per month, and Enterprise at $799 per month. Which would you like to know more about?";
+                if (inputLower.includes('price') || inputLower.includes('cost') || inputLower.includes('package') || inputLower.includes('pricing') || inputLower.includes('how much')) {
+                    return "We have three pricing packages: 1) Starter Package at $99/month includes basic website, mobile responsive design, SEO, and 1 month support. 2) Professional Package at $299/month includes custom web app, database integration, admin dashboard, API development, and 3 months support. 3) Enterprise Package at $799/month includes full-scale application, microservices, AI integration, DevOps pipeline, and 6 months support. Which package interests you most?";
+                }
+                
+                if (inputLower.includes('starter') && (inputLower.includes('package') || inputLower.includes('plan'))) {
+                    return "The Starter Package is $99 per month and includes: basic website up to 5 pages, mobile responsive design, SEO optimization, contact form integration, 1 month free support, and SSL certificate. Perfect for small businesses getting started online.";
+                }
+                
+                if (inputLower.includes('professional') && (inputLower.includes('package') || inputLower.includes('plan'))) {
+                    return "The Professional Package is $299 per month and includes: custom web application, database integration, admin dashboard, API development, cloud deployment, 3 months free support, performance monitoring, and security hardening. This is our most popular choice for growing businesses.";
+                }
+                
+                if (inputLower.includes('enterprise') && (inputLower.includes('package') || inputLower.includes('plan'))) {
+                    return "The Enterprise Package is $799 per month and includes: full-scale application, microservices architecture, AI/ML integration, DevOps pipeline, 24/7 monitoring, 6 months free support, custom integrations, and dedicated account manager. Ideal for large organizations with complex needs.";
                 }
                 
                 if (inputLower.includes('contact') || inputLower.includes('phone') || inputLower.includes('email')) {
@@ -1253,6 +1265,10 @@
                 
                 if (inputLower.includes('team')) {
                     return "Our team includes expert developers, AI specialists, cybersecurity professionals, and project managers with over 10 years of experience. We've completed 500+ projects successfully.";
+                }
+                
+                if (inputLower.includes('popular') || inputLower.includes('recommend') || inputLower.includes('best')) {
+                    return "Our most popular package is the Professional Package at $299/month. It includes custom web application development, database integration, admin dashboard, API development, cloud deployment, and 3 months of free support. It's perfect for most businesses looking to establish a strong online presence.";
                 }
                 
                 return "Thank you for your question. I can help with information about our services, pricing, team, or contact details. What would you like to know?";
