@@ -756,6 +756,310 @@
             box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
             color: white;
         }
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .voice-widget-window {
+                width: 350px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .voice-widget-window {
+                width: 320px;
+                height: 450px;
+            }
+            
+            .voice-widget-header {
+                padding: 15px;
+            }
+            
+            .voice-conversation {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .voice-widget-window {
+                width: calc(100vw - 30px);
+                height: calc(100vh - 100px);
+                bottom: 15px;
+                left: 15px;
+                right: 15px;
+                max-height: 500px;
+            }
+            
+            .voice-widget-header {
+                padding: 12px 15px;
+                flex-wrap: wrap;
+            }
+            
+            .voice-avatar {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+            
+            .voice-info h3 {
+                font-size: 14px;
+            }
+            
+            .voice-info p {
+                font-size: 11px;
+            }
+            
+            .voice-conversation {
+                height: calc(100% - 140px);
+                padding: 12px;
+            }
+            
+            .voice-message-content {
+                max-width: 85%;
+                padding: 10px 12px;
+                font-size: 13px;
+                border-radius: 15px;
+            }
+            
+            .voice-message.bot .voice-message-content {
+                border-radius: 0 15px 15px 15px;
+            }
+            
+            .voice-message.user .voice-message-content {
+                border-radius: 15px 15px 0 15px;
+            }
+            
+            .voice-controls {
+                padding: 10px 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+            
+            .voice-mic-btn {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .voice-mic-btn i {
+                font-size: 18px;
+            }
+            
+            .voice-call-btn {
+                padding: 6px 10px;
+                font-size: 11px;
+                border-radius: 15px;
+            }
+            
+            .direct-voice-btn {
+                bottom: 80px;
+                right: 15px;
+                padding: 10px 16px;
+                font-size: 13px;
+                border-radius: 20px;
+            }
+            
+            .voice-assistant-widget {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .voice-toggle-btn {
+                width: 55px;
+                height: 55px;
+            }
+            
+            .voice-toggle-btn i {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .voice-widget-window {
+                width: calc(100vw - 20px);
+                height: calc(100vh - 80px);
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+                border-radius: 15px;
+            }
+            
+            .voice-widget-header {
+                padding: 10px 12px;
+                border-radius: 15px 15px 0 0;
+            }
+            
+            .voice-avatar {
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+            }
+            
+            .voice-info h3 {
+                font-size: 13px;
+                margin: 0;
+            }
+            
+            .voice-info p {
+                font-size: 10px;
+                margin: 0;
+            }
+            
+            .voice-conversation {
+                height: calc(100% - 120px);
+                padding: 10px;
+            }
+            
+            .voice-message {
+                margin-bottom: 12px;
+            }
+            
+            .voice-message-content {
+                max-width: 90%;
+                padding: 8px 10px;
+                font-size: 12px;
+                line-height: 1.3;
+                border-radius: 12px;
+            }
+            
+            .voice-message.bot .voice-message-content {
+                border-radius: 0 12px 12px 12px;
+            }
+            
+            .voice-message.user .voice-message-content {
+                border-radius: 12px 12px 0 12px;
+            }
+            
+            .voice-controls {
+                padding: 8px 12px;
+                gap: 6px;
+            }
+            
+            .voice-mic-btn {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .voice-mic-btn i {
+                font-size: 16px;
+            }
+            
+            .voice-call-btn {
+                padding: 5px 8px;
+                font-size: 10px;
+                border-radius: 12px;
+                gap: 3px;
+            }
+            
+            .direct-voice-btn {
+                bottom: 70px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 12px;
+                border-radius: 18px;
+            }
+            
+            .voice-assistant-widget {
+                bottom: 10px;
+                right: 10px;
+            }
+            
+            .voice-toggle-btn {
+                width: 50px;
+                height: 50px;
+                box-shadow: 0 3px 15px rgba(102, 126, 234, 0.4);
+            }
+            
+            .voice-toggle-btn i {
+                font-size: 20px;
+            }
+            
+            .voice-toggle-btn:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
+            }
+        }
+
+        @media (max-width: 360px) {
+            .voice-widget-window {
+                width: calc(100vw - 15px);
+                height: calc(100vh - 70px);
+                bottom: 5px;
+                left: 7px;
+                right: 8px;
+            }
+            
+            .voice-widget-header {
+                padding: 8px 10px;
+            }
+            
+            .voice-conversation {
+                height: calc(100% - 110px);
+                padding: 8px;
+            }
+            
+            .voice-controls {
+                padding: 6px 10px;
+            }
+            
+            .direct-voice-btn {
+                bottom: 65px;
+                right: 8px;
+                padding: 6px 10px;
+                font-size: 11px;
+            }
+            
+            .voice-assistant-widget {
+                bottom: 8px;
+                right: 8px;
+            }
+            
+            .voice-toggle-btn {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* Landscape orientation adjustments for mobile */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .voice-widget-window {
+                height: calc(100vh - 40px);
+                max-height: none;
+            }
+            
+            .voice-conversation {
+                height: calc(100% - 120px);
+            }
+        }
+
+        @media (max-width: 480px) and (orientation: landscape) {
+            .voice-widget-window {
+                height: calc(100vh - 30px);
+                width: calc(100vw - 15px);
+            }
+            
+            .voice-conversation {
+                height: calc(100% - 100px);
+            }
+            
+            .voice-widget-header {
+                padding: 6px 10px;
+            }
+            
+            .voice-controls {
+                padding: 5px 10px;
+            }
+            }
 
         /* Animations */
         @keyframes fadeInUp {
