@@ -520,7 +520,7 @@
             color: #333;
         }
 
-        /* Voice Assistant Widget - FULLY RESPONSIVE */
+        /* Voice Assistant Widget */
         .voice-assistant-widget {
             position: fixed;
             bottom: 20px;
@@ -567,15 +567,12 @@
             animation: voicePulse 2s infinite;
         }
 
-        /* Responsive Voice Widget Window */
         .voice-widget-window {
             position: absolute;
             bottom: 80px;
             right: 0;
             width: 380px;
-            max-width: 90vw;
             height: 500px;
-            max-height: 70vh;
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
@@ -584,8 +581,6 @@
             transform: translateY(20px) scale(0.9);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
         }
 
         .voice-widget-window.active {
@@ -597,12 +592,10 @@
         .voice-widget-header {
             background: var(--primary-gradient);
             color: white;
-            padding: 15px 20px;
+            padding: 20px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            flex-shrink: 0;
-            min-height: 70px;
+            gap: 15px;
         }
 
         .voice-avatar {
@@ -616,42 +609,29 @@
             font-size: 16px;
         }
 
-        .voice-info {
-            flex: 1;
-            min-width: 0;
-        }
-
         .voice-info h3 {
             margin: 0;
             font-size: 16px;
             font-weight: 600;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
         .voice-info p {
             margin: 2px 0 0 0;
             font-size: 12px;
             opacity: 0.8;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
         .voice-conversation {
-            flex: 1;
+            height: calc(100% - 160px);
             overflow-y: auto;
-            padding: 15px 20px;
+            padding: 20px;
             background: var(--light-bg);
-            min-height: 0;
         }
 
         .voice-message {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             display: flex;
             align-items: flex-end;
-            gap: 8px;
         }
 
         .voice-message.bot {
@@ -664,25 +644,24 @@
 
         .voice-message-content {
             max-width: 75%;
-            padding: 10px 14px;
-            border-radius: 16px;
+            padding: 12px 16px;
+            border-radius: 18px;
             font-size: 14px;
             line-height: 1.4;
-            word-wrap: break-word;
             animation: messageSlideIn 0.3s ease-out;
         }
 
         .voice-message.bot .voice-message-content {
             background: white;
             color: #333;
-            border-radius: 0 16px 16px 16px;
+            border-radius: 0 18px 18px 18px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .voice-message.user .voice-message-content {
             background: #667eea;
             color: white;
-            border-radius: 16px 16px 0 16px;
+            border-radius: 18px 18px 0 18px;
         }
 
         .voice-controls {
@@ -692,15 +671,14 @@
             display: flex;
             gap: 10px;
             align-items: center;
-            flex-shrink: 0;
         }
 
         .voice-mic-btn {
             background: #667eea;
             border: none;
             border-radius: 50%;
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -716,29 +694,26 @@
 
         .voice-mic-btn.listening {
             background: #ff4757;
-            animation: pulse 1s infinite;
         }
 
         .voice-mic-btn i {
             color: white;
-            font-size: 18px;
+            font-size: 20px;
         }
 
         .voice-call-btn {
             background: transparent;
             border: 2px solid #667eea;
             color: #667eea;
-            padding: 6px 12px;
+            padding: 8px 12px;
             border-radius: 20px;
-            font-size: 11px;
+            font-size: 12px;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 5px;
             transition: all 0.2s ease;
             font-weight: 500;
-            flex: 1;
-            justify-content: center;
         }
 
         .voice-call-btn:hover {
@@ -746,33 +721,7 @@
             color: white;
         }
 
-        /* Quick Actions */
-        .voice-quick-actions {
-            padding: 0 20px 15px;
-            background: white;
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .voice-quick-btn {
-            background: #f8f9ff;
-            border: 1px solid #e0e7ff;
-            color: #667eea;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 11px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .voice-quick-btn:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        /* Direct Voice Call Button - RESPONSIVE */
+        /* Direct Voice Call Button */
         .direct-voice-btn {
             position: fixed;
             bottom: 100px;
@@ -780,9 +729,9 @@
             background: var(--primary-gradient);
             color: white;
             border: none;
-            padding: 10px 18px;
+            padding: 12px 20px;
             border-radius: 25px;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             display: flex;
@@ -794,7 +743,6 @@
             opacity: 0;
             visibility: hidden;
             transform: translateY(20px);
-            max-width: calc(100vw - 40px);
         }
 
         .direct-voice-btn.show {
@@ -842,12 +790,7 @@
             }
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        /* Mobile Responsive Adjustments */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -861,207 +804,24 @@
                 font-size: 2rem;
             }
             
+            .voice-widget-window {
+                width: calc(100vw - 40px);
+                height: calc(100vh - 40px);
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+            }
+            
+            .direct-voice-btn {
+                bottom: 90px;
+                right: 15px;
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+            
             .voice-assistant-widget {
                 bottom: 15px;
                 right: 15px;
-            }
-            
-            .voice-toggle-btn {
-                width: 55px;
-                height: 55px;
-            }
-            
-            .voice-toggle-btn i {
-                font-size: 22px;
-            }
-            
-            /* Full-screen mobile voice widget */
-            .voice-widget-window {
-                position: fixed;
-                top: 20px;
-                left: 15px;
-                right: 15px;
-                bottom: 80px;
-                width: auto;
-                max-width: none;
-                height: auto;
-                max-height: none;
-                border-radius: 15px;
-            }
-            
-            .voice-widget-header {
-                padding: 12px 15px;
-                min-height: 60px;
-            }
-            
-            .voice-info h3 {
-                font-size: 15px;
-            }
-            
-            .voice-info p {
-                font-size: 11px;
-            }
-            
-            .voice-conversation {
-                padding: 15px;
-            }
-            
-            .voice-message-content {
-                max-width: 85%;
-                font-size: 13px;
-                padding: 8px 12px;
-            }
-            
-            .voice-controls {
-                padding: 12px 15px;
-            }
-            
-            .voice-mic-btn {
-                width: 40px;
-                height: 40px;
-            }
-            
-            .voice-mic-btn i {
-                font-size: 16px;
-            }
-            
-            .voice-call-btn {
-                font-size: 10px;
-                padding: 5px 10px;
-            }
-            
-            .voice-quick-actions {
-                padding: 0 15px 12px;
-            }
-            
-            .voice-quick-btn {
-                font-size: 10px;
-                padding: 5px 10px;
-            }
-            
-            .direct-voice-btn {
-                bottom: 85px;
-                right: 15px;
-                padding: 8px 14px;
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .voice-toggle-btn {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .voice-toggle-btn i {
-                font-size: 20px;
-            }
-            
-            .voice-widget-window {
-                top: 10px;
-                left: 10px;
-                right: 10px;
-                bottom: 70px;
-                border-radius: 12px;
-            }
-            
-            .voice-widget-header {
-                padding: 10px 12px;
-                min-height: 55px;
-            }
-            
-            .voice-avatar {
-                width: 35px;
-                height: 35px;
-                font-size: 14px;
-            }
-            
-            .voice-info h3 {
-                font-size: 13px;
-            }
-            
-            .voice-info p {
-                font-size: 10px;
-            }
-            
-            .voice-conversation {
-                padding: 10px 12px;
-            }
-            
-            .voice-message-content {
-                max-width: 90%;
-                font-size: 12px;
-                padding: 6px 10px;
-            }
-            
-            .voice-controls {
-                padding: 10px 12px;
-            }
-            
-            .voice-mic-btn {
-                width: 38px;
-                height: 38px;
-            }
-            
-            .voice-mic-btn i {
-                font-size: 15px;
-            }
-            
-            .voice-call-btn {
-                font-size: 9px;
-                padding: 4px 8px;
-            }
-            
-            .direct-voice-btn {
-                bottom: 75px;
-                right: 10px;
-                padding: 6px 12px;
-                font-size: 11px;
-            }
-        }
-
-        /* Landscape phone adjustments */
-        @media (max-width: 768px) and (orientation: landscape) {
-            .voice-widget-window {
-                top: 10px;
-                bottom: 10px;
-                max-height: none;
-            }
-            
-            .voice-widget-header {
-                padding: 8px 15px;
-                min-height: 50px;
-            }
-            
-            .voice-conversation {
-                padding: 10px 15px;
-            }
-        }
-
-        /* Custom scrollbar for mobile */
-        @media (max-width: 768px) {
-            .voice-conversation::-webkit-scrollbar {
-                width: 4px;
-            }
-            
-            .voice-conversation::-webkit-scrollbar-track {
-                background: transparent;
-            }
-            
-            .voice-conversation::-webkit-scrollbar-thumb {
-                background: rgba(102, 126, 234, 0.5);
-                border-radius: 2px;
-            }
-        }
-
-        /* High DPI displays */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .voice-toggle-btn {
-                box-shadow: 0 2px 10px rgba(102, 126, 234, 0.4);
-            }
-            
-            .voice-widget-window {
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             }
         }
 
@@ -1574,43 +1334,40 @@
                 <div class="voice-avatar">
                     <i class="bi bi-mic"></i>
                 </div>
-                <div class="voice-info">
-                    <h3>TechFlow Assistant</h3>
+                <div class="voice-info flex-grow-1">
+                    <h3>Voice Assistant</h3>
                     <p id="voiceStatus">Ready to help</p>
                 </div>
                 <button class="btn-close btn-close-white" onclick="voiceAssistant.toggleVoiceWidget()"></button>
             </div>
             
-            <div class="voice-conversation" id="voiceConversation">
-                <div class="voice-message bot">
-                    <div class="voice-message-content">
-                        Hi! I'm your TechFlow voice assistant. Ask me about our services, pricing, team, or contact info. Click the mic to speak or use quick actions below!
+            <div class="voice-widget-content">
+                <div class="voice-conversation" id="voiceConversation">
+                    <div class="voice-message bot">
+                        <div class="voice-message-content">
+                            Hi! I'm TechFlow's voice assistant. You can ask me about our services, pricing, team, or contact information. Click the microphone to start speaking!
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="voice-quick-actions">
-                <button class="voice-quick-btn" onclick="voiceAssistant.sendQuickMessage('Tell me about your services')">Services</button>
-                <button class="voice-quick-btn" onclick="voiceAssistant.sendQuickMessage('What are your pricing packages?')">Pricing</button>
-                <button class="voice-quick-btn" onclick="voiceAssistant.sendQuickMessage('How can I contact you?')">Contact</button>
-                <button class="voice-quick-btn" onclick="voiceAssistant.sendQuickMessage('Tell me about your team')">Team</button>
-            </div>
-            
-            <div class="voice-controls">
-                <button class="voice-mic-btn" id="voiceMicBtn" onclick="voiceAssistant.startListening()">
-                    <i class="bi bi-mic-fill"></i>
-                </button>
                 
-                <button class="voice-call-btn" onclick="voiceAssistant.makePhoneCall()">
-                    <i class="bi bi-telephone me-1"></i>Call Now
-                </button>
+                <div class="voice-controls">
+                    <button class="voice-mic-btn" id="voiceMicBtn" onclick="voiceAssistant.startListening()">
+                        <i class="bi bi-mic-fill"></i>
+                    </button>
+                    
+                    <button class="voice-call-btn" onclick="voiceAssistant.makePhoneCall()">
+                        <i class="bi bi-telephone me-1"></i>
+                        Call Now
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Direct Voice Call Button -->
     <button class="direct-voice-btn" id="directVoiceBtn" onclick="voiceAssistant.makePhoneCall()">
-        <i class="bi bi-telephone-fill me-2"></i>Call Us
+        <i class="bi bi-telephone-fill me-2"></i>
+        Call Us Now
     </button>
 
     <!-- Bootstrap JS -->
@@ -1669,3 +1426,645 @@
                     price: "$799/month",
                     features: ["Full-scale application", "Microservices", "AI/ML integration", "DevOps pipeline", "24/7 monitoring", "6 months support"]
                 }
+            },
+            
+            team: [
+                "Alex Rodriguez - CTO (15+ years in software architecture)",
+                "Sarah Chen - Lead Full Stack Developer (React, Node.js expert)",
+                "Michael Thompson - UI/UX Design Lead (10+ years experience)",
+                "Dr. Emily Watson - AI/ML Specialist (PhD in Machine Learning)",
+                "James Wilson - Cybersecurity Expert (Certified security professional)",
+                "Lisa Park - Project Manager (Agile certified)"
+            ],
+            
+            contact: {
+                address: "123 Tech Boulevard, Karachi, Sindh 75500, Pakistan",
+                phone: "+92 21 1234-5678",
+                mobile: "+92 300 1234567",
+                email: "info@techflowsolutions.com",
+                hours: "Mon-Fri: 9AM-6PM, Sat: 10AM-2PM"
+            }
+        };
+
+        // Voice Assistant Class
+        class TechFlowVoiceAssistant {
+            constructor() {
+                this.apiBaseUrl = 'http://localhost:5000/api';
+                this.isListening = false;
+                this.isCallActive = false;
+                this.recognition = null;
+                this.synthesis = window.speechSynthesis;
+                this.sessionId = null;
+                this.conversationHistory = [];
+                
+                this.init();
+            }
+            
+            init() {
+                this.setupSpeechRecognition();
+                this.setupEventListeners();
+            }
+            
+            setupSpeechRecognition() {
+                if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                    this.recognition = new SpeechRecognition();
+                    
+                    this.recognition.continuous = false;
+                    this.recognition.interimResults = false;
+                    this.recognition.lang = 'en-US';
+                    
+                    this.recognition.onstart = () => {
+                        console.log('Voice recognition started');
+                        this.updateVoiceStatus('Listening...');
+                        document.getElementById('voiceMicBtn').classList.add('listening');
+                    };
+                    
+                    this.recognition.onresult = (event) => {
+                        const transcript = event.results[0][0].transcript;
+                        console.log('Speech recognized:', transcript);
+                        this.processSpeechInput(transcript);
+                    };
+                    
+                    this.recognition.onerror = (event) => {
+                        console.error('Speech recognition error:', event.error);
+                        this.updateVoiceStatus('Error - Try again');
+                        this.isListening = false;
+                        document.getElementById('voiceMicBtn').classList.remove('listening');
+                    };
+                    
+                    this.recognition.onend = () => {
+                        console.log('Voice recognition ended');
+                        this.isListening = false;
+                        document.getElementById('voiceMicBtn').classList.remove('listening');
+                        this.updateVoiceStatus('Click mic to speak');
+                    };
+                } else {
+                    console.warn('Speech recognition not supported');
+                    this.updateVoiceStatus('Voice not supported');
+                }
+            }
+            
+            toggleVoiceWidget() {
+                const voiceWindow = document.getElementById('voiceWidgetWindow');
+                const isOpen = voiceWindow.classList.contains('active');
+                
+                if (isOpen) {
+                    voiceWindow.classList.remove('active');
+                    this.stopListening();
+                } else {
+                    voiceWindow.classList.add('active');
+                    this.startVoiceSession();
+                }
+            }
+            
+            async startVoiceSession() {
+                try {
+                    const response = await fetch(`${this.apiBaseUrl}/start-voice-chat`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                    
+                    const data = await response.json();
+                    if (data.status === 'success') {
+                        this.sessionId = data.session_id;
+                        this.updateVoiceStatus('Ready - Click mic to speak');
+                    }
+                } catch (error) {
+                    console.error('Error starting voice session:', error);
+                    this.updateVoiceStatus('Ready - Offline mode');
+                }
+            }
+            
+            startListening() {
+                if (!this.recognition) {
+                    this.updateVoiceStatus('Voice not supported');
+                    return;
+                }
+                
+                if (this.isListening) {
+                    this.stopListening();
+                    return;
+                }
+                
+                this.isListening = true;
+                this.recognition.start();
+            }
+            
+            stopListening() {
+                if (this.recognition && this.isListening) {
+                    this.recognition.stop();
+                    this.isListening = false;
+                    document.getElementById('voiceMicBtn').classList.remove('listening');
+                }
+            }
+            
+            async processSpeechInput(transcript) {
+                this.addVoiceMessage(transcript, 'user');
+                this.updateVoiceStatus('Processing...');
+                
+                try {
+                    const response = await fetch(`${this.apiBaseUrl}/process-speech`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ text: transcript })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.status === 'success') {
+                        this.addVoiceMessage(data.response, 'bot');
+                        this.speakResponse(data.response);
+                        this.updateVoiceStatus('Click mic to speak');
+                    } else {
+                        throw new Error(data.message);
+                    }
+                    
+                } catch (error) {
+                    console.error('Error processing speech:', error);
+                    const response = this.generateLocalResponse(transcript);
+                    this.addVoiceMessage(response, 'bot');
+                    this.speakResponse(response);
+                    this.updateVoiceStatus('Click mic to speak');
+                }
+            }
+            
+            speakResponse(text) {
+                if (this.synthesis) {
+                    this.synthesis.cancel();
+                    
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.rate = 0.9;
+                    utterance.pitch = 1;
+                    utterance.volume = 0.8;
+                    
+                    const voices = this.synthesis.getVoices();
+                    const preferredVoice = voices.find(voice => 
+                        voice.name.includes('Google') || voice.name.includes('Microsoft')
+                    );
+                    if (preferredVoice) {
+                        utterance.voice = preferredVoice;
+                    }
+                    
+                    this.synthesis.speak(utterance);
+                }
+            }
+            
+            generateLocalResponse(input) {
+                const inputLower = input.toLowerCase();
+                
+                if (inputLower.includes('service') || inputLower.includes('what do you do')) {
+                    return "TechFlow offers web development, cloud solutions, AI integration, mobile apps, cybersecurity, and data analytics. Which service interests you?";
+                }
+                
+                if (inputLower.includes('price') || inputLower.includes('cost') || inputLower.includes('package')) {
+                    return "We have three packages: Starter at $99 per month, Professional at $299 per month, and Enterprise at $799 per month. Which would you like to know more about?";
+                }
+                
+                if (inputLower.includes('contact') || inputLower.includes('phone') || inputLower.includes('email')) {
+                    return "You can reach us at +92 21 1234-5678, email info@techflowsolutions.com, or visit our office in Karachi. Would you like me to connect you directly?";
+                }
+                
+                if (inputLower.includes('team')) {
+                    return "Our team includes expert developers, AI specialists, cybersecurity professionals, and project managers with over 10 years of experience. We've completed 500+ projects successfully.";
+                }
+                
+                return "Thank you for your question. I can help with information about our services, pricing, team, or contact details. What would you like to know?";
+            }
+            
+            addVoiceMessage(content, role) {
+                const conversation = document.getElementById('voiceConversation');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `voice-message ${role}`;
+                
+                messageDiv.innerHTML = `
+                    <div class="voice-message-content">
+                        ${content.replace(/\n/g, '<br>')}
+                    </div>
+                `;
+                
+                conversation.appendChild(messageDiv);
+                conversation.scrollTop = conversation.scrollHeight;
+                
+                this.conversationHistory.push({ role, content });
+            }
+            
+            updateVoiceStatus(status) {
+                document.getElementById('voiceStatus').textContent = status;
+            }
+            
+            sendQuickMessage(message) {
+                this.addVoiceMessage(message, 'user');
+                setTimeout(() => this.processSpeechInput(message), 300);
+            }
+            
+            async makePhoneCall() {
+                const phoneNumber = prompt('Enter your phone number to receive a call from TechFlow:');
+                
+                if (!phoneNumber) return;
+                
+                // Validate phone number
+                const cleanPhone = phoneNumber.replace(/\D/g, '');
+                if (cleanPhone.length < 10) {
+                    alert('Please enter a valid phone number.');
+                    return;
+                }
+                
+                try {
+                    // Try backend call service first
+                    const response = await fetch(`${this.apiBaseUrl}/make-call`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ phone_number: phoneNumber }),
+                        signal: AbortSignal.timeout(5000)
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.status === 'success') {
+                            alert('Call initiated! You should receive a call shortly from TechFlow Solutions.');
+                            this.addVoiceMessage('Call request sent successfully. You will receive a call shortly.', 'bot');
+                            return;
+                        }
+                    }
+                    throw new Error('Backend call service not available');
+                    
+                } catch (error) {
+                    console.log('Backend call service not available, showing direct contact options');
+                    
+                    // Fallback - show contact options
+                    const contactMessage = `I cannot initiate calls directly, but you can reach TechFlow Solutions at:
+
+📞 Main: +92 21 1234-5678
+📱 Mobile: +92 300 1234567
+
+Would you like me to show you more contact options?`;
+                    
+                    this.addVoiceMessage(contactMessage, 'bot');
+                    this.speakResponse("I cannot make calls directly, but I can give you our contact numbers. Our main number is plus ninety-two twenty-one one two three four five six seven eight.");
+                    
+                    // Offer to call directly
+                    setTimeout(() => {
+                        if (confirm('Would you like to call TechFlow directly now?')) {
+                            window.open('tel:+922112345678', '_self');
+                        }
+                    }, 2000);
+                }
+            }
+            
+            setupEventListeners() {
+                // Load voices when available
+                if (this.synthesis) {
+                    const loadVoices = () => {
+                        const voices = this.synthesis.getVoices();
+                        if (voices.length > 0) {
+                            console.log('Voices loaded:', voices.length);
+                        }
+                    };
+                    
+                    loadVoices();
+                    this.synthesis.addEventListener('voiceschanged', loadVoices);
+                    
+                    if (this.synthesis.getVoices().length === 0) {
+                        const tempUtterance = new SpeechSynthesisUtterance('');
+                        this.synthesis.speak(tempUtterance);
+                        this.synthesis.cancel();
+                    }
+                }
+                
+                // Keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    // Alt + V to toggle voice widget
+                    if (e.altKey && e.key === 'v') {
+                        e.preventDefault();
+                        this.toggleVoiceWidget();
+                    }
+                    
+                    // Space to start/stop listening (when widget is open)
+                    const voiceWindow = document.getElementById('voiceWidgetWindow');
+                    if (e.code === 'Space' && voiceWindow && voiceWindow.classList.contains('active')) {
+                        e.preventDefault();
+                        this.startListening();
+                    }
+                    
+                    // Escape to close voice widget
+                    if (e.key === 'Escape' && voiceWindow && voiceWindow.classList.contains('active')) {
+                        this.toggleVoiceWidget();
+                    }
+                });
+                
+                // Handle page visibility changes
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden && this.isListening) {
+                        this.stopListening();
+                    }
+                });
+                
+                // Handle page unload
+                window.addEventListener('beforeunload', () => {
+                    if (this.synthesis) {
+                        this.synthesis.cancel();
+                    }
+                    if (this.isListening) {
+                        this.stopListening();
+                    }
+                });
+            }
+        }
+
+        let voiceAssistant;
+
+        // Helper functions
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function contactForPackage(packageName) {
+            const contactSection = document.getElementById('contact');
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+            
+            setTimeout(() => {
+                const serviceSelect = document.getElementById('service');
+                const messageTextarea = document.getElementById('message');
+                
+                serviceSelect.value = 'custom-solution';
+                messageTextarea.value = `Hi TechFlow! I'm interested in the ${packageName} package. Please provide more details about implementation, timeline, and next steps.`;
+                messageTextarea.focus();
+            }, 500);
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize voice assistant
+            voiceAssistant = new TechFlowVoiceAssistant();
+            console.log('TechFlow Voice Assistant initialized');
+
+            // Show direct buttons after some time
+            setTimeout(() => {
+                document.getElementById('directVoiceBtn').classList.add('show');
+            }, 10000);
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        const navbarCollapse = document.getElementById('navbarNav');
+                        if (navbarCollapse.classList.contains('show')) {
+                            bootstrap.Collapse.getInstance(navbarCollapse).hide();
+                        }
+                    }
+                });
+            });
+
+            // Add scroll animations using Intersection Observer
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            document.querySelectorAll('.service-card, .package-card, .team-card, .stat-item').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Form submission handler
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const firstName = formData.get('firstName');
+                const lastName = formData.get('lastName');
+                const email = formData.get('email');
+                const service = formData.get('service');
+                const message = formData.get('message');
+                
+                // Create email message
+                const emailMessage = `Hi TechFlow! 
+
+New Contact Form Submission:
+Name: ${firstName} ${lastName}
+Email: ${email}
+Service Interest: ${service}
+Message: ${message}
+
+Please get back to me with more information.
+
+Best regards,
+${firstName} ${lastName}`;
+
+                const emailUrl = `mailto:info@techflowsolutions.com?subject=Service Inquiry - ${firstName} ${lastName}&body=${encodeURIComponent(emailMessage)}`;
+                
+                // Show success message
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="bi bi-check-circle me-2"></i>Message Prepared!';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    window.open(emailUrl, '_self');
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 1500);
+            });
+
+            // Enhanced navbar behavior
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Add/remove background based on scroll
+                if (scrollTop > 50) {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                    navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
+                } else {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                    navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                }
+                
+                // Voice widget visibility
+                const voiceWidget = document.querySelector('.voice-assistant-widget');
+                if (scrollTop > 100) {
+                    voiceWidget.style.opacity = '1';
+                    voiceWidget.style.visibility = 'visible';
+                } else {
+                    voiceWidget.style.opacity = '0.7';
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+
+            // Enhance service cards with hover effects
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Package card interactions
+            document.querySelectorAll('.package-card').forEach(card => {
+                const button = card.querySelector('.btn');
+                const originalBtnText = button.innerHTML;
+                
+                button.addEventListener('click', function() {
+                    this.innerHTML = '<i class="bi bi-check-circle me-2"></i>Redirecting...';
+                    this.disabled = true;
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalBtnText;
+                        this.disabled = false;
+                    }, 3000);
+                });
+            });
+
+            // Team card social link interactions
+            document.querySelectorAll('.team-social a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // In a real implementation, these would link to actual profiles
+                    alert('Social media profile would open here');
+                });
+            });
+
+            // Add tooltip functionality for various elements
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            // Initialize any popovers
+            const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+            popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl);
+            });
+
+            // Add loading states to buttons
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (this.type !== 'submit' && !this.classList.contains('voice-mic-btn') && !this.classList.contains('voice-call-btn')) {
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span>Loading...';
+                        this.disabled = true;
+                        
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                            this.disabled = false;
+                        }, 2000);
+                    }
+                });
+            });
+
+            // Add dynamic copyright year
+            const currentYear = new Date().getFullYear();
+            const footerText = document.createElement('div');
+            footerText.className = 'text-center py-4 mt-5';
+            footerText.style.background = 'rgba(255,255,255,0.1)';
+            footerText.style.color = 'rgba(255,255,255,0.8)';
+            footerText.innerHTML = `<small>&copy; ${currentYear} TechFlow Solutions. All rights reserved.</small>`;
+            document.querySelector('#contact').appendChild(footerText);
+
+            console.log('TechFlow Solutions website fully loaded with Bootstrap integration');
+        });
+
+        // Utility functions for better UX
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type} position-fixed`;
+            notification.style.top = '20px';
+            notification.style.right = '20px';
+            notification.style.zIndex = '9999';
+            notification.style.minWidth = '300px';
+            notification.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-info-circle me-2"></i>
+                    ${message}
+                    <button type="button" class="btn-close ms-auto" onclick="this.parentElement.parentElement.remove()"></button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            // Ctrl + M to toggle mobile menu
+            if (e.ctrlKey && e.key === 'm') {
+                e.preventDefault();
+                const navToggler = document.querySelector('.navbar-toggler');
+                if (navToggler) {
+                    navToggler.click();
+                }
+            }
+            
+            // Ctrl + H to go to home
+            if (e.ctrlKey && e.key === 'h') {
+                e.preventDefault();
+                document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Ctrl + S to go to services
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Ctrl + C to go to contact
+            if (e.ctrlKey && e.key === 'c') {
+                e.preventDefault();
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Performance optimization - Lazy load images when they come into view
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    </script>
+</body>
+</html>
